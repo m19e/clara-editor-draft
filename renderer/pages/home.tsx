@@ -21,6 +21,11 @@ const Home = () => {
                         <a className="btn-blue">Go to next page</a>
                     </Link>
                 </div>
+                <div className="mt-1 w-full flex-wrap flex justify-center">
+                    <Link href="/editor">
+                        <a className="btn-blue">Go to editor page</a>
+                    </Link>
+                </div>
             </div>
         </>
     );
