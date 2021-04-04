@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 
-const DraftEditor = () => {
+const EditorIndex = () => {
     const [editorState, setEditorState] = useState(() =>
         EditorState.createWithContent(
             ContentState.createFromText(`　あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
@@ -27,4 +27,4 @@ const DraftEditor = () => {
     );
 };
 
-export default DraftEditor;
+export default EditorIndex;
