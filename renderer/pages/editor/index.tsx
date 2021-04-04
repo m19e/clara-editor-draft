@@ -17,7 +17,7 @@ const DraftEditor = () => {
     );
 
     return (
-        <div className="min-h-screen w-full flex justify-center items-center" style={{ writingMode: "vertical-rl" }}>
+        <div className="min-h-screen w-full flex flex-col justify-center items-center" style={{ writingMode: "vertical-rl" }}>
             <div className="h-3/4">
                 <div>
                     <Editor editorState={editorState} onChange={setEditorState} />
