@@ -1,4 +1,4 @@
-import { dialog } from "electron";
+import { remote } from "electron";
 import { writeFileSync } from "fs";
 import { useState } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
@@ -20,7 +20,7 @@ const DraftEditor = () => {
 
     const saveDraft = (es: EditorState) => {
         const text = es.getCurrentContent().getPlainText();
-        const path = dialog.showSaveDialogSync(null, {
+        const path = remote.dialog.showSaveDialogSync(null, {
             buttonLabel: "保存",
             filters: [{ name: "Text", extensions: ["txt"] }],
             properties: ["showOverwriteConfirmation"],
