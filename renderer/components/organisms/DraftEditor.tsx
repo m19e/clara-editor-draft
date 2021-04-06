@@ -23,7 +23,7 @@ const DraftEditor = () => {
         const path = remote.dialog.showSaveDialogSync(null, {
             defaultPath: "title.txt",
             buttonLabel: "保存",
-            filters: [{ name: "Text", extensions: ["txt"] }],
+            filters: [{ name: "テキスト", extensions: ["txt"] }],
             properties: ["showOverwriteConfirmation"],
         });
 
