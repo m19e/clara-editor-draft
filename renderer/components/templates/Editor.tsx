@@ -3,7 +3,7 @@ import DraftEditor from "components/organisms/DraftEditor";
 
 const Editor = () => (
     <>
-        <MetaHeader title="タイトル - Clara Editor" />
+        <MetaHeader title="(タイトル) - Clara Editor" />
         <DraftEditor />
     </>
 );
