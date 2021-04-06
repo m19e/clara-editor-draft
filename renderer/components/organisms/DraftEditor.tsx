@@ -46,10 +46,10 @@ const DraftEditor = () => {
                     <Editor editorState={editorState} onChange={setEditorState} />
                 </div>
             </div>
-            <div className="absolute bottom-2 left-2 w-9 h-9 flex justify-center items-center bg-white rounded-full">
+            <div className="absolute bottom-2 left-2 w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900">
                 <Link href="/home">
                     <a>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -60,8 +60,11 @@ const DraftEditor = () => {
                     </a>
                 </Link>
             </div>
-            <div className="absolute bottom-2 right-2 w-9 h-9 flex justify-center items-center bg-white rounded-full" onClick={() => saveDraft(editorState)}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div
+                className="absolute bottom-2 right-2 w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900"
+                onClick={() => saveDraft(editorState)}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
