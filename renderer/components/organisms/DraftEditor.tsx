@@ -21,6 +21,7 @@ const DraftEditor = () => {
     const saveDraft = (es: EditorState) => {
         const text = es.getCurrentContent().getPlainText();
         const path = remote.dialog.showSaveDialogSync(null, {
+            defaultPath: "title.txt",
             buttonLabel: "保存",
             filters: [{ name: "Text", extensions: ["txt"] }],
             properties: ["showOverwriteConfirmation"],
