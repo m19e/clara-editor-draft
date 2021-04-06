@@ -68,6 +68,7 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
         ...state,
         webPreferences: {
             nodeIntegration: true,
+            enableRemoteModule: true,
             ...options.webPreferences,
         },
     };
