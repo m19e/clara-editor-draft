@@ -20,6 +20,10 @@ body {
     background-color: #f9f9fa;
 }
 
+.flex-center {
+    @apply flex justify-center items-center;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
