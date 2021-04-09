@@ -19,8 +19,8 @@ const DraftEditor = () => {
         )
     );
 
-    const saveDraft = (es: EditorState) => {
-        const text = es.getCurrentContent().getPlainText();
+    const saveDraft = () => {
+        const text = editorState.getCurrentContent().getPlainText();
         const path = remote.dialog.showSaveDialogSync(null, {
             defaultPath: "title.txt",
             buttonLabel: "保存",
@@ -62,7 +62,7 @@ const DraftEditor = () => {
             </div>
             <div
                 className="absolute bottom-2 right-2 w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900"
-                onClick={() => saveDraft(editorState)}
+                onClick={() => saveDraft()}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
