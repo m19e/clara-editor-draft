@@ -4,19 +4,19 @@ const Footer = () => {
             <div className="flex-center h-24 my-2">
                 <div className="flex-center flex-col">
                     <button>↑</button>
-                    <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div>
+                    <span>書体</span>
                     <button>↓</button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col">
                     <button>↑</button>
-                    <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div>
+                    <span>大きさ</span>
                     <button>↓</button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col">
                     <button>↑</button>
-                    <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div>
+                    <span>字数</span>
                     <button>↓</button>
                 </div>
             </div>
