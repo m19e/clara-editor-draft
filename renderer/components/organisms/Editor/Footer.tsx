@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 const Footer = () => {
+    const [fontSize, setFontSize] = useState(1);
+    const [lineWords, setLineWords] = useState(1);
+
+    const incFS = () => setFontSize((fs) => fs + 1);
+    const decFS = () => setFontSize((fs) => fs - 1);
+    const incLW = () => setLineWords((lw) => lw + 1);
+    const decLW = () => setLineWords((lw) => lw - 1);
+
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg text-gray-800">
             <div className="flex-center h-24 my-2">
