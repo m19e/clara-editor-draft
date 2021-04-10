@@ -19,15 +19,15 @@ const Footer = () => {
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col">
-                    <button>↑</button>
-                    <span>大きさ</span>
-                    <button>↓</button>
+                    <button onClick={incFS}>↑</button>
+                    <span>大きさ{fontSize}</span>
+                    <button onClick={decFS}>↓</button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col">
-                    <button>↑</button>
-                    <span>字数</span>
-                    <button>↓</button>
+                    <button onClick={incLW}>↑</button>
+                    <span>字数{lineWords}</span>
+                    <button onClick={decLW}>↓</button>
                 </div>
             </div>
         </div>
