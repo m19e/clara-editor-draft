@@ -33,7 +33,7 @@ export const editorHeightState = selector({
     get: ({ get }) => get(realFontSizeState) * get(lineWordsState),
 });
 
-const disabledIncFSState = selector({
+export const disabledIncFSState = selector({
     key: "editor/disabled-inc-fs",
     get: ({ get }) => {
         const rfs = get(realFontSizeState);
@@ -41,12 +41,12 @@ const disabledIncFSState = selector({
     },
 });
 
-const disabledDecFSState = selector({
+export const disabledDecFSState = selector({
     key: "editor/disabled-dec-fs",
     get: ({ get }) => get(realFontSizeState) <= 12,
 });
 
-const disabledIncLWState = selector({
+export const disabledIncLWState = selector({
     key: "editor/disabled-inc-lw",
     get: ({ get }) => {
         const lw = get(lineWordsState);
@@ -54,7 +54,7 @@ const disabledIncLWState = selector({
     },
 });
 
-const disabledDecLWState = selector({
+export const disabledDecLWState = selector({
     key: "editor/disabled-dec-lw",
     get: ({ get }) => get(lineWordsState) <= 20,
 });
