@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useFontType } from "hooks";
 
 const Footer = () => {
     const [fontSize, setFontSize] = useState(1);
@@ -8,6 +9,8 @@ const Footer = () => {
     const decFS = () => setFontSize((fs) => fs - 1);
     const incLW = () => setLineWords((lw) => lw + 1);
     const decLW = () => setLineWords((lw) => lw - 1);
+
+    const [ft, toggleFT] = useFontType()
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg text-gray-800">
