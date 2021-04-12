@@ -7,7 +7,7 @@ const Editor = () => {
     const [ft] = useFontType();
 
     return (
-        <div className={ft}>
+        <div className={ft + " text-black editor-bg"}>
             <MetaHeader title="(タイトル) - Clara Editor" />
             <DraftEditor />
             <Frame />
