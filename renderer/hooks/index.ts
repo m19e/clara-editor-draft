@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useCallback } from "react";
 import { FontType } from "types";
-import { fontTypeState, displayFontSizeState, realFontSizeState, lineWordsState } from "store";
+import { fontTypeState, displayFontSizeState, realFontSizeState, lineWordsState, wrapperHeightState } from "store";
 
 export const useFontType = (): [FontType, () => void] => {
     const [fontType, setFontType] = useRecoilState(fontTypeState);
@@ -39,4 +39,9 @@ export const useLineWords = (): [number, () => void, () => void] => {
     }, []);
 
     return [lw, incLW, decLW];
+};
+
+export const useWrapperHeight = (): [number, (wh: number) => void] => {
+    const [wh, setWH] = useRecoilState(wrapperHeightState);
+    return [wh, setWH];
 };
