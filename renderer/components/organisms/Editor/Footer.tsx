@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { useFontType, useFontSize } from "hooks";
+import { useFontType, useFontSize, useLineWords } from "hooks";
 
 const Footer = () => {
-    const [lineWords, setLineWords] = useState(1);
-
-    const incLW = () => setLineWords((lw) => lw + 1);
-    const decLW = () => setLineWords((lw) => lw - 1);
-
     const [ft, toggleFT] = useFontType();
     const [fs, incFS, decFS] = useFontSize();
+    const [lw, incLW, decLW] = useLineWords();
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg">
@@ -73,7 +69,7 @@ const Footer = () => {
                             </svg>
                         </span>
                     </button>
-                    <span className="text-center opacity-75">字数{lineWords}</span>
+                    <span className="text-center opacity-75">字数{lw}</span>
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decLW}
