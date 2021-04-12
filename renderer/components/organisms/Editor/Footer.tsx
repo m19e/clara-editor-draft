@@ -14,8 +14,8 @@ const Footer = () => {
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg text-gray-800">
-            <div className="flex-center h-24 my-2">
-                <div className="flex-center flex-col group w-20">
+            <div className="flex-center h-20 my-2">
+                <div className="flex-center flex-col group">
                     <div className="h-6"></div>
                     <span className={"text-center " + ft}>{ft === "mincho" ? "明朝" : "ゴシック"}</span>
                     <button className={ft === "mincho" ? "gothic" : "mincho"} onClick={toggleFT}>
@@ -23,7 +23,7 @@ const Footer = () => {
                     </button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
-                <div className="flex-center flex-col w-20 group">
+                <div className="flex-center flex-col group">
                     <button
                         className="w-full outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={incFS}
@@ -55,7 +55,7 @@ const Footer = () => {
                     </button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
-                <div className="flex-center flex-col w-20 group">
+                <div className="flex-center flex-col group">
                     <button
                         className="w-full outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={incLW}
