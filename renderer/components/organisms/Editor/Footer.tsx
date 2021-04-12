@@ -27,7 +27,7 @@ const Footer = () => {
                         </span>
                     </button>
                 </div>
-                <span className="opacity-25 mx-3">・</span>
+                <span className={"opacity-25 " + (ft === "mincho" ? "mr-3" : "mx-3")}>・</span>
                 <div className="flex-center flex-col group">
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
