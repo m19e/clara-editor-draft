@@ -43,7 +43,7 @@ const Footer = () => {
                             </svg>
                         </span>
                     </button>
-                    <span className="text-center">大きさ{fontSize}</span>
+                    <span className="text-center opacity-75">大きさ{fontSize}</span>
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decFS}
@@ -75,7 +75,7 @@ const Footer = () => {
                             </svg>
                         </span>
                     </button>
-                    <span className="text-center">字数{lineWords}</span>
+                    <span className="text-center opacity-75">字数{lineWords}</span>
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decLW}
