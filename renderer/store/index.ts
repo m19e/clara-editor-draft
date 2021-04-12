@@ -25,3 +25,8 @@ export const wrapperHeightState = atom({
     key: "editor/wrapper-height",
     default: 480,
 });
+
+export const editorHeightState = selector({
+    key: "editor/editor-height",
+    get: ({ get }) => get(realFontSizeState) * get(lineWordsState),
+});
