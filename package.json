@@ -13,13 +13,16 @@
     "dependencies": {
         "draft-js": "^0.11.7",
         "electron-serve": "^1.1.0",
-        "electron-store": "^7.0.2"
+        "electron-store": "^7.0.2",
+        "react-perfect-scrollbar": "^1.5.8",
+        "recoil": "^0.2.0"
     },
     "devDependencies": {
         "@types/draft-js": "^0.11.1",
         "@types/node": "^14.14.20",
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
+        "@types/recoil": "^0.0.1",
         "autoprefixer": "^10.2.1",
         "electron": "^11.3.0",
         "electron-builder": "^22.9.1",

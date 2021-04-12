@@ -1,11 +1,19 @@
 import { remote } from "electron";
-import Link from "next/link";
 import { writeFileSync } from "fs";
-import { useState } from "react";
+import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
+import Scrollbar from "react-perfect-scrollbar";
+import "react-perfect-scrollbar/dist/css/styles.css";
+
+import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight } from "hooks";
 
 const DraftEditor = () => {
+    const rfs = getRealFontSize();
+    const [lw] = useLineWords();
+    const setWH = setWrapperHeight();
+    const eh = getEditorHeight();
     const [editorState, setEditorState] = useState(() =>
         EditorState.createWithContent(
             ContentState.createFromText(`　あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
@@ -18,6 +26,19 @@ const DraftEditor = () => {
 　またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。`)
         )
     );
+    const wrapperRef = useRef(null);
+
+    useEffect(() => {
+        const resizeObs = new ResizeObserver((entries: ReadonlyArray<ResizeObserverEntry>) => {
+            const height = entries[0].contentRect.height;
+            setWH(height);
+        });
+        wrapperRef.current && resizeObs.observe(wrapperRef.current);
+
+        return () => {
+            resizeObs.disconnect();
+        };
+    }, [rfs, lw]);
 
     const saveDraft = () => {
         const text = editorState.getCurrentContent().getPlainText();
@@ -40,12 +61,14 @@ const DraftEditor = () => {
     };
 
     return (
-        <div className="min-h-screen w-full flex flex-col justify-center items-center relative">
-            <div className="h-3/4" style={{ writingMode: "vertical-rl" }}>
-                <div>
-                    <Editor editorState={editorState} onChange={setEditorState} />
+        <div ref={wrapperRef} className="min-h-screen flex-center">
+            <Scrollbar className="max-w-full pb-4">
+                <div style={{ height: `${eh}px` }}>
+                    <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
+                        <Editor editorState={editorState} onChange={setEditorState} />
+                    </div>
                 </div>
-            </div>
+            </Scrollbar>
             <div className="absolute bottom-2 left-2 w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900">
                 <Link href="/home">
                     <a>
