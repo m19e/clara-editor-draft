@@ -10,7 +10,7 @@ const Chevron = ({ type, onClick, disabled }: Props) => (
         onClick={onClick}
         disabled={disabled}
     >
-        <span className="flex-center opacity-50 hover:opacity-100">
+        <span className={"flex-center " + (disabled ? "opacity-25" : "opacity-50 hover:opacity-100")}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
                 <path
                     fillRule="evenodd"
