@@ -1,7 +1,7 @@
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { useCallback } from "react";
 import { FontType } from "types";
-import { fontTypeState, displayFontSizeState } from "store";
+import { fontTypeState, displayFontSizeState, realFontSizeState } from "store";
 
 export const useFontType = (): [FontType, () => void] => {
     const [fontType, setFontType] = useRecoilState(fontTypeState);
@@ -22,4 +22,9 @@ export const useFontSize = (): [number, () => void, () => void] => {
     }, []);
 
     return [fs, incFS, decFS];
+};
+
+export const getRealFontSize = (): number => {
+    const rfs = useRecoilValue(realFontSizeState);
+    return rfs;
 };
