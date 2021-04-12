@@ -13,7 +13,7 @@ const Footer = () => {
     const [ft, toggleFT] = useFontType();
 
     return (
-        <div className="fixed bottom-0 w-full shadow-2xl editor-bg text-gray-800">
+        <div className="fixed bottom-0 w-full shadow-2xl editor-bg">
             <div className="flex-center h-20 my-2">
                 <div className="flex-center flex-col group">
                     <div className="h-6"></div>
