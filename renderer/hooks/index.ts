@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue, SetterOrUpdater } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState, SetterOrUpdater } from "recoil";
 import { useCallback } from "react";
 import { FontType } from "types";
 import { fontTypeState, displayFontSizeState, realFontSizeState, lineWordsState, wrapperHeightState, editorHeightState } from "store";
@@ -41,9 +41,9 @@ export const useLineWords = (): [number, () => void, () => void] => {
     return [lw, incLW, decLW];
 };
 
-export const useWrapperHeight = (): [number, SetterOrUpdater<number>] => {
-    const [wh, setWH] = useRecoilState(wrapperHeightState);
-    return [wh, setWH];
+export const useWrapperHeight = (): SetterOrUpdater<number> => {
+    const setWH = useSetRecoilState(wrapperHeightState);
+    return setWH;
 };
 
 export const getEditorHeight = (): number => {
