@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="flex-center h-20 my-2">
                 <div className="flex-center flex-col group">
                     <div className="h-6"></div>
-                    <span className={"text-center " + ft}>{ft === "mincho" ? "明朝" : "ゴシック"}</span>
+                    <span className="text-center">{ft === "mincho" ? "明朝" : "ゴシック"}</span>
                     <button className={ft === "mincho" ? "gothic" : "mincho"} onClick={toggleFT}>
                         <span>{ft === "mincho" ? "ゴシック" : "明朝"}</span>
                     </button>
