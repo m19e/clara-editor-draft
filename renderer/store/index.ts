@@ -1,6 +1,7 @@
 import { atom, selector } from "recoil";
 import { FontType } from "types";
 
+// Atoms
 export const fontTypeState = atom<FontType>({
     key: "editor/font-type",
     default: "mincho",
@@ -11,11 +12,6 @@ export const displayFontSizeState = atom({
     default: 7,
 });
 
-export const realFontSizeState = selector({
-    key: "editor/real-font-size",
-    get: ({ get }) => (get(displayFontSizeState) + 5) * 2,
-});
-
 export const lineWordsState = atom({
     key: "editor/lineWords",
     default: 30,
@@ -24,6 +20,12 @@ export const lineWordsState = atom({
 export const wrapperHeightState = atom({
     key: "editor/wrapper-height",
     default: 480,
+});
+
+// Selectors
+export const realFontSizeState = selector({
+    key: "editor/real-font-size",
+    get: ({ get }) => (get(displayFontSizeState) + 5) * 2,
 });
 
 export const editorHeightState = selector({
