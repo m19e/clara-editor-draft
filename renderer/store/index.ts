@@ -15,3 +15,8 @@ export const realFontSizeState = selector({
     key: "editor/real-font-size",
     get: ({ get }) => (get(displayFontSizeState) + 5) * 2,
 });
+
+export const lineWordsState = atom({
+    key: "editor/lineWords",
+    default: 30,
+});
