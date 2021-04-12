@@ -5,12 +5,13 @@ import { useState, useEffect, useRef } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 
-import { getRealFontSize, useLineWords, setWrapperHeight } from "hooks";
+import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight } from "hooks";
 
 const DraftEditor = () => {
     const rfs = getRealFontSize();
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
+    const eh = getEditorHeight();
     const [editorState, setEditorState] = useState(() =>
         EditorState.createWithContent(
             ContentState.createFromText(`　あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
@@ -59,7 +60,7 @@ const DraftEditor = () => {
 
     return (
         <div ref={wrapperRef} className="min-h-screen w-full flex flex-col justify-center items-center relative">
-            <div style={{ writingMode: "vertical-rl", height: `${rfs * lw}px` }}>
+            <div style={{ writingMode: "vertical-rl", height: `${eh}px` }}>
                 <div className="text-justify" style={{ fontSize: `${rfs}px` }}>
                     <Editor editorState={editorState} onChange={setEditorState} />
                 </div>
