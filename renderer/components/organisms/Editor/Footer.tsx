@@ -1,9 +1,10 @@
-import { useFontType, useFontSize, useLineWords } from "hooks";
+import { useFontType, useFontSize, useLineWords, useDisabled } from "hooks";
 
 const Footer = () => {
     const [ft, toggleFT] = useFontType();
     const [fs, incFS, decFS] = useFontSize();
     const [lw, incLW, decLW] = useLineWords();
+    const disabled = useDisabled();
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg">
@@ -25,6 +26,7 @@ const Footer = () => {
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={incFS}
+                        disabled={disabled.incFS}
                     >
                         <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
@@ -40,6 +42,7 @@ const Footer = () => {
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decFS}
+                        disabled={disabled.decFS}
                     >
                         <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
@@ -57,6 +60,7 @@ const Footer = () => {
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={incLW}
+                        disabled={disabled.incLW}
                     >
                         <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
@@ -72,6 +76,7 @@ const Footer = () => {
                     <button
                         className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decLW}
+                        disabled={disabled.decLW}
                     >
                         <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
