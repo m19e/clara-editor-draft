@@ -18,8 +18,8 @@ const Footer = () => {
                 <div className="flex-center flex-col group">
                     <div className="h-6"></div>
                     <span className="text-center">{ft === "mincho" ? "明朝" : "ゴシック"}</span>
-                    <button className={ft === "mincho" ? "gothic" : "mincho"} onClick={toggleFT}>
-                        <span>{ft === "mincho" ? "ゴシック" : "明朝"}</span>
+                    <button onClick={toggleFT}>
+                        <span className={ft === "mincho" ? "gothic" : "mincho"}>{ft === "mincho" ? "ゴシック" : "明朝"}</span>
                     </button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
