@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
+import Scrollbar from "react-perfect-scrollbar";
+import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight } from "hooks";
 
@@ -60,11 +62,13 @@ const DraftEditor = () => {
 
     return (
         <div ref={wrapperRef} className="min-h-screen w-full flex flex-col justify-center items-center relative">
-            <div style={{ writingMode: "vertical-rl", height: `${eh}px` }}>
-                <div className="text-justify" style={{ fontSize: `${rfs}px` }}>
-                    <Editor editorState={editorState} onChange={setEditorState} />
+            <Scrollbar className="w-full" style={{ height: `${eh + 16}px` }}>
+                <div style={{ height: `${eh}px` }}>
+                    <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
+                        <Editor editorState={editorState} onChange={setEditorState} />
+                    </div>
                 </div>
-            </div>
+            </Scrollbar>
             <div className="absolute bottom-2 left-2 w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900">
                 <Link href="/home">
                     <a>
