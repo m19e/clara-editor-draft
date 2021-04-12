@@ -1,7 +1,18 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState, SetterOrUpdater } from "recoil";
 import { useCallback } from "react";
 import { FontType } from "types";
-import { fontTypeState, displayFontSizeState, realFontSizeState, lineWordsState, wrapperHeightState, editorHeightState } from "store";
+import {
+    fontTypeState,
+    displayFontSizeState,
+    realFontSizeState,
+    lineWordsState,
+    wrapperHeightState,
+    editorHeightState,
+    disabledIncFSState,
+    disabledDecFSState,
+    disabledIncLWState,
+    disabledDecLWState,
+} from "store";
 
 export const useFontType = (): [FontType, () => void] => {
     const [fontType, setFontType] = useRecoilState(fontTypeState);
@@ -49,4 +60,20 @@ export const setWrapperHeight = (): SetterOrUpdater<number> => {
 export const getEditorHeight = (): number => {
     const eh = useRecoilValue(editorHeightState);
     return eh;
+};
+
+type DisabledType = {
+    incFS: boolean;
+    decFS: boolean;
+    incLW: boolean;
+    decLW: boolean;
+};
+
+export const useDisabled = (): DisabledType => {
+    const incFS = useRecoilValue(disabledIncFSState);
+    const decFS = useRecoilValue(disabledDecFSState);
+    const incLW = useRecoilValue(disabledIncLWState);
+    const decLW = useRecoilValue(disabledDecLWState);
+
+    return { incFS, decFS, incLW, decLW };
 };
