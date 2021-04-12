@@ -20,3 +20,8 @@ export const lineWordsState = atom({
     key: "editor/lineWords",
     default: 30,
 });
+
+export const wrapperHeightState = atom({
+    key: "editor/wrapper-height",
+    default: 480,
+});
