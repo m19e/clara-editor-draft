@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useFontType, useFontSize, useLineWords } from "hooks";
 
 const Footer = () => {
