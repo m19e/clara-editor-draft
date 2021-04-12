@@ -25,10 +25,10 @@ const Footer = () => {
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col group">
                     <button
-                        className="w-full outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
+                        className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={incFS}
                     >
-                        <span className="w-full flex-center opacity-50 hover:opacity-100">
+                        <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
                                 <path
                                     fillRule="evenodd"
@@ -38,12 +38,12 @@ const Footer = () => {
                             </svg>
                         </span>
                     </button>
-                    <span className="w-full text-center">大きさ{fontSize}</span>
+                    <span className="text-center">大きさ{fontSize}</span>
                     <button
-                        className="w-full outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
+                        className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decFS}
                     >
-                        <span className="w-full flex-center opacity-50 hover:opacity-100">
+                        <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
                                 <path
                                     fillRule="evenodd"
@@ -57,10 +57,10 @@ const Footer = () => {
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col group">
                     <button
-                        className="w-full outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
+                        className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={incLW}
                     >
-                        <span className="w-full flex-center opacity-50 hover:opacity-100">
+                        <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
                                 <path
                                     fillRule="evenodd"
@@ -70,12 +70,12 @@ const Footer = () => {
                             </svg>
                         </span>
                     </button>
-                    <span className="w-full text-center">字数{lineWords}</span>
+                    <span className="text-center">字数{lineWords}</span>
                     <button
-                        className="w-full outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
+                        className="outline-none focus:outline-none transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75"
                         onClick={decLW}
                     >
-                        <span className="w-full flex-center opacity-50 hover:opacity-100">
+                        <span className="flex-center opacity-50 hover:opacity-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2A2E3B">
                                 <path
                                     fillRule="evenodd"
