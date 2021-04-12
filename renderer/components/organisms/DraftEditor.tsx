@@ -1,7 +1,7 @@
 import { remote } from "electron";
 import { writeFileSync } from "fs";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 
@@ -23,6 +23,19 @@ const DraftEditor = () => {
 　またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。`)
         )
     );
+    const wrapperRef = useRef(null);
+
+    useEffect(() => {
+        const resizeObs = new ResizeObserver((entries: ReadonlyArray<ResizeObserverEntry>) => {
+            const height = entries[0].contentRect.height;
+            setWH(height);
+        });
+        wrapperRef.current && resizeObs.observe(wrapperRef.current);
+
+        return () => {
+            resizeObs.disconnect();
+        };
+    }, [rfs, lw]);
 
     const saveDraft = () => {
         const text = editorState.getCurrentContent().getPlainText();
@@ -45,7 +58,7 @@ const DraftEditor = () => {
     };
 
     return (
-        <div className="min-h-screen w-full flex flex-col justify-center items-center relative">
+        <div ref={wrapperRef} className="min-h-screen w-full flex flex-col justify-center items-center relative">
             <div style={{ writingMode: "vertical-rl", height: `${rfs * lw}px` }}>
                 <div className="text-justify" style={{ fontSize: `${rfs}px` }}>
                     <Editor editorState={editorState} onChange={setEditorState} />
