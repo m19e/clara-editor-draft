@@ -41,7 +41,7 @@ export const useLineWords = (): [number, () => void, () => void] => {
     return [lw, incLW, decLW];
 };
 
-export const useWrapperHeight = (): SetterOrUpdater<number> => {
+export const setWrapperHeight = (): SetterOrUpdater<number> => {
     const setWH = useSetRecoilState(wrapperHeightState);
     return setWH;
 };
