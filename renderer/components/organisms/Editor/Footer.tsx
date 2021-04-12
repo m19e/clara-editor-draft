@@ -10,13 +10,17 @@ const Footer = () => {
     const incLW = () => setLineWords((lw) => lw + 1);
     const decLW = () => setLineWords((lw) => lw - 1);
 
-    const [ft, toggleFT] = useFontType()
+    const [ft, toggleFT] = useFontType();
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg text-gray-800">
             <div className="flex-center h-24 my-2">
-                <div className="flex-center flex-col w-20">
-                    <span className="text-center">書体</span>
+                <div className="flex-center flex-col group w-20">
+                    <div className="h-6"></div>
+                    <span className="text-center">{ft === "mincho" ? "明朝" : "ゴシック"}</span>
+                    <button onClick={toggleFT}>
+                        <span>{ft !== "mincho" ? "明朝" : "ゴシック"}</span>
+                    </button>
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col w-20 group">
