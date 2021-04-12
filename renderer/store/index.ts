@@ -50,11 +50,11 @@ export const disabledIncLWState = selector({
     key: "editor/disabled-inc-lw",
     get: ({ get }) => {
         const lw = get(lineWordsState);
-        return get(realFontSizeState) * (lw + 1) > get(wrapperHeightState) || lw >= 40;
+        return get(realFontSizeState) * (lw + 1) > get(wrapperHeightState) || lw >= 50;
     },
 });
 
 export const disabledDecLWState = selector({
     key: "editor/disabled-dec-lw",
-    get: ({ get }) => get(lineWordsState) <= 20,
+    get: ({ get }) => get(lineWordsState) <= 10,
 });
