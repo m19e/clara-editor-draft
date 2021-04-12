@@ -61,8 +61,8 @@ const DraftEditor = () => {
     };
 
     return (
-        <div ref={wrapperRef} className="min-h-screen w-full flex-center relative">
-            <Scrollbar className="max-w-full" style={{ height: `${eh + 16}px` }}>
+        <div ref={wrapperRef} className="min-h-screen flex-center">
+            <Scrollbar className="max-w-full pb-4">
                 <div style={{ height: `${eh}px` }}>
                     <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
                         <Editor editorState={editorState} onChange={setEditorState} />
