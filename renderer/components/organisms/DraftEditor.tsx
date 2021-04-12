@@ -5,11 +5,12 @@ import { useState } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 
-import { getRealFontSize, useLineWords } from "hooks";
+import { getRealFontSize, useLineWords, setWrapperHeight } from "hooks";
 
 const DraftEditor = () => {
     const rfs = getRealFontSize();
     const [lw] = useLineWords();
+    const setWH = setWrapperHeight();
     const [editorState, setEditorState] = useState(() =>
         EditorState.createWithContent(
             ContentState.createFromText(`　あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
