@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <div className="fixed top-0 w-full h-24 flex-center shadow-sm editor-bg">
             <div className="container flex justify-between items-center">
-                <div className="w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900">
+                <div className="w-9 h-9 flex justify-center items-center transition-colors text-gray-600 hover:text-gray-900">
                     <Link href="/home">
                         <a>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -19,10 +19,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div>
-                <div
-                    className="w-9 h-9 flex justify-center items-center bg-white rounded-full transition-colors text-gray-600 hover:text-gray-900"
-                    onClick={() => {}}
-                >
+                <div className="w-9 h-9 flex justify-center items-center transition-colors text-gray-600 hover:text-gray-900" onClick={() => {}}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
                             strokeLinecap="round"
