@@ -1,5 +1,10 @@
-import { writeFile } from "fs/promises";
+import { writeFile, readFile } from "fs/promises";
 
 export const createDraft = async (path: string, text: string) => {
     await writeFile(path, text);
+};
+
+export const readDraft = async (path: string): Promise<string> => {
+    const text = await readFile(path, "utf-8");
+    return text;
 };
