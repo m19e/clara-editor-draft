@@ -1,6 +1,6 @@
 import { remote } from "electron";
 import { writeFileSync } from "fs";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, WheelEvent } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 import Scrollbar from "react-perfect-scrollbar";
@@ -26,6 +26,7 @@ const DraftEditor = () => {
         )
     );
     const wrapperRef = useRef(null);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         const resizeObs = new ResizeObserver((entries: ReadonlyArray<ResizeObserverEntry>) => {
@@ -59,9 +60,15 @@ const DraftEditor = () => {
         }
     };
 
+    const handleWheel = (e: WheelEvent<HTMLElement>) => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollLeft -= e.deltaY;
+        }
+    };
+
     return (
         <div ref={wrapperRef} className="min-h-screen flex-center">
-            <Scrollbar className="max-w-full pb-4">
+            <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
                 <div style={{ height: `${eh}px` }}>
                     <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
                         <Editor editorState={editorState} onChange={setEditorState} />
