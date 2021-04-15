@@ -1,5 +1,4 @@
 import { Dirent, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync } from "fs";
-// import { readdir, writeFile, readFile, unlink, rename } from "fs/promises";
 
 export const readDrafts = (path: string): Dirent[] => {
     const drafts = readdirSync(path, { encoding: "utf-8", withFileTypes: true });
