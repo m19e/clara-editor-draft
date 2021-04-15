@@ -1,4 +1,4 @@
-import { Dirent, readdirSync } from "fs";
+import { Dirent, readdirSync, writeFileSync } from "fs";
 // import { readdir, writeFile, readFile, unlink, rename } from "fs/promises";
 
 export const readDrafts = (path: string): Dirent[] => {
@@ -7,8 +7,8 @@ export const readDrafts = (path: string): Dirent[] => {
 };
 
 // Create, Update(text)
-export const writeDraft = async (path: string, text: string) => {
-    await writeFile(path, text);
+export const writeDraft = (path: string, text: string) => {
+    writeFileSync(path, text);
 };
 
 export const readDraft = async (path: string): Promise<string> => {
