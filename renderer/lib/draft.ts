@@ -1,4 +1,4 @@
-import { Dirent, readdirSync, writeFileSync, readFileSync, renameSync } from "fs";
+import { Dirent, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync } from "fs";
 // import { readdir, writeFile, readFile, unlink, rename } from "fs/promises";
 
 export const readDrafts = (path: string): Dirent[] => {
@@ -21,6 +21,6 @@ export const renameDraft = (oldPath: string, newPath: string) => {
     renameSync(oldPath, newPath);
 };
 
-export const deleteDraft = async (path: string) => {
-    await unlink(path);
+export const deleteDraft = (path: string) => {
+    unlinkSync(path);
 };
