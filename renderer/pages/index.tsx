@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { readDrafts } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
-export default function Index() {
+const Index = () => {
     const [draftList, setDraftList] = useState<string[]>([]);
 
     useEffect(() => {
@@ -39,4 +39,6 @@ export default function Index() {
             </div>
         </>
     );
-}
+};
+
+export default Index;
