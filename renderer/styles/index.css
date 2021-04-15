@@ -6,11 +6,6 @@
 @tailwind components;
 /* Stop purging. */
 
-html,
-body {
-    @apply bg-gray-900 text-white;
-}
-
 /* Write your own custom component styles here */
 .btn-blue {
     @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600;
@@ -22,6 +17,11 @@ body {
 
 .flex-center {
     @apply flex justify-center items-center;
+}
+
+html,
+body {
+    @apply editor-bg text-black;
 }
 
 /* Font */
