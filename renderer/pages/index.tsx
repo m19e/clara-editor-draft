@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { readDrafts } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
-export default () => {
+export default function Index() {
     const [draftList, setDraftList] = useState<string[]>([]);
 
     useEffect(() => {
         const drafts = readDrafts(".");
-        setDraftList(() => drafts.map((d) => d.name));
+        setDraftList(() => drafts.filter((d) => d.isFile()).map((d) => d.name));
         return () => {};
     }, []);
 
@@ -39,4 +39,4 @@ export default () => {
             </div>
         </>
     );
-};
+}
