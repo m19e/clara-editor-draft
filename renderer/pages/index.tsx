@@ -1,7 +1,17 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { readDrafts } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
 export default () => {
+    const [draftList, setDraftList] = useState<string[]>([]);
+
+    useEffect(() => {
+        const drafts = readDrafts(".");
+        setDraftList(() => drafts.map((d) => d.name));
+        return () => {};
+    }, []);
+
     return (
         <>
             <MetaHeader title="Index - Nextron (with-typescript-tailwindcss)" />
@@ -20,6 +30,11 @@ export default () => {
                     <Link href="/editor">
                         <a className="btn-blue">Go to editor page</a>
                     </Link>
+                </div>
+                <div className="grid grid-col-1 w-full text-center">
+                    {draftList.map((d) => (
+                        <span>{d}</span>
+                    ))}
                 </div>
             </div>
         </>
