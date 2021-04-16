@@ -32,8 +32,10 @@ const Index = () => {
                     </Link>
                 </div>
                 <div className="grid grid-col-1 w-full text-center">
-                    {draftList.map((d) => (
-                        <span>{d}</span>
+                    {draftList.map((d, i) => (
+                        <Link key={i} href={`/editor/${d}`}>
+                            <a>{d}</a>
+                        </Link>
                     ))}
                 </div>
             </div>
