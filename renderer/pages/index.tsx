@@ -33,13 +33,17 @@ const Index = () => {
                     </Link>
                 </div>
                 <div className="grid grid-col-1 w-full text-center">
-                    {draftList.map((d, i) => (
-                        <Link key={i} href={`/editor/${d}`}>
-                            <a>
-                                name:{parse(d).name}, ext:{extname(d)}
-                            </a>
-                        </Link>
-                    ))}
+                    {draftList.map((d, i) => {
+                        const { name, ext } = parse(d);
+
+                        return (
+                            <Link key={i} href={`/editor/${d}`}>
+                                <a>
+                                    name:{name}, ext:{ext}
+                                </a>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </>
