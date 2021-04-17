@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { parse, extname } from "path";
 import { readDrafts } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
@@ -8,7 +9,7 @@ const Index = () => {
 
     useEffect(() => {
         const drafts = readDrafts(".");
-        setDraftList(() => drafts.filter((d) => d.isFile()).map((d) => d.name));
+        setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".json").map((d) => d.name));
         return () => {};
     }, []);
 
@@ -34,7 +35,9 @@ const Index = () => {
                 <div className="grid grid-col-1 w-full text-center">
                     {draftList.map((d, i) => (
                         <Link key={i} href={`/editor/${d}`}>
-                            <a>{d}</a>
+                            <a>
+                                name:{parse(d).name}, ext:{extname(d)}
+                            </a>
                         </Link>
                     ))}
                 </div>
