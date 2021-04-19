@@ -7,11 +7,11 @@ const Draft = () => {
     const [text, setText] = useState("");
 
     useEffect(() => {
-        if (router.route !== router.asPath && typeof router.query.draft === "string") {
-            const data = readDraft(router.query.draft);
+        const draft = router.query.draft;
+        if (router.route !== router.asPath && typeof draft === "string") {
+            const data = readDraft(draft);
             setText(data);
         }
-        return () => {};
     }, [router]);
 
     return <pre>{text}</pre>;
