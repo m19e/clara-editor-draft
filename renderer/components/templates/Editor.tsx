@@ -9,7 +9,7 @@ const Editor = () => {
     return (
         <div className={ft + " text-black editor-bg"}>
             <MetaHeader title="(タイトル) - Clara Editor" />
-            <DraftEditor />
+            <DraftEditor text="" />
             <Frame />
         </div>
     );
