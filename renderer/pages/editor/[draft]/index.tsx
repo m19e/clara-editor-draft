@@ -18,9 +18,9 @@ const Draft = () => {
         const draft = router.query.draft;
         if (router.route !== router.asPath && typeof draft === "string") {
             const data = readDraft(draft);
-            setText(data);
-
             const { name } = parse(draft);
+
+            setText(data);
             setTitle(name);
         }
     }, [router]);
