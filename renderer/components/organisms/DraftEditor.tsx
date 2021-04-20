@@ -17,9 +17,13 @@ const DraftEditor = ({ text }: Props) => {
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
     const eh = getEditorHeight();
-    const [editorState, setEditorState] = useState(() => EditorState.createWithContent(ContentState.createFromText(text)));
+    const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const wrapperRef = useRef(null);
     const scrollRef = useRef(null);
+
+    useEffect(() => {
+        setEditorState(() => EditorState.createWithContent(ContentState.createFromText(text)));
+    }, [text]);
 
     useEffect(() => {
         const resizeObs = new ResizeObserver((entries: ReadonlyArray<ResizeObserverEntry>) => {
