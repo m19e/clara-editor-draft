@@ -9,7 +9,7 @@ const Index = () => {
 
     useEffect(() => {
         const drafts = readDrafts(".");
-        setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".json").map((d) => d.name));
+        setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").map((d) => d.name));
         return () => {};
     }, []);
 
