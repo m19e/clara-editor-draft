@@ -10,7 +10,7 @@ import Frame from "components/organisms/Editor/Frame";
 const Draft = () => {
     const router = useRouter();
     const [text, setText] = useState("");
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("無題");
 
     const [ft] = useFontType();
 
