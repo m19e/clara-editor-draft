@@ -12,6 +12,7 @@ import {
     disabledDecFSState,
     disabledIncLWState,
     disabledDecLWState,
+    titleState,
 } from "store";
 
 // Editor
@@ -80,3 +81,7 @@ export const useDisabled = (): DisabledType => {
 };
 
 // Draft
+export const useTitle = (): [string, SetterOrUpdater<string>] => {
+    const [title, setTitle] = useRecoilState(titleState);
+    return [title, setTitle];
+};
