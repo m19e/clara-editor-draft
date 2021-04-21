@@ -14,6 +14,7 @@ import {
     disabledDecLWState,
 } from "store";
 
+// Editor
 export const useFontType = (): [FontType, () => void] => {
     const [fontType, setFontType] = useRecoilState(fontTypeState);
     const toggleFontType = useCallback(() => {
@@ -77,3 +78,5 @@ export const useDisabled = (): DisabledType => {
 
     return { incFS, decFS, incLW, decLW };
 };
+
+// Draft
