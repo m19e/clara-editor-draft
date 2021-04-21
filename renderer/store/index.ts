@@ -22,6 +22,11 @@ export const wrapperHeightState = atom({
     default: 480,
 });
 
+export const titleState = atom({
+    key: "draft/title",
+    default: "無題",
+});
+
 // Selectors
 export const realFontSizeState = selector({
     key: "editor/real-font-size",
