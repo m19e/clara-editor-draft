@@ -11,7 +11,6 @@ const Draft = () => {
     const router = useRouter();
     const [text, setText] = useState("");
     const [title, setTitle] = useTitle();
-
     const [ft] = useFontType();
 
     useEffect(() => {
