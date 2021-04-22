@@ -59,15 +59,15 @@ const DraftEditor = ({ text }: Props) => {
         }
     };
 
-    const handleEditorChange = (es: EditorState) => {
-        setEditorState(es);
-        setContent(es.getCurrentContent().getPlainText());
-    };
-
     const handleWheel = (e: WheelEvent<HTMLElement>) => {
         if (scrollRef.current) {
             scrollRef.current.scrollLeft -= e.deltaY;
         }
+    };
+
+    const handleEditorChange = (es: EditorState) => {
+        setEditorState(es);
+        setContent(es.getCurrentContent().getPlainText());
     };
 
     return (
