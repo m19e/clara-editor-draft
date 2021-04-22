@@ -1,8 +1,17 @@
 import Link from "next/link";
+import { writeFileSync } from "fs";
 import { useTitle } from "hooks";
 
 const Header = () => {
     const [title] = useTitle();
+
+    const saveDraft = () => {
+        try {
+            writeFileSync(`${title}.txt`, "");
+        } catch (e) {
+            console.error(e.message);
+        }
+    };
 
     return (
         <div className="fixed top-0 w-full h-24 flex-center shadow-sm editor-bg">
