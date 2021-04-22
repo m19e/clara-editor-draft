@@ -59,6 +59,11 @@ const DraftEditor = ({ text }: Props) => {
         }
     };
 
+    const handleEditorChange = (es: EditorState) => {
+        setEditorState(es);
+        setContent(es.getCurrentContent().getPlainText());
+    };
+
     const handleWheel = (e: WheelEvent<HTMLElement>) => {
         if (scrollRef.current) {
             scrollRef.current.scrollLeft -= e.deltaY;
@@ -70,7 +75,7 @@ const DraftEditor = ({ text }: Props) => {
             <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
                 <div style={{ height: `${eh}px` }}>
                     <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
-                        <Editor editorState={editorState} onChange={setEditorState} />
+                        <Editor editorState={editorState} onChange={handleEditorChange} />
                     </div>
                 </div>
             </Scrollbar>
