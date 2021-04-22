@@ -6,6 +6,7 @@ import "draft-js/dist/Draft.css";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
+import { writeDraft } from "lib/draft";
 import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useContent } from "hooks";
 
 type Props = {
@@ -53,7 +54,7 @@ const DraftEditor = ({ text }: Props) => {
         }
 
         try {
-            writeFileSync(path, text);
+            writeDraft(path, text);
         } catch (e) {
             console.error(e.message);
         }
