@@ -30,6 +30,11 @@ export const titleState = atom({
     default: "無題",
 });
 
+export const contentState = atom({
+    key: "draft/content",
+    default: "執筆を始める",
+});
+
 // Selectors
 export const realFontSizeState = selector({
     key: "editor/real-font-size",
