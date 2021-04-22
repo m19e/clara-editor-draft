@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { parse } from "path";
 import { readDraft } from "lib/draft";
-import { useFontType } from "hooks";
+import { useFontType, useTitle } from "hooks";
 import MetaHeader from "foundations/MetaHeader";
 import DraftEditor from "components/organisms/DraftEditor";
 import Frame from "components/organisms/Editor/Frame";
@@ -10,7 +10,7 @@ import Frame from "components/organisms/Editor/Frame";
 const Draft = () => {
     const router = useRouter();
     const [text, setText] = useState("");
-    const [title, setTitle] = useState("無題");
+    const [title, setTitle] = useTitle();
 
     const [ft] = useFontType();
 
