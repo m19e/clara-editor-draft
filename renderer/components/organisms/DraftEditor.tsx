@@ -1,5 +1,4 @@
 import { remote } from "electron";
-import { writeFileSync } from "fs";
 import { useState, useEffect, useRef, WheelEvent } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
