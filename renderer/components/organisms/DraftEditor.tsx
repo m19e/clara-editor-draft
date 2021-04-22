@@ -6,7 +6,7 @@ import "draft-js/dist/Draft.css";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
-import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight } from "hooks";
+import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useContent } from "hooks";
 
 type Props = {
     text: string;
@@ -17,11 +17,13 @@ const DraftEditor = ({ text }: Props) => {
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
     const eh = getEditorHeight();
+    const [content, setContent] = useContent();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const wrapperRef = useRef(null);
     const scrollRef = useRef(null);
 
     useEffect(() => {
+        setContent(text);
         setEditorState(() => EditorState.createWithContent(ContentState.createFromText(text)));
     }, [text]);
 
