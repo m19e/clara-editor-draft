@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useTitle } from "hooks";
 
 const Header = () => {
+    const [title] = useTitle();
+
     return (
         <div className="fixed top-0 w-full h-24 flex-center shadow-sm editor-bg">
             <div className="container flex justify-between items-center">
@@ -18,7 +21,8 @@ const Header = () => {
                         </a>
                     </Link>
                 </div>
-                <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div>
+                {/* <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div> */}
+                <span>{title}</span>
                 <div className="w-9 h-9 flex justify-center items-center transition-colors text-gray-600 hover:text-gray-900" onClick={() => {}}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
