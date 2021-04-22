@@ -9,6 +9,7 @@ const Header = () => {
     const saveDraft = () => {
         try {
             writeDraft(`${title}.txt`, content);
+            console.log("Save draft: " + `${title}.txt`);
         } catch (e) {
             console.error(e.message);
         }
