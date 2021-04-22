@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { writeFileSync } from "fs";
-import { useTitle } from "hooks";
+import { useTitle, useContent } from "hooks";
 
 const Header = () => {
     const [title] = useTitle();
+    const [content] = useContent();
 
     const saveDraft = () => {
         try {
-            writeFileSync(`${title}.txt`, "");
+            writeFileSync(`${title}.txt`, content);
         } catch (e) {
             console.error(e.message);
         }
@@ -32,7 +33,7 @@ const Header = () => {
                 </div>
                 {/* <div className="animate-pulse h-3 w-14 mt-1.5 mb-2 mx-0.5 bg-gray-300 rounded-sm"></div> */}
                 <span>{title}</span>
-                <div className="w-9 h-9 flex justify-center items-center transition-colors text-gray-600 hover:text-gray-900" onClick={() => {}}>
+                <div className="w-9 h-9 flex justify-center items-center transition-colors text-gray-600 hover:text-gray-900" onClick={saveDraft}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
                             strokeLinecap="round"
