@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { writeFileSync } from "fs";
 import { writeDraft } from "lib/draft";
 import { useTitle, useContent } from "hooks";
 
