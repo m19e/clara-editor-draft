@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { writeFileSync } from "fs";
+import { writeDraft } from "lib/draft";
 import { useTitle, useContent } from "hooks";
 
 const Header = () => {
@@ -8,7 +9,7 @@ const Header = () => {
 
     const saveDraft = () => {
         try {
-            writeFileSync(`${title}.txt`, content);
+            writeDraft(`${title}.txt`, content);
         } catch (e) {
             console.error(e.message);
         }
