@@ -23,8 +23,8 @@ const DraftEditor = ({ text }: Props) => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        setContent(text);
         setEditorState(() => EditorState.createWithContent(ContentState.createFromText(text)));
+        setContent(text);
     }, [text]);
 
     useEffect(() => {
