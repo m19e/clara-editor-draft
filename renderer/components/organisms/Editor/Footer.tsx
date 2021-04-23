@@ -25,13 +25,13 @@ const Footer = () => {
                 <span className={"opacity-25 " + (ft === "mincho" ? "mr-3" : "mx-3")}>・</span>
                 <div className="flex-center flex-col group">
                     <Chevron type="inc" onClick={incFS} disabled={disabled.incFS} />
-                    <span className="text-center opacity-75">大きさ{fs}</span>
+                    <span className="text-center opacity-75">大きさ {fs}</span>
                     <Chevron type="dec" onClick={decFS} disabled={disabled.decFS} />
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col group">
                     <Chevron type="inc" onClick={incLW} disabled={disabled.incLW} />
-                    <span className="text-center opacity-75">字数{lw}</span>
+                    <span className="text-center opacity-75">字数 {lw}</span>
                     <Chevron type="dec" onClick={decLW} disabled={disabled.decLW} />
                 </div>
             </div>
