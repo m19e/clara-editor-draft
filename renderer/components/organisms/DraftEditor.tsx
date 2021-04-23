@@ -66,8 +66,9 @@ const DraftEditor = ({ text }: Props) => {
     };
 
     const handleEditorChange = (es: EditorState) => {
-        setEditorState(es);
+        setSaved(false);
         setContent(es.getCurrentContent().getPlainText());
+        setEditorState(es);
     };
 
     return (
