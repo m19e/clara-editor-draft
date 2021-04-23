@@ -14,7 +14,7 @@ const Draft = () => {
     const [ft] = useFontType();
 
     useEffect(() => {
-        const draft = router.query.draft;
+        const { draft } = router.query;
         if (router.route !== router.asPath && typeof draft === "string") {
             const data = readDraft(draft);
             const { name } = parse(draft);
