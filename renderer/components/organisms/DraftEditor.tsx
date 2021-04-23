@@ -17,7 +17,6 @@ const DraftEditor = ({ text }: Props) => {
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
     const eh = getEditorHeight();
-    const [content, setContent] = useContent();
     const [title] = useTitle();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const [saved, setSaved] = useState(true);
@@ -26,7 +25,6 @@ const DraftEditor = ({ text }: Props) => {
 
     useEffect(() => {
         setEditorState(() => EditorState.createWithContent(ContentState.createFromText(text)));
-        setContent(text);
     }, [text]);
 
     useEffect(() => {
@@ -88,7 +86,6 @@ const DraftEditor = ({ text }: Props) => {
 
     const handleEditorChange = (es: EditorState) => {
         setSaved(false);
-        setContent(es.getCurrentContent().getPlainText());
         setEditorState(es);
     };
 
