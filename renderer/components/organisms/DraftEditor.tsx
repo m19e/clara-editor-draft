@@ -6,7 +6,7 @@ import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { writeDraft } from "lib/draft";
-import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useContent } from "hooks";
+import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useContent, useTitle } from "hooks";
 
 type Props = {
     text: string;
@@ -18,7 +18,9 @@ const DraftEditor = ({ text }: Props) => {
     const setWH = setWrapperHeight();
     const eh = getEditorHeight();
     const [content, setContent] = useContent();
+    const [title] = useTitle();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
+    const [saved, setSaved] = useState(true);
     const wrapperRef = useRef(null);
     const scrollRef = useRef(null);
 
@@ -39,7 +41,14 @@ const DraftEditor = ({ text }: Props) => {
         };
     }, [rfs, lw]);
 
-    const saveDraft = () => {
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (!saved) saveDraft();
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, [editorState]);
+
+    const saveDraftWithDialog = () => {
         const text = editorState.getCurrentContent().getPlainText();
         const path = remote.dialog.showSaveDialogSync(null, {
             defaultPath: "title.txt",
@@ -54,6 +63,18 @@ const DraftEditor = ({ text }: Props) => {
 
         try {
             writeDraft(path, text);
+        } catch (e) {
+            console.error(e.message);
+        }
+    };
+
+    const saveDraft = () => {
+        const data = editorState.getCurrentContent().getPlainText();
+
+        try {
+            writeDraft(`${title}.txt`, data);
+            console.log("Save draft: " + `${title}.txt`);
+            setSaved(true);
         } catch (e) {
             console.error(e.message);
         }
