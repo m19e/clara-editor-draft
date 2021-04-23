@@ -23,4 +23,14 @@ export const getFormat = (): [FontType, number, number] => {
     return [fontType, fontSize, lineWords];
 };
 
+export const setFontTypeConfig = (ft: FontType) => {
+    store.set("editor/font-type", ft);
+};
 
+export const setFontSizeConfig = (fs: number) => {
+    store.set("editor/font-size", fs);
+};
+
+export const setLineWordsConfig = (lw: number) => {
+    store.set("editor/line-words", lw);
+};
