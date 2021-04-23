@@ -1,4 +1,3 @@
-import { remote } from "electron";
 import { useState, useEffect, useRef, WheelEvent } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
@@ -6,7 +5,7 @@ import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { writeDraft } from "lib/draft";
-import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useContent, useTitle } from "hooks";
+import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle } from "hooks";
 
 type Props = {
     text: string;
