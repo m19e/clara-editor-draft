@@ -2,6 +2,8 @@ import { atom, selector } from "recoil";
 import { FontType } from "types";
 
 // Atoms
+
+// Editor
 export const fontTypeState = atom<FontType>({
     key: "editor/font-type",
     default: "mincho",
@@ -20,6 +22,17 @@ export const lineWordsState = atom({
 export const wrapperHeightState = atom({
     key: "editor/wrapper-height",
     default: 480,
+});
+
+// Draft
+export const titleState = atom({
+    key: "draft/title",
+    default: "無題",
+});
+
+export const contentState = atom({
+    key: "draft/content",
+    default: "執筆を始める",
 });
 
 // Selectors

@@ -12,12 +12,20 @@ import {
     disabledDecFSState,
     disabledIncLWState,
     disabledDecLWState,
+    titleState,
+    contentState,
 } from "store";
+import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig } from "lib/config";
 
+// Editor
 export const useFontType = (): [FontType, () => void] => {
     const [fontType, setFontType] = useRecoilState(fontTypeState);
     const toggleFontType = useCallback(() => {
-        setFontType((prev) => (prev === "mincho" ? "gothic" : "mincho"));
+        setFontType((prev) => {
+            const curr = prev === "mincho" ? "gothic" : "mincho";
+            setFontTypeConfig(curr);
+            return curr;
+        });
     }, []);
 
     return [fontType, toggleFontType];
@@ -26,10 +34,16 @@ export const useFontType = (): [FontType, () => void] => {
 export const useFontSize = (): [number, () => void, () => void] => {
     const [fs, setFS] = useRecoilState(displayFontSizeState);
     const incFS = useCallback(() => {
-        setFS((prev) => prev + 1);
+        setFS((prev) => {
+            setFontSizeConfig(prev + 1);
+            return prev + 1;
+        });
     }, []);
     const decFS = useCallback(() => {
-        setFS((prev) => prev - 1);
+        setFS((prev) => {
+            setFontSizeConfig(prev - 1);
+            return prev - 1;
+        });
     }, []);
 
     return [fs, incFS, decFS];
@@ -43,13 +57,39 @@ export const getRealFontSize = (): number => {
 export const useLineWords = (): [number, () => void, () => void] => {
     const [lw, setLW] = useRecoilState(lineWordsState);
     const incLW = useCallback(() => {
-        setLW((prev) => prev + 1);
+        setLW((prev) => {
+            setLineWordsConfig(prev + 1);
+            return prev + 1;
+        });
     }, []);
     const decLW = useCallback(() => {
-        setLW((prev) => prev - 1);
+        setLW((prev) => {
+            setLineWordsConfig(prev - 1);
+            return prev - 1;
+        });
     }, []);
 
     return [lw, incLW, decLW];
+};
+
+type FormatProps = {
+    fontType: FontType;
+    fontSize: number;
+    lineWords: number;
+};
+
+export const useFormat = (): (({ fontType, fontSize, lineWords }: FormatProps) => void) => {
+    const setFontType = useSetRecoilState(fontTypeState);
+    const setFontSize = useSetRecoilState(displayFontSizeState);
+    const setLineWords = useSetRecoilState(lineWordsState);
+
+    const setFormat = useCallback(({ fontType, fontSize, lineWords }: FormatProps) => {
+        setFontType(fontType);
+        setFontSize(fontSize);
+        setLineWords(lineWords);
+    }, []);
+
+    return setFormat;
 };
 
 export const setWrapperHeight = (): SetterOrUpdater<number> => {
@@ -76,4 +116,15 @@ export const useDisabled = (): DisabledType => {
     const decLW = useRecoilValue(disabledDecLWState);
 
     return { incFS, decFS, incLW, decLW };
+};
+
+// Draft
+export const useTitle = (): [string, SetterOrUpdater<string>] => {
+    const [title, setTitle] = useRecoilState(titleState);
+    return [title, setTitle];
+};
+
+export const useContent = (): [string, SetterOrUpdater<string>] => {
+    const [content, setContent] = useRecoilState(contentState);
+    return [content, setContent];
 };
