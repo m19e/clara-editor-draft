@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { writeDraft } from "lib/draft";
-import { useTitle, useContent } from "hooks";
+import { useTitle } from "hooks";
 
 const Header = () => {
     const [title] = useTitle();
