@@ -72,6 +72,26 @@ export const useLineWords = (): [number, () => void, () => void] => {
     return [lw, incLW, decLW];
 };
 
+type FormatProps = {
+    fontType: FontType;
+    fontSize: number;
+    lineWords: number;
+};
+
+export const useFormat = (): (({ fontType, fontSize, lineWords }: FormatProps) => void) => {
+    const setFontType = useSetRecoilState(fontTypeState);
+    const setFontSize = useSetRecoilState(displayFontSizeState);
+    const setLineWords = useSetRecoilState(lineWordsState);
+
+    const setFormat = useCallback(({ fontType, fontSize, lineWords }: FormatProps) => {
+        setFontType(fontType);
+        setFontSize(fontSize);
+        setLineWords(lineWords);
+    }, []);
+
+    return setFormat;
+};
+
 export const setWrapperHeight = (): SetterOrUpdater<number> => {
     const setWH = useSetRecoilState(wrapperHeightState);
     return setWH;
