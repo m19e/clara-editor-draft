@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { parse, extname } from "path";
 import { readDrafts, writeDraft, deleteDraft } from "lib/draft";
@@ -7,6 +8,7 @@ import MetaHeader from "foundations/MetaHeader";
 const DEFAULT_DRAFT_TITLE = "無題";
 
 const Index = () => {
+    const router = useRouter();
     const [draftList, setDraftList] = useState<string[]>([]);
     const [shouldUpdate, setShouldUpdate] = useState(true);
 
@@ -35,8 +37,9 @@ const Index = () => {
     };
 
     const addDraft = () => {
-        const draftName = makeNewDraftName();
-        writeDraft(`${draftName}.txt`, "執筆を始める");
+        const draft = `${makeNewDraftName()}.txt`;
+        writeDraft(draft, "執筆を始める");
+        router.push({ pathname: "/editor/[draft]", query: { draft } });
         setShouldUpdate(true);
     };
 
