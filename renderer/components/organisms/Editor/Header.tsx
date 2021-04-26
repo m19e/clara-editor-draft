@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import { useTitle } from "hooks";
 
 const Header = () => {
@@ -37,8 +38,24 @@ const Header = () => {
 
 const TitleEditForm = () => {
     const [title] = useTitle();
+    const [isEdit, setIsEdit] = useState(false);
 
-    return <span>{title}</span>;
+    return (
+        <>
+            {isEdit ? (
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        setIsEdit(false);
+                    }}
+                >
+                    <input type="text" value={title} />
+                </form>
+            ) : (
+                <span onClick={() => setIsEdit(true)}>{title}</span>
+            )}
+        </>
+    );
 };
 
 export default Header;
