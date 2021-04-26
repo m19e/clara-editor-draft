@@ -2,8 +2,6 @@ import Link from "next/link";
 import { useTitle } from "hooks";
 
 const Header = () => {
-    const [title] = useTitle();
-
     return (
         <div className="fixed top-0 w-full h-24 flex-center shadow-sm editor-bg">
             <div className="container flex justify-between items-center">
