@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { parse, extname } from "path";
-import { readDrafts, writeDraft } from "lib/draft";
+import { readDrafts, writeDraft, deleteDraft } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
 const DEFAULT_DRAFT_TITLE = "無題";
@@ -34,7 +34,7 @@ const Index = () => {
         return `${DEFAULT_DRAFT_TITLE}-${time}`;
     };
 
-    const create = () => {
+    const addDraft = () => {
         const draftName = makeNewDraftName();
         writeDraft(`${draftName}.txt`, "執筆を始める");
         setShouldUpdate(true);
@@ -46,7 +46,7 @@ const Index = () => {
             <div>
                 <div className="flex-center w-full">
                     <div className="grid">
-                        <span onClick={create}>
+                        <span onClick={addDraft}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
                                     strokeLinecap="round"
