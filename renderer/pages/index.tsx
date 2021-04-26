@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { parse, extname } from "path";
-import { readDrafts } from "lib/draft";
+import { readDrafts, writeDraft } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
 const DEFAULT_DRAFT_TITLE = "無題";
@@ -32,6 +32,12 @@ const Index = () => {
             ("0" + d.getSeconds()).slice(-2) +
             d.getMilliseconds();
         return `${DEFAULT_DRAFT_TITLE}-${time}`;
+    };
+
+    const create = () => {
+        const draftName = makeNewDraftName();
+        writeDraft(`${draftName}.txt`, "執筆を始める");
+        setShouldUpdate(true);
     };
 
     return (
