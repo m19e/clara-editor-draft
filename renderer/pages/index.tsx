@@ -40,7 +40,6 @@ const Index = () => {
         const draft = `${makeNewDraftName()}.txt`;
         writeDraft(draft, "執筆を始める");
         router.push({ pathname: "/editor/[draft]", query: { draft } });
-        setShouldUpdate(true);
     };
 
     const removeDraft = (draft: string) => {
