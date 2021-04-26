@@ -6,12 +6,16 @@ import MetaHeader from "foundations/MetaHeader";
 
 const Index = () => {
     const [draftList, setDraftList] = useState<string[]>([]);
+    const [shouldUpdate, setShouldUpdate] = useState(true);
 
     useEffect(() => {
-        const drafts = readDrafts(".");
-        setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").map((d) => d.name));
+        if (shouldUpdate) {
+            const drafts = readDrafts(".");
+            setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").map((d) => d.name));
+            setShouldUpdate(false);
+        }
         return () => {};
-    }, []);
+    }, [shouldUpdate]);
 
     return (
         <>
