@@ -17,15 +17,18 @@ const Index = () => {
         <>
             <MetaHeader title="Index - Nextron (with-typescript-tailwindcss)" />
             <div>
+                <div className="flex-center w-full">
+                    <div className="grid">
+                        <span>+</span>
+                    </div>
+                </div>
                 <div className="grid grid-col-1 w-full text-center">
                     {draftList.map((d, i) => {
                         const { name, ext } = parse(d);
 
                         return (
                             <Link key={i} href={`/editor/${d}`}>
-                                <a>
-                                    name:{name}, ext:{ext}
-                                </a>
+                                <a>{name}</a>
                             </Link>
                         );
                     })}
