@@ -21,7 +21,7 @@ const Header = () => {
                         </a>
                     </Link>
                 </div>
-                <span>{title}</span>
+                <TitleEditForm />
                 <div className="w-9 h-9 flex justify-center items-center transition-colors text-gray-600 hover:text-gray-900">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -35,6 +35,12 @@ const Header = () => {
             </div>
         </div>
     );
+};
+
+const TitleEditForm = () => {
+    const [title] = useTitle();
+
+    return <span>{title}</span>;
 };
 
 export default Header;
