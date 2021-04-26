@@ -4,6 +4,8 @@ import { parse, extname } from "path";
 import { readDrafts } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
+const DEFAULT_DRAFT_TITLE = "無題";
+
 const Index = () => {
     const [draftList, setDraftList] = useState<string[]>([]);
     const [shouldUpdate, setShouldUpdate] = useState(true);
@@ -16,6 +18,21 @@ const Index = () => {
         }
         return () => {};
     }, [shouldUpdate]);
+
+    const makeNewDraftName = (): string => {
+        if (!draftList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
+        const d = new Date();
+        const time =
+            "" +
+            d.getFullYear() +
+            (d.getMonth() + 1) +
+            ("0" + d.getDate()).slice(-2) +
+            ("0" + d.getHours()).slice(-2) +
+            ("0" + d.getMinutes()).slice(-2) +
+            ("0" + d.getSeconds()).slice(-2) +
+            d.getMilliseconds();
+        return `${DEFAULT_DRAFT_TITLE}-${time}`;
+    };
 
     return (
         <>
