@@ -71,7 +71,7 @@ const Index = () => {
 
                         return (
                             <div key={i} className="flex-center">
-                                <Link href={`/editor/${d}`}>
+                                <Link href={{ pathname: "/editor/[draft]", query: { draft: d } }}>
                                     <a>{name}</a>
                                 </Link>
                                 <span onClick={() => removeDraft(d)}>
