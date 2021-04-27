@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { parse, extname } from "path";
-import { readDrafts, writeDraft, deleteDraft } from "lib/draft";
+import { readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 
 const DEFAULT_DRAFT_TITLE = "無題";
@@ -15,7 +15,10 @@ const Index = () => {
     useEffect(() => {
         if (shouldUpdate) {
             const drafts = readDrafts(".");
-            setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").map((d) => d.name));
+            const sorted = drafts
+                .filter((d) => d.isFile() && extname(d.name) === ".txt")
+                .sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
+            setDraftList(() => sorted.map((d) => d.name));
             setShouldUpdate(false);
         }
         return () => {};
