@@ -1,4 +1,4 @@
-import { Dirent, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync } from "fs";
+import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync } from "fs";
 
 export const readDrafts = (path: string): Dirent[] => {
     const drafts = readdirSync(path, { encoding: "utf-8", withFileTypes: true });
@@ -22,4 +22,9 @@ export const renameDraft = (oldPath: string, newPath: string) => {
 
 export const deleteDraft = (path: string) => {
     unlinkSync(path);
+};
+
+export const getDraftStat = (path: string): Stats => {
+    const stat = statSync(path);
+    return stat;
 };
