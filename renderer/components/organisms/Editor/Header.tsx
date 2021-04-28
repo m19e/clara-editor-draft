@@ -36,6 +36,8 @@ const Header = () => {
     );
 };
 
+const marks = /\:|\?|\.|"|<|>|\|/g;
+
 const TitleEditForm = () => {
     const [title] = useTitle();
     const [isEdit, setIsEdit] = useState(false);
@@ -47,7 +49,8 @@ const TitleEditForm = () => {
 
     const handleLocalTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
-        setLocalTitle(value);
+        const replaced = value.replaceAll(marks, "");
+        setLocalTitle(replaced);
     };
 
     return (
