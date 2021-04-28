@@ -76,7 +76,13 @@ const TitleEditForm = () => {
         <>
             {isEdit ? (
                 <form onSubmit={handleStoreTitleChange}>
-                    <input type="text" value={localTitle} onChange={handleLocalTitleChange} />
+                    <input
+                        className="text-gray-900 mx-2 text-center shadow-inner editor-bg rounded outline-none focus:outline-none"
+                        type="text"
+                        value={localTitle}
+                        onChange={handleLocalTitleChange}
+                        style={{ minWidth: "10rem", maxWidth: "50rem", width: `${localTitle.length + 1}rem` }}
+                    />
                 </form>
             ) : (
                 <span onClick={() => setIsEdit(true)}>{title}</span>
