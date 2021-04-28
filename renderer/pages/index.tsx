@@ -36,7 +36,7 @@ const Index = () => {
             ("0" + d.getMinutes()).slice(-2) +
             ("0" + d.getSeconds()).slice(-2) +
             d.getMilliseconds();
-        return `${DEFAULT_DRAFT_TITLE}-${time}`;
+        return `${DEFAULT_DRAFT_TITLE}_${time}`;
     };
 
     const addDraft = () => {
