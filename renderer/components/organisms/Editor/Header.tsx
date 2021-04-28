@@ -36,7 +36,12 @@ const Header = () => {
     );
 };
 
-const marks = /\:|\?|\.|"|<|>|\|/g;
+const specialChars = /\:|\?|\.|"|<|>|\|/g;
+const slash = /\//g;
+const spaces = /\s\s+/g;
+const backSlashs = /\\\\+/g;
+const sandwich = /(\s\\|\\\s)+(\s|\\)?/g;
+const beginningEnd = /^(\s|\\)+|(\s|\\)+$/g;
 
 const TitleEditForm = () => {
     const [title] = useTitle();
@@ -49,7 +54,13 @@ const TitleEditForm = () => {
 
     const handleLocalTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
-        const replaced = value.replaceAll(marks, "");
+        const replaced = value
+            .replaceAll(specialChars, "")
+            .replaceAll(slash, "")
+            .replaceAll(spaces, "")
+            .replaceAll(backSlashs, "")
+            .replaceAll(sandwich, "")
+            .replaceAll(beginningEnd, "");
         setLocalTitle(replaced);
     };
 
