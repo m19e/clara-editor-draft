@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useTitle } from "hooks";
+import { renameDraft } from "lib/draft";
 
 const Header = () => {
     return (
@@ -66,7 +67,7 @@ const TitleEditForm = () => {
 
     const handleStoreTitleChange = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // renameDraft(`${title}.txt`, `${localTitle}.txt`)
+        renameDraft(`${title}.txt`, `${localTitle}.txt`);
         setTitle(localTitle);
         setIsEdit(false);
     };
