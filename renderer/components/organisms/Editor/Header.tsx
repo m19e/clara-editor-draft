@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useTitle } from "hooks";
 
 const Header = () => {
@@ -44,7 +44,7 @@ const sandwich = /(\s\\|\\\s)+(\s|\\)?/g;
 const beginningEnd = /^(\s|\\)+|(\s|\\)+$/g;
 
 const TitleEditForm = () => {
-    const [title] = useTitle();
+    const [title, setTitle] = useTitle();
     const [isEdit, setIsEdit] = useState(false);
     const [localTitle, setLocalTitle] = useState("");
 
@@ -64,15 +64,17 @@ const TitleEditForm = () => {
         setLocalTitle(replaced);
     };
 
+    const handleStoreTitleChange = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        // renameDraft(`${title}.txt`, `${localTitle}.txt`)
+        setTitle(localTitle);
+        setIsEdit(false);
+    };
+
     return (
         <>
             {isEdit ? (
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        setIsEdit(false);
-                    }}
-                >
+                <form onSubmit={handleStoreTitleChange}>
                     <input type="text" value={localTitle} onChange={handleLocalTitleChange} />
                 </form>
             ) : (
