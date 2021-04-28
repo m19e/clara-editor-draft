@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { useTitle } from "hooks";
 
 const Header = () => {
@@ -45,6 +45,11 @@ const TitleEditForm = () => {
         setLocalTitle(title);
     }, [title]);
 
+    const handleLocalTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.currentTarget.value;
+        setLocalTitle(value);
+    };
+
     return (
         <>
             {isEdit ? (
@@ -54,7 +59,7 @@ const TitleEditForm = () => {
                         setIsEdit(false);
                     }}
                 >
-                    <input type="text" value={localTitle} onChange={(e) => setLocalTitle(e.currentTarget.value)} />
+                    <input type="text" value={localTitle} onChange={handleLocalTitleChange} />
                 </form>
             ) : (
                 <span onClick={() => setIsEdit(true)}>{title}</span>
