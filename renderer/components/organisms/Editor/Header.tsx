@@ -36,7 +36,7 @@ const Header = () => {
     );
 };
 
-const specialChars = /\:|\?|\.|"|<|>|\|/g;
+const specialChars = /\(|\)|,|-|\/|!|\\|\:|\?|\.|"|<|>|\|/g;
 const slash = /\//g;
 const spaces = /\s\s+/g;
 const backSlashs = /\\\\+/g;
