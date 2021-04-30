@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
 import { useTitle } from "hooks";
 import { renameDraft } from "lib/draft";
 
@@ -48,6 +48,7 @@ const TitleEditForm = () => {
     const [title, setTitle] = useTitle();
     const [isEdit, setIsEdit] = useState(false);
     const [localTitle, setLocalTitle] = useState("");
+    const editTitleRef = useRef(null);
 
     useEffect(() => {
         setLocalTitle(title);
@@ -55,7 +56,7 @@ const TitleEditForm = () => {
 
     useEffect(() => {
         if (isEdit) {
-            // editTitleRef.current.focus()
+            editTitleRef.current.focus();
         }
     }, [isEdit]);
 
@@ -87,6 +88,7 @@ const TitleEditForm = () => {
                         type="text"
                         value={localTitle}
                         onChange={handleLocalTitleChange}
+                        ref={editTitleRef}
                         style={{ minWidth: "10rem", maxWidth: "50rem", width: `${localTitle.length + 1}rem` }}
                     />
                 </form>
