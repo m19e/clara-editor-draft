@@ -53,6 +53,12 @@ const TitleEditForm = () => {
         setLocalTitle(title);
     }, [title]);
 
+    useEffect(() => {
+        if (isEdit) {
+            // editTitleRef.current.focus()
+        }
+    }, [isEdit]);
+
     const handleLocalTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
         const replaced = value
