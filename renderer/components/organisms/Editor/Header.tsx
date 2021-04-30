@@ -89,6 +89,7 @@ const TitleEditForm = () => {
                         value={localTitle}
                         onChange={handleLocalTitleChange}
                         ref={editTitleRef}
+                        onBlur={() => setIsEdit(false)}
                         style={{ minWidth: "10rem", maxWidth: "50rem", width: `${localTitle.length + 1}rem` }}
                     />
                 </form>
