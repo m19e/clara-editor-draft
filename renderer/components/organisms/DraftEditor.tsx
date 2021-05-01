@@ -44,7 +44,7 @@ const DraftEditor = ({ text }: Props) => {
             if (!saved) saveDraft();
         }, 5000);
         return () => clearTimeout(timer);
-    }, [editorState]);
+    }, [saved]);
 
     // const saveDraftWithDialog = () => {
     //     const text = editorState.getCurrentContent().getPlainText();
@@ -85,7 +85,7 @@ const DraftEditor = ({ text }: Props) => {
     };
 
     const handleEditorChange = (es: EditorState) => {
-        setSaved(false);
+        if (editorState.getCurrentContent().getPlainText() !== es.getCurrentContent().getPlainText()) setSaved(false);
         setEditorState(es);
     };
 
