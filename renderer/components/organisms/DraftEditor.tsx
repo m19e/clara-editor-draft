@@ -91,7 +91,7 @@ const DraftEditor = ({ text }: Props) => {
 
     return (
         <Fragment>
-            <MetaHeader title={`${title} - Clara Editor`} />
+            <MetaHeader title={`${saved ? "" : "*"}${title} - Clara Editor`} />
             <div ref={wrapperRef} className="min-h-screen flex-center">
                 <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
                     <div style={{ height: `${eh}px` }}>
