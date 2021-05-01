@@ -65,7 +65,7 @@ const TitleEditForm = () => {
         const replaced = value
             .replaceAll(specialChars, "")
             .replaceAll(slash, "")
-            .replaceAll(spaces, "")
+            // .replaceAll(spaces, "")
             .replaceAll(backSlashs, "")
             .replaceAll(sandwich, "")
             .replaceAll(beginningEnd, "");
@@ -74,9 +74,10 @@ const TitleEditForm = () => {
 
     const handleStoreTitleChange = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (title !== localTitle) {
-            setTitle(localTitle);
-            renameDraft(`${title}.txt`, `${localTitle}.txt`);
+        const trimmed = localTitle.trim();
+        if (title !== trimmed && trimmed !== "") {
+            setTitle(trimmed);
+            renameDraft(`${title}.txt`, `${trimmed}.txt`);
         }
         setIsEdit(false);
     };
