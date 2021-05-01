@@ -30,7 +30,6 @@ const Draft = () => {
 
     return (
         <div className={ft + " text-black editor-bg"}>
-            <MetaHeader title={`${title} - Clara Editor`} />
             <DraftEditor text={text} />
             <Frame />
         </div>

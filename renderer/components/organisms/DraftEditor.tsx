@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, WheelEvent } from "react";
+import { useState, useEffect, useRef, Fragment, WheelEvent } from "react";
 import { ContentState, Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 import Scrollbar from "react-perfect-scrollbar";
@@ -6,6 +6,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { writeDraft } from "lib/draft";
 import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle } from "hooks";
+import MetaHeader from "foundations/MetaHeader";
 
 type Props = {
     text: string;
@@ -89,15 +90,18 @@ const DraftEditor = ({ text }: Props) => {
     };
 
     return (
-        <div ref={wrapperRef} className="min-h-screen flex-center">
-            <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
-                <div style={{ height: `${eh}px` }}>
-                    <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
-                        <Editor editorState={editorState} onChange={handleEditorChange} />
+        <Fragment>
+            <MetaHeader title={`${title} - Clara Editor`} />
+            <div ref={wrapperRef} className="min-h-screen flex-center">
+                <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
+                    <div style={{ height: `${eh}px` }}>
+                        <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
+                            <Editor editorState={editorState} onChange={handleEditorChange} />
+                        </div>
                     </div>
-                </div>
-            </Scrollbar>
-        </div>
+                </Scrollbar>
+            </div>
+        </Fragment>
     );
 };
 
