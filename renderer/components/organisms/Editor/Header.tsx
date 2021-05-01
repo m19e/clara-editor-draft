@@ -74,9 +74,10 @@ const TitleEditForm = () => {
 
     const handleStoreTitleChange = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (title === localTitle) return;
-        renameDraft(`${title}.txt`, `${localTitle}.txt`);
-        setTitle(localTitle);
+        if (title !== localTitle) {
+            renameDraft(`${title}.txt`, `${localTitle}.txt`);
+            setTitle(localTitle);
+        }
         setIsEdit(false);
     };
 
