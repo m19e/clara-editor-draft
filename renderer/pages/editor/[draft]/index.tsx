@@ -10,7 +10,7 @@ import Frame from "components/organisms/Editor/Frame";
 const Draft = () => {
     const router = useRouter();
     const [text, setText] = useState("");
-    const [title, setTitle] = useTitle();
+    const [, setTitle] = useTitle();
     const [ft] = useFontType();
     const setFormat = useFormat();
 
