@@ -4,7 +4,6 @@ import { parse } from "path";
 import { readDraft } from "lib/draft";
 import { getFormat } from "lib/config";
 import { useFontType, useTitle, useFormat } from "hooks";
-import MetaHeader from "foundations/MetaHeader";
 import DraftEditor from "components/organisms/DraftEditor";
 import Frame from "components/organisms/Editor/Frame";
 
