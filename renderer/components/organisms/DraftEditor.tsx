@@ -89,6 +89,12 @@ const DraftEditor = ({ text }: Props) => {
         setEditorState(es);
     };
 
+    const setSelectionRange = () => {};
+
+    const setSelectionCaret = () => {};
+
+    const handleKeyBinding = () => {};
+
     return (
         <Fragment>
             <MetaHeader title={`${saved ? "" : "*"}${title} - Clara Editor`} />
