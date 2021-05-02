@@ -96,7 +96,15 @@ const DraftEditor = ({ text }: Props) => {
         setEditorState(newEditor);
     };
 
-    const setSelectionCaret = () => {};
+    const setSelectionCaret = (selection: SelectionState, offset: number, key: string) => {
+        const override: SelectionRangeOverride = {
+            anchorOffset: offset,
+            focusOffset: offset,
+            anchorKey: key,
+            focusKey: key,
+        };
+        setSelectionRange(selection, override);
+    };
 
     const handleKeyBinding = () => {};
 
