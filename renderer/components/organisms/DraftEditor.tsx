@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, Fragment, WheelEvent } from "react";
-import { Editor, EditorState, ContentState, SelectionState } from "draft-js";
+import { useState, useEffect, useRef, Fragment, WheelEvent, KeyboardEvent } from "react";
+import { Editor, EditorState, ContentState, SelectionState, getDefaultKeyBinding } from "draft-js";
 import "draft-js/dist/Draft.css";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -106,7 +106,38 @@ const DraftEditor = ({ text }: Props) => {
         setSelectionRange(selection, override);
     };
 
-    const handleKeyBinding = () => {};
+    const handleKeyBinding = (e: KeyboardEvent) => {
+        if (e.key === "Tab") {
+            e.preventDefault();
+            return null;
+        }
+
+        if (e.key.includes("Arrow")) {
+            switch (e.key) {
+                case "ArrowUp":
+                    console.log("↑");
+                    break;
+
+                case "ArrowDown":
+                    console.log("↓");
+                    break;
+
+                case "ArrowRight":
+                    console.log("→");
+                    break;
+
+                case "ArrowLeft":
+                    console.log("←");
+                    break;
+
+                default:
+                    break;
+            }
+            return null;
+        }
+
+        getDefaultKeyBinding(e);
+    };
 
     return (
         <Fragment>
@@ -115,7 +146,7 @@ const DraftEditor = ({ text }: Props) => {
                 <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
                     <div style={{ height: `${eh}px` }}>
                         <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
-                            <Editor editorState={editorState} onChange={handleEditorChange} />
+                            <Editor editorState={editorState} onChange={handleEditorChange} keyBindingFn={handleKeyBinding} />
                         </div>
                     </div>
                 </Scrollbar>
