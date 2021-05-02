@@ -113,21 +113,130 @@ const DraftEditor = ({ text }: Props) => {
         }
 
         if (e.key.includes("Arrow")) {
+            e.preventDefault();
+
+            const selection = editorState.getSelection();
+            const content = editorState.getCurrentContent();
+            const offset = selection.getAnchorOffset();
+            const key = selection.getAnchorKey();
+            const blockLen = content.getBlockForKey(key).getLength();
+
             switch (e.key) {
                 case "ArrowUp":
-                    console.log("↑");
+                    if (offset === 0) {
+                        const beforeKey = content.getKeyBefore(key);
+                        if (!beforeKey) break;
+                        const beforeLen = content.getBlockForKey(beforeKey).getLength();
+                        if (e.shiftKey) {
+                            const isBackward = key === selection.getFocusKey() && offset === selection.getFocusOffset() ? false : selection.getIsBackward();
+                            setSelectionRange(selection, { anchorOffset: beforeLen, anchorKey: beforeKey, isBackward });
+                        } else {
+                            setSelectionCaret(selection, beforeLen, beforeKey);
+                        }
+                    } else {
+                        if (e.shiftKey) {
+                            const isBackward = key === selection.getFocusKey() && offset === selection.getFocusOffset() ? false : selection.getIsBackward();
+                            setSelectionRange(selection, { anchorOffset: offset - 1, isBackward });
+                        } else {
+                            setSelectionCaret(selection, offset - 1, key);
+                        }
+                    }
                     break;
 
                 case "ArrowDown":
-                    console.log("↓");
+                    if (offset === blockLen) {
+                        const afterKey = content.getKeyAfter(key);
+                        if (!afterKey) break;
+                        if (e.shiftKey) {
+                            const isBackward = key === selection.getFocusKey() && offset === selection.getFocusOffset() ? true : selection.getIsBackward();
+                            setSelectionRange(selection, { anchorOffset: 0, anchorKey: afterKey, isBackward });
+                        } else {
+                            setSelectionCaret(selection, 0, afterKey);
+                        }
+                    } else {
+                        if (e.shiftKey) {
+                            const isBackward = key === selection.getFocusKey() && offset === selection.getFocusOffset() ? true : selection.getIsBackward();
+                            setSelectionRange(selection, { anchorOffset: offset + 1, isBackward });
+                        } else {
+                            setSelectionCaret(selection, offset + 1, key);
+                        }
+                    }
                     break;
 
                 case "ArrowRight":
-                    console.log("→");
+                    if (offset > lw) {
+                        e.shiftKey ? setSelectionRange(selection, { anchorOffset: offset - lw }) : setSelectionCaret(selection, offset - lw, key);
+                    } else {
+                        const beforeKey = content.getKeyBefore(key);
+                        if (!beforeKey) {
+                            if (e.shiftKey) {
+                                setSelectionRange(selection, { anchorOffset: 0 });
+                                break;
+                            }
+                            return "move-selection-to-start-of-block";
+                        }
+                        const beforeLen = content.getBlockForKey(beforeKey).getLength();
+                        if (beforeLen === lw) {
+                            setSelectionCaret(selection, offset, beforeKey);
+                            break;
+                        }
+                        const beforeTargetLine = Math.floor(beforeLen / lw) * lw;
+                        const beforeOffset = beforeTargetLine + Math.min(offset % lw, beforeLen % lw);
+                        if (e.shiftKey) {
+                            const isBackward = key === selection.getFocusKey() && offset - lw <= selection.getFocusOffset() ? false : selection.getIsBackward();
+                            setSelectionRange(selection, { anchorOffset: beforeOffset, anchorKey: beforeKey, isBackward });
+                        } else {
+                            setSelectionCaret(selection, beforeOffset, beforeKey);
+                        }
+                    }
+                    // if (scrollRef.current) {
+                    //     scrollRef.current.scrollLeft += rfs * 1.5;
+                    // }
                     break;
 
                 case "ArrowLeft":
-                    console.log("←");
+                    if (blockLen > lw) {
+                        if (blockLen >= offset + lw) {
+                            e.shiftKey ? setSelectionRange(selection, { anchorOffset: offset + lw }) : setSelectionCaret(selection, offset + lw, key);
+                        } else {
+                            const afterKey = content.getKeyAfter(key);
+                            if (!afterKey || offset % lw > blockLen % lw) {
+                                if (e.shiftKey) {
+                                    setSelectionRange(selection, { anchorOffset: blockLen });
+                                    break;
+                                }
+                                return "move-selection-to-end-of-block";
+                            }
+                            const afterLen = content.getBlockForKey(afterKey).getLength();
+                            if (e.shiftKey) {
+                                const isBackward =
+                                    key === selection.getFocusKey() && offset + lw >= selection.getFocusOffset() ? true : selection.getIsBackward();
+                                setSelectionRange(selection, { anchorOffset: Math.min(offset % lw, afterLen), anchorKey: afterKey, isBackward });
+                            } else {
+                                setSelectionCaret(selection, Math.min(offset % lw, afterLen), afterKey);
+                            }
+                        }
+                    } else {
+                        const afterKey = content.getKeyAfter(key);
+                        if (!afterKey) {
+                            if (e.shiftKey) {
+                                setSelectionRange(selection, { anchorOffset: blockLen });
+                                break;
+                            }
+                            return "move-selection-to-end-of-block";
+                        }
+                        const afterLen = content.getBlockForKey(afterKey).getLength();
+                        const afterOffset = afterLen < offset ? afterLen : offset;
+                        if (e.shiftKey) {
+                            const isBackward = key === selection.getFocusKey() && offset + lw >= selection.getFocusOffset() ? true : selection.getIsBackward();
+                            setSelectionRange(selection, { anchorOffset: afterOffset, anchorKey: afterKey, isBackward });
+                        } else {
+                            setSelectionCaret(selection, afterOffset, afterKey);
+                        }
+                    }
+                    // if (scrollRef.current) {
+                    //     scrollRef.current.scrollLeft -= rfs * 1.5;
+                    // }
                     break;
 
                 default:
