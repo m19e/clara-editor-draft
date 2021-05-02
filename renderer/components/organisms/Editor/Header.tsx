@@ -100,7 +100,9 @@ const TitleEditForm = () => {
                     />
                 </form>
             ) : (
-                <span onClick={() => setIsEdit(true)}>{title}</span>
+                <span className="text-gray-900 whitespace-pre" onClick={() => setIsEdit(true)}>
+                    {title}
+                </span>
             )}
         </>
     );
