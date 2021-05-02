@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, Fragment, WheelEvent } from "react";
-import { ContentState, Editor, EditorState } from "draft-js";
+import { Editor, EditorState, ContentState, SelectionState } from "draft-js";
 import "draft-js/dist/Draft.css";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
+import { SelectionRangeOverride } from "types";
 import { writeDraft } from "lib/draft";
 import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle } from "hooks";
 import MetaHeader from "foundations/MetaHeader";
@@ -89,7 +90,11 @@ const DraftEditor = ({ text }: Props) => {
         setEditorState(es);
     };
 
-    const setSelectionRange = () => {};
+    const setSelectionRange = (selection: SelectionState, override: SelectionRangeOverride) => {
+        const newSelection = selection.merge(override);
+        const newEditor = EditorState.forceSelection(editorState, newSelection);
+        setEditorState(newEditor);
+    };
 
     const setSelectionCaret = () => {};
 
