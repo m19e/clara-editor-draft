@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
-import { useTitle } from "hooks";
-import { renameDraft } from "lib/draft";
 import TitleEditForm from "components/organisms/Editor/TitleEditForm";
 
 const Header = () => {
