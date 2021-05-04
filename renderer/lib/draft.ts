@@ -6,11 +6,11 @@ export const initDraftDir = () => {
         if (!stat.isDirectory()) {
             unlinkSync("draft");
             mkdirSync("draft");
-            writeDraft("draft/clara.txt", "執筆を始める");
+            writeDraft("clara.txt", "執筆を始める");
         }
     } else {
         mkdirSync("draft");
-        writeDraft("draft/clara.txt", "執筆を始める");
+        writeDraft("clara.txt", "執筆を始める");
     }
 };
 
