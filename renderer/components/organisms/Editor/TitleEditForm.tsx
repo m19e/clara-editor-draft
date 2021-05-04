@@ -49,6 +49,7 @@ const TitleEditForm = () => {
                     <input
                         className="text-gray-900 mx-2 text-center shadow-inner editor-bg rounded outline-none focus:outline-none"
                         type="text"
+                        autoFocus
                         value={localTitle}
                         onChange={handleLocalTitleChange}
                         onBlur={() => setIsEdit(false)}
@@ -56,7 +57,6 @@ const TitleEditForm = () => {
                             if (e.key === "Tab") e.preventDefault();
                         }}
                         style={{ minWidth: "10rem", maxWidth: "50rem", width: `${localTitle.length + 1}rem` }}
-                        autoFocus
                     />
                 </form>
             ) : (
