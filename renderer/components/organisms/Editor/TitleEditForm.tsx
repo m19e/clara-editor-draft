@@ -13,7 +13,6 @@ const TitleEditForm = () => {
     const [title, setTitle] = useTitle();
     const [isEdit, setIsEdit] = useIsTitleEdit();
     const [localTitle, setLocalTitle] = useState("");
-    const editTitleRef = useRef(null);
 
     useEffect(() => {
         setLocalTitle(title);
@@ -52,7 +51,6 @@ const TitleEditForm = () => {
                         type="text"
                         value={localTitle}
                         onChange={handleLocalTitleChange}
-                        ref={editTitleRef}
                         onBlur={() => setIsEdit(false)}
                         onKeyDown={(e) => {
                             if (e.key === "Tab") e.preventDefault();
