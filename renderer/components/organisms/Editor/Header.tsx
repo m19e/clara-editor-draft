@@ -8,7 +8,7 @@ const Header = () => {
                 <div className="w-9 h-9 flex justify-start items-center">
                     <Link href="/">
                         <a>
-                            <img className="w-7 h-7" src="/images/icon-64x64.png" alt="Clara" />
+                            <img className="w-7 h-7" src="/images/icon-64x64.png" alt="Home" />
                         </a>
                     </Link>
                 </div>
