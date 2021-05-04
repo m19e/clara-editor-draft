@@ -1,4 +1,18 @@
-import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync } from "fs";
+import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync } from "fs";
+
+export const initDraftDir = () => {
+    if (existsSync("draft")) {
+        const stat = statSync("draft");
+        if (!stat.isDirectory()) {
+            unlinkSync("draft");
+            mkdirSync("draft");
+            writeDraft("draft/clara.txt", "執筆を始める");
+        }
+    } else {
+        mkdirSync("draft");
+        writeDraft("draft/clara.txt", "執筆を始める");
+    }
+};
 
 export const readDrafts = (path: string): Dirent[] => {
     const drafts = readdirSync(path, { encoding: "utf-8", withFileTypes: true });
