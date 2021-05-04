@@ -60,7 +60,6 @@ const TitleEditForm = () => {
                         style={{ minWidth: "10rem", maxWidth: "50rem", width: `${localTitle.length + 1}rem` }}
                     /> */}
                     <AutosizeInput
-                        inputClassName="text-gray-900 px-2 text-center shadow-inner editor-bg rounded outline-none focus:outline-none"
                         type="text"
                         autoFocus
                         value={localTitle}
@@ -69,7 +68,8 @@ const TitleEditForm = () => {
                         onKeyDown={(e) => {
                             if (e.key === "Tab") e.preventDefault();
                         }}
-                        inputStyle={{ minWidth: "10rem", maxWidth: "50rem" }}
+                        inputClassName="text-gray-900 px-2 text-center shadow-inner editor-bg rounded outline-none focus:outline-none"
+                        inputStyle={{ minWidth: "10rem", maxWidth: "36rem" }}
                     />
                 </form>
             ) : (
