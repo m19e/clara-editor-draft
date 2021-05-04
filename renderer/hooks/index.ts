@@ -14,6 +14,7 @@ import {
     disabledDecLWState,
     titleState,
     contentState,
+    isTitleEditState,
 } from "store";
 import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig } from "lib/config";
 
@@ -127,4 +128,9 @@ export const useTitle = (): [string, SetterOrUpdater<string>] => {
 export const useContent = (): [string, SetterOrUpdater<string>] => {
     const [content, setContent] = useRecoilState(contentState);
     return [content, setContent];
+};
+
+export const useIsTitleEdit = (): [boolean, SetterOrUpdater<boolean>] => {
+    const [isEdit, setIsEdit] = useRecoilState(isTitleEditState);
+    return [isEdit, setIsEdit];
 };
