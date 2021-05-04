@@ -2,16 +2,13 @@ import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, un
 
 export const initDraftDir = () => {
     if (existsSync("draft")) {
-        const stat = statSync("draft");
-        if (!stat.isDirectory()) {
-            unlinkSync("draft");
-            mkdirSync("draft");
-            writeDraft("無題.txt", "執筆を始める");
+        if (statSync("draft").isDirectory()) {
+            return;
         }
-    } else {
-        mkdirSync("draft");
-        writeDraft("無題.txt", "執筆を始める");
+        unlinkSync("draft");
     }
+    mkdirSync("draft");
+    writeDraft("無題.txt", "執筆を始める");
 };
 
 export const readDrafts = (path: string): Dirent[] => {
