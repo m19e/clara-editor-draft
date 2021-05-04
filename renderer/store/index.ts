@@ -35,6 +35,11 @@ export const contentState = atom({
     default: "執筆を始める",
 });
 
+export const isTitleEditState = atom({
+    key: "draft/is-title-edit",
+    default: false,
+});
+
 // Selectors
 export const realFontSizeState = selector({
     key: "editor/real-font-size",
