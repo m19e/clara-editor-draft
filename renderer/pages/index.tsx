@@ -53,7 +53,7 @@ const Index = () => {
 
     return (
         <>
-            <MetaHeader title="Index - Nextron (with-typescript-tailwindcss)" />
+            <MetaHeader title="一覧 - Clara Editor" />
             <div>
                 <div className="flex-center w-full">
                     <div className="grid">
