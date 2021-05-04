@@ -78,6 +78,8 @@ const TitleEditForm = () => {
         if (title !== trimmed && trimmed !== "") {
             setTitle(trimmed);
             renameDraft(`${title}.txt`, `${trimmed}.txt`);
+        } else {
+            setLocalTitle(title);
         }
         setIsEdit(false);
     };
