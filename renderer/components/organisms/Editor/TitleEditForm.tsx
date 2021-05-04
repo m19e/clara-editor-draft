@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
-import { useTitle } from "hooks";
+import { useTitle, useIsTitleEdit } from "hooks";
 import { renameDraft } from "lib/draft";
 
 const specialChars = /\(|\)|,|-|\/|!|\\|\:|\?|\.|"|<|>|\|/g;
@@ -11,7 +11,7 @@ const beginningEnd = /^(\s|\\)+|(\s|\\)+$/g;
 
 const TitleEditForm = () => {
     const [title, setTitle] = useTitle();
-    const [isEdit, setIsEdit] = useState(false);
+    const [isEdit, setIsEdit] = useIsTitleEdit();
     const [localTitle, setLocalTitle] = useState("");
     const editTitleRef = useRef(null);
 
