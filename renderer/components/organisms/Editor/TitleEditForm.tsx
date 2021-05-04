@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useTitle, useIsTitleEdit } from "hooks";
 import { renameDraft } from "lib/draft";
 
