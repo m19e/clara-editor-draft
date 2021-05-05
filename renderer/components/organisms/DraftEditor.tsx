@@ -255,7 +255,7 @@ const DraftEditor = ({ text }: Props) => {
                 <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
                     <div style={{ height: `${eh}px` }}>
                         <div className="text-justify" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
-                            <Editor editorState={editorState} onChange={handleEditorChange} keyBindingFn={handleKeyBinding} />
+                            <Editor editorState={editorState} onChange={handleEditorChange} keyBindingFn={handleKeyBinding} onRightArrow={() => {}} />
                         </div>
                     </div>
                 </Scrollbar>
