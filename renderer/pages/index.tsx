@@ -78,6 +78,7 @@ const Index = () => {
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: d } }}>
                                     <a>{name}</a>
                                 </Link>
+                                <span>ここに最終更新日時を表示する</span>
                                 <span onClick={() => removeDraft(d)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path
