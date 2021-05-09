@@ -74,7 +74,7 @@ const Index = () => {
                         const { name, ext } = parse(d);
 
                         return (
-                            <div key={i} className="flex-center">
+                            <div key={i} className="flex-center gap-4">
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: d } }}>
                                     <a>{name}</a>
                                 </Link>
