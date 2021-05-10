@@ -24,7 +24,13 @@ const Index = () => {
             const sorted = drafts
                 .filter((d) => d.isFile() && extname(d.name) === ".txt")
                 .sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
-            setDraftList(() => sorted.map((d) => d.name));
+            setDraftList(() =>
+                sorted.map((d) => {
+                    const { name } = d;
+                    const { mtimeMs } = getDraftStat(name);
+                    return { title: name, updated_at: mtimeMs };
+                })
+            );
             setShouldUpdate(false);
         }
     }, [shouldUpdate]);
