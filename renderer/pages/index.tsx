@@ -7,6 +7,11 @@ import MetaHeader from "foundations/MetaHeader";
 
 const DEFAULT_DRAFT_TITLE = "無題";
 
+type Draft = {
+    name: string;
+    updated_at: number;
+};
+
 const Index = () => {
     const router = useRouter();
     const [draftList, setDraftList] = useState<string[]>([]);
