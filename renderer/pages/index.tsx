@@ -81,15 +81,15 @@ const Index = () => {
                 </div>
                 <div className="grid grid-col-1 w-full text-center">
                     {draftList.map((d, i) => {
-                        const { name, ext } = parse(d);
+                        const { name, ext } = parse(d.title);
 
                         return (
                             <div key={i} className="flex-center gap-4">
-                                <Link href={{ pathname: "/editor/[draft]", query: { draft: d } }}>
+                                <Link href={{ pathname: "/editor/[draft]", query: { draft: d.title } }}>
                                     <a>{name}</a>
                                 </Link>
                                 <span>ここに最終更新日時を表示する</span>
-                                <span onClick={() => removeDraft(d)}>
+                                <span onClick={() => removeDraft(d.title)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path
                                             strokeLinecap="round"
