@@ -22,7 +22,6 @@ const Index = () => {
             setDraftList(() => sorted.map((d) => d.name));
             setShouldUpdate(false);
         }
-        return () => {};
     }, [shouldUpdate]);
 
     const makeNewDraftName = (): string => {
