@@ -8,7 +8,7 @@ import MetaHeader from "foundations/MetaHeader";
 const DEFAULT_DRAFT_TITLE = "無題";
 
 type Draft = {
-    name: string;
+    title: string;
     updated_at: number;
 };
 
