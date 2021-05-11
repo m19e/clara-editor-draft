@@ -92,7 +92,7 @@ const Index = () => {
                 <div className="grid grid-col-1 w-full text-center">
                     {draftList.map((d, i) => {
                         const { title, updated_at } = d;
-                        const { name, ext } = parse(title);
+                        const { name } = parse(title);
 
                         return (
                             <div key={i} className="flex-center gap-4">
