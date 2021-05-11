@@ -48,17 +48,12 @@ const Index = () => {
     const makeNewDraftName = (): string => {
         const titleList = draftList.map((d) => d.title);
         if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
-        const d = new Date();
-        const time =
-            "" +
-            d.getFullYear() +
-            (d.getMonth() + 1) +
-            ("0" + d.getDate()).slice(-2) +
-            ("0" + d.getHours()).slice(-2) +
-            ("0" + d.getMinutes()).slice(-2) +
-            ("0" + d.getSeconds()).slice(-2) +
-            d.getMilliseconds();
-        return `${DEFAULT_DRAFT_TITLE}_${time}`;
+
+        let num = 1;
+        while (titleList.includes(`${DEFAULT_DRAFT_TITLE}_${num}.txt`)) {
+            num++;
+        }
+        return `${DEFAULT_DRAFT_TITLE}_${num}`;
     };
 
     const addDraft = () => {
