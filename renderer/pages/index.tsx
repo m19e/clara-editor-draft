@@ -71,21 +71,24 @@ const Index = () => {
         <>
             <MetaHeader title="一覧 - Clara Editor" />
             <div className="min-h-screen flex-center flex-col">
-                <div className="grid grid-col-1 w-3/5">
+                <div className="grid grid-col-1 w-3/4">
                     {draftList.map((d, i) => {
                         const { title, updated_at } = d;
                         const { name } = parse(title);
                         const [date, time] = getDisplayTime(updated_at);
 
                         return (
-                            <div key={i} className="flex-center">
-                                <button className="px-2 text-gray-600 outline-none focus:outline-none" onClick={() => removeDraft(title)}>
+                            <div key={i} className="flex-center group">
+                                <button
+                                    className="pr-1 text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
+                                    onClick={() => removeDraft(title)}
+                                >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                    <a className="w-full p-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400 border-b border-gray-400">
+                                    <a className="w-full p-2 inline-flex justify-between mincho group-hover:text-gray-50 group-hover:bg-gray-400 border-b border-gray-400">
                                         <span>{name}</span>
                                         <div className="w-28 inline-flex justify-between">
                                             <span>{date}</span>
