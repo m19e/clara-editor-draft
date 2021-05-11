@@ -79,7 +79,7 @@ const Index = () => {
 
                         return (
                             <div key={i} className="flex-center">
-                                <button onClick={() => deleteDraft(title)}>x</button>
+                                <button onClick={() => removeDraft(title)}>x</button>
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
                                     <a className="w-full p-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400 border-b border-gray-400">
                                         <span>{name}</span>
