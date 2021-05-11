@@ -90,7 +90,7 @@ const Index = () => {
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
                                     <a className="w-full p-2 inline-flex justify-between mincho group-hover:text-gray-50 group-hover:bg-gray-400 border-b border-gray-400">
                                         <span>{name}</span>
-                                        <div className="w-28 inline-flex justify-between">
+                                        <div className="inline-flex justify-between" style={{ width: "7.75rem" }}>
                                             <span>{date}</span>
                                             <span>{time}</span>
                                         </div>
