@@ -72,6 +72,15 @@ const Index = () => {
             <MetaHeader title="一覧 - Clara Editor" />
             <div className="min-h-screen flex-center flex-col">
                 <div className="grid grid-col-1 w-3/4">
+                    <div className="w-full inline-flex">
+                        <div className="w-7"></div>
+                        <div className="flex-1 inline-flex justify-between text mincho text-gray-600 px-2 pb-1 border-b border-gray-400">
+                            <span>原稿</span>
+                            <span className="text-left" style={{ width: "7.75rem" }}>
+                                最終更新
+                            </span>
+                        </div>
+                    </div>
                     {draftList.map((d, i) => {
                         const { title, updated_at } = d;
                         const { name } = parse(title);
