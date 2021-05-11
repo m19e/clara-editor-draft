@@ -101,7 +101,7 @@ const Index = () => {
                                         <a>{name}</a>
                                     </Link>
                                     <div className="inline-flex gap-2">
-                                        <span>最終更新 {getDisplayTime(updated_at)}</span>
+                                        <span>{getDisplayTime(updated_at)}</span>
                                         <span onClick={() => removeDraft(title)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path
