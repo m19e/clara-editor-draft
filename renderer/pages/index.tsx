@@ -62,6 +62,11 @@ const Index = () => {
         router.push({ pathname: "/editor/[draft]", query: { draft } });
     };
 
+    const removeDraft = (title: string) => {
+        deleteDraft(title);
+        loadDraftList();
+    };
+
     return (
         <>
             <MetaHeader title="一覧 - Clara Editor" />
