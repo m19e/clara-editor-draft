@@ -108,13 +108,16 @@ const Index = () => {
                             </div>
                         );
                     })}
-                    <div className="w-full flex-center">
-                        <button
-                            className="gothic rounded-full text-gray-700 border border-gray-400 px-4 py-1 mt-3 outline-none focus:outline-none"
-                            onClick={addDraft}
-                        >
-                            新しい原稿
-                        </button>
+                    <div className="inline-flex">
+                        <div className="w-7"></div>
+                        <div className="flex-1 flex-center">
+                            <button
+                                className="gothic rounded-full text-gray-700 border border-gray-400 px-4 py-1 mt-3 outline-none focus:outline-none"
+                                onClick={addDraft}
+                            >
+                                新しい原稿
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
