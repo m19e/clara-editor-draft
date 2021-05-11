@@ -28,6 +28,10 @@ const Index = () => {
 
     useEffect(() => {
         initDraftDir();
+        loadDraftList();
+    }, []);
+
+    const loadDraftList = () => {
         const drafts = readDrafts("draft");
         const sorted = drafts
             .filter((d) => d.isFile() && extname(d.name) === ".txt")
@@ -39,7 +43,7 @@ const Index = () => {
                 return { title: name, updated_at: mtimeMs };
             })
         );
-    }, []);
+    };
 
     const makeNewDraftName = (): string => {
         const titleList = draftList.map((d) => d.title);
