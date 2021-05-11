@@ -87,14 +87,12 @@ const Index = () => {
 
                         return (
                             <div key={i} className="flex-center">
-                                <div className="w-1/2 px-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400">
-                                    <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                        <a>{name}</a>
-                                    </Link>
-                                    <div className="inline-flex gap-2">
+                                <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
+                                    <a className="w-1/2 px-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400">
+                                        <span>{name}</span>
                                         <span>{getDisplayTime(updated_at)}</span>
-                                    </div>
-                                </div>
+                                    </a>
+                                </Link>
                             </div>
                         );
                     })}
