@@ -83,7 +83,9 @@ const Index = () => {
                         );
                     })}
                     <div className="w-full flex-center">
-                        <span onClick={addDraft}>新しい原稿</span>
+                        <span className="gothic rounded-full text-gray-700 border border-gray-400 px-4 py-1 mt-3" onClick={addDraft}>
+                            新しい原稿
+                        </span>
                     </div>
                 </div>
             </div>
