@@ -74,7 +74,7 @@ const Index = () => {
                 <div className="grid grid-col-1 w-3/4">
                     <div className="w-full inline-flex">
                         <div className="w-7"></div>
-                        <div className="flex-1 inline-flex justify-between text mincho text-gray-600 px-2 pb-1 border-b border-gray-400">
+                        <div className="flex-1 inline-flex justify-between text mincho text-gray-600 px-2 pb-2 border-b border-gray-400">
                             <span>原稿</span>
                             <span className="text-left" style={{ width: "7.75rem" }}>
                                 最終更新
@@ -97,7 +97,7 @@ const Index = () => {
                                     </svg>
                                 </button>
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                    <a className="w-full p-2 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
+                                    <a className="w-full px-2 py-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
                                         <span>{name}</span>
                                         <div className="inline-flex justify-between" style={{ width: "7.75rem" }}>
                                             <span>{date}</span>
@@ -112,7 +112,7 @@ const Index = () => {
                         <div className="w-7"></div>
                         <div className="flex-1 flex-center">
                             <button
-                                className="gothic rounded-full text-gray-700 border border-gray-400 px-4 py-1 mt-3 outline-none focus:outline-none"
+                                className="gothic rounded-full text-gray-700 border border-gray-400 px-4 py-1 mt-4 outline-none focus:outline-none"
                                 onClick={addDraft}
                             >
                                 新しい原稿
