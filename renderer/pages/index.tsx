@@ -78,7 +78,7 @@ const Index = () => {
                         const [date, time] = getDisplayTime(updated_at);
 
                         return (
-                            <div key={i} className="flex-center group">
+                            <div key={i} className="flex-center text-gray-600 text-lg group">
                                 <button
                                     className="pr-1 text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
                                     onClick={() => removeDraft(title)}
