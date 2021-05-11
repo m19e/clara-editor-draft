@@ -61,7 +61,7 @@ const Index = () => {
     return (
         <>
             <MetaHeader title="一覧 - Clara Editor" />
-            <div>
+            <div className="min-h-screen flex-center flex-col">
                 <div className="flex-center w-full">
                     <div className="grid">
                         <span onClick={addDraft}>
@@ -76,7 +76,7 @@ const Index = () => {
                         </span>
                     </div>
                 </div>
-                <div className="grid grid-col-1 w-full">
+                <div className="grid grid-col-1 w-3/5">
                     {draftList.map((d, i) => {
                         const { title, updated_at } = d;
                         const { name } = parse(title);
@@ -85,7 +85,7 @@ const Index = () => {
                         return (
                             <div key={i} className="flex-center">
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                    <a className="w-1/2 p-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400 border-b border-gray-400">
+                                    <a className="w-full p-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400 border-b border-gray-400">
                                         <span>{name}</span>
                                         <div className="w-28 inline-flex justify-between">
                                             <span>{date}</span>
