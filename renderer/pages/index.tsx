@@ -12,14 +12,14 @@ type Draft = {
     updated_at: number;
 };
 
-const getDisplayTime = (ms: number): string => {
+const getDisplayTime = (ms: number): [string, string] => {
     const dt = new Date(ms);
     const y = dt.getFullYear() + "/";
     const m = dt.getMonth() + 1 + "/";
-    const d = dt.getDate() + " ";
+    const d = dt.getDate();
     const ho = ("00" + dt.getHours()).slice(-2) + ":";
     const mi = ("00" + dt.getMinutes()).slice(-2);
-    return y + m + d + ho + mi;
+    return [y + m + d, ho + mi];
 };
 
 const Index = () => {
