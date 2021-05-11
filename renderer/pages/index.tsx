@@ -25,7 +25,6 @@ const getDisplayTime = (ms: number): string => {
 const Index = () => {
     const router = useRouter();
     const [draftList, setDraftList] = useState<Draft[]>([]);
-    const [shouldUpdate, setShouldUpdate] = useState(true);
 
     useEffect(() => {
         initDraftDir();
