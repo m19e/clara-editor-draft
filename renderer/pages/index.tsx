@@ -80,13 +80,17 @@ const Index = () => {
                     {draftList.map((d, i) => {
                         const { title, updated_at } = d;
                         const { name } = parse(title);
+                        const [date, time] = getDisplayTime(updated_at);
 
                         return (
                             <div key={i} className="flex-center">
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                    <a className="w-1/2 px-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400">
+                                    <a className="w-1/2 p-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400 border-b border-gray-400">
                                         <span>{name}</span>
-                                        <span>{getDisplayTime(updated_at)}</span>
+                                        <div className="w-28 inline-flex justify-between">
+                                            <span>{date}</span>
+                                            <span>{time}</span>
+                                        </div>
                                     </a>
                                 </Link>
                             </div>
