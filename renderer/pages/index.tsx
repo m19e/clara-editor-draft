@@ -66,8 +66,8 @@ const Index = () => {
         router.push({ pathname: "/editor/[draft]", query: { draft } });
     };
 
-    const removeDraft = (draft: string) => {
-        deleteDraft(draft);
+    const removeDraft = (title: string) => {
+        deleteDraft(title);
         setShouldUpdate(true);
     };
 
