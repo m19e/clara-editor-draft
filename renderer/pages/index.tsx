@@ -96,7 +96,7 @@ const Index = () => {
 
                         return (
                             <div className="flex-center">
-                                <div key={i} className="w-1/2 inline-flex justify-between mincho">
+                                <div key={i} className="w-1/2 px-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400">
                                     <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
                                         <a>{name}</a>
                                     </Link>
