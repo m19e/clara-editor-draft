@@ -28,22 +28,19 @@ const Index = () => {
     const [shouldUpdate, setShouldUpdate] = useState(true);
 
     useEffect(() => {
-        if (shouldUpdate) {
-            initDraftDir();
-            const drafts = readDrafts("draft");
-            const sorted = drafts
-                .filter((d) => d.isFile() && extname(d.name) === ".txt")
-                .sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
-            setDraftList(() =>
-                sorted.map((d) => {
-                    const { name } = d;
-                    const { mtimeMs } = getDraftStat(name);
-                    return { title: name, updated_at: mtimeMs };
-                })
-            );
-            setShouldUpdate(false);
-        }
-    }, [shouldUpdate]);
+        initDraftDir();
+        const drafts = readDrafts("draft");
+        const sorted = drafts
+            .filter((d) => d.isFile() && extname(d.name) === ".txt")
+            .sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
+        setDraftList(() =>
+            sorted.map((d) => {
+                const { name } = d;
+                const { mtimeMs } = getDraftStat(name);
+                return { title: name, updated_at: mtimeMs };
+            })
+        );
+    }, []);
 
     const makeNewDraftName = (): string => {
         const titleList = draftList.map((d) => d.title);
