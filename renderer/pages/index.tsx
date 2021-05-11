@@ -79,8 +79,10 @@ const Index = () => {
 
                         return (
                             <div key={i} className="flex-center">
-                                <button className=" outline-none focus:outline-none" onClick={() => removeDraft(title)}>
-                                    x
+                                <button className="px-2 text-gray-600 outline-none focus:outline-none" onClick={() => removeDraft(title)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
                                 </button>
                                 <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
                                     <a className="w-full p-2 inline-flex justify-between mincho hover:text-gray-50 hover:bg-gray-400 border-b border-gray-400">
