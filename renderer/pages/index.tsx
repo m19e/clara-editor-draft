@@ -46,7 +46,8 @@ const Index = () => {
     }, [shouldUpdate]);
 
     const makeNewDraftName = (): string => {
-        if (!draftList.map((d) => d.title).includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
+        const titleList = draftList.map((d) => d.title);
+        if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
         const d = new Date();
         const time =
             "" +
