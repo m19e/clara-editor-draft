@@ -100,7 +100,7 @@ const Index = () => {
                                         </svg>
                                     </button>
                                     <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                        <a className="col-span-10 py-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
+                                        <a className="col-span-10 p-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
                                             <span>{name}</span>
                                             <div className="inline-flex justify-between" style={{ width: "7.75rem" }}>
                                                 <span>{date}</span>
