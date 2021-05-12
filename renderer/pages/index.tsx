@@ -108,7 +108,6 @@ const Index = () => {
                                             </div>
                                         </a>
                                     </Link>
-                                    <div className="col-span-1"></div>
                                 </div>
                             );
                         })}
