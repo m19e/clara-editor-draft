@@ -75,9 +75,8 @@ const Index = () => {
             <Scrollbar className="max-h-screen">
                 <div className="min-h-screen flex-center flex-col">
                     <div className="grid grid-col-1 w-3/4 select-none">
-                        <div className="w-full inline-flex">
-                            <div className="w-7"></div>
-                            <div className="flex-1 inline-flex justify-between text mincho text-gray-600 px-2 pb-2 border-b border-gray-400">
+                        <div className="w-full grid grid-cols-12">
+                            <div className="col-start-2 col-span-10 inline-flex justify-between text mincho text-gray-600 px-4 pb-2 border-b border-gray-400">
                                 <span>原稿</span>
                                 <span className="text-left" style={{ width: "7.75rem" }}>
                                     最終更新
