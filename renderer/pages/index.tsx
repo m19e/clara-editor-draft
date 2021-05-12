@@ -90,9 +90,9 @@ const Index = () => {
                             const [date, time] = getDisplayTime(updated_at);
 
                             return (
-                                <div key={i} className="flex-center text-gray-600 text-lg group">
+                                <div key={i} className="grid grid-cols-12 text-gray-600 text-lg group">
                                     <button
-                                        className="pr-1 text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
+                                        className="col-span-1 text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
                                         onClick={() => removeDraft(title)}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,7 +100,7 @@ const Index = () => {
                                         </svg>
                                     </button>
                                     <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                        <a className="w-full px-2 py-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
+                                        <a className="col-span-10 py-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
                                             <span>{name}</span>
                                             <div className="inline-flex justify-between" style={{ width: "7.75rem" }}>
                                                 <span>{date}</span>
@@ -108,6 +108,7 @@ const Index = () => {
                                             </div>
                                         </a>
                                     </Link>
+                                    <div className="col-span-1"></div>
                                 </div>
                             );
                         })}
