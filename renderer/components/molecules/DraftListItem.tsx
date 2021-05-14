@@ -28,7 +28,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
     return (
         <div className="grid grid-cols-12 text-gray-600 group">
             {removeMode ? (
-                <div className="col-span-1 inline-flex justify-end px-2">
+                <div className="col-span-1 inline-flex justify-end pr-1">
                     <div className="flex-center">
                         <button
                             className="w-8 h-8 flex-center rounded-full text-gray-50 bg-gray-400 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
@@ -41,7 +41,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                     </div>
                 </div>
             ) : (
-                <div className="col-span-1 inline-flex justify-end px-2">
+                <div className="col-span-1 inline-flex justify-end pr-2">
                     <button className="text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none" onClick={() => setRemoveMode(true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
