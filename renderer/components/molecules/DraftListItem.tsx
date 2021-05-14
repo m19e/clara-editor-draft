@@ -28,36 +28,44 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
     return (
         <div className="grid grid-cols-12 text-gray-600 group">
             {removeMode ? (
-                <div className="col-span-1 inline-flex justify-end pr-1">
-                    <div className="flex-center">
-                        <button
-                            className="w-8 h-8 flex-center rounded-full text-gray-50 bg-gray-400 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
-                            onClick={() => setRemoveMode(false)}
-                        >
+                <>
+                    <div className="col-span-1 inline-flex justify-end pr-1">
+                        <div className="flex-center">
+                            <button
+                                className="w-8 h-8 flex-center rounded-full text-gray-50 bg-gray-400 outline-none focus:outline-none"
+                                onClick={() => setRemoveMode(false)}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="col-span-10 px-2 inline-flex items-center gap-2 mincho border-b border-gray-400">
+                        <button className="gothic font-black text-sm text-white bg-red-500 p-2 rounded">削除</button>
+                        <span className="text-lg my-4">{name}</span>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className="col-span-1 inline-flex justify-end pr-2">
+                        <button className="text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none" onClick={() => setRemoveMode(true)}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
-                </div>
-            ) : (
-                <div className="col-span-1 inline-flex justify-end pr-2">
-                    <button className="text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none" onClick={() => setRemoveMode(true)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+                    <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
+                        <a className="col-span-10 p-4 inline-flex justify-between mincho group-hover:bg-gray-400 border-b border-gray-400">
+                            <span className="text-lg group-hover:text-white">{name}</span>
+                            <div className="inline-flex justify-between w-28 text-gray-500 group-hover:text-white">
+                                <span>{date}</span>
+                                <span>{time}</span>
+                            </div>
+                        </a>
+                    </Link>
+                </>
             )}
-            <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                <a className="col-span-10 p-4 inline-flex justify-between mincho group-hover:bg-gray-400 border-b border-gray-400">
-                    <span className="text-lg group-hover:text-white">{name}</span>
-                    <div className="inline-flex justify-between w-28 text-gray-500 group-hover:text-white">
-                        <span>{date}</span>
-                        <span>{time}</span>
-                    </div>
-                </a>
-            </Link>
         </div>
     );
 };
