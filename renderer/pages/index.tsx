@@ -72,16 +72,13 @@ const Index = () => {
                         {draftList.map((draft, i) => (
                             <DraftListItem key={i} draft={draft} removeFn={removeDraft} />
                         ))}
-                        <div className="inline-flex">
-                            <div className="w-7"></div>
-                            <div className="flex-1 flex-center">
-                                <button
-                                    className="gothic rounded-full text-gray-700 border border-gray-500 px-6 py-1 mt-4 outline-none focus:outline-none"
-                                    onClick={addDraft}
-                                >
-                                    新しい原稿
-                                </button>
-                            </div>
+                        <div className="flex-center">
+                            <button
+                                className="gothic rounded-full text-gray-700 border border-gray-500 px-6 py-1 mt-4 outline-none focus:outline-none"
+                                onClick={addDraft}
+                            >
+                                新しい原稿
+                            </button>
                         </div>
                     </div>
                 </div>
