@@ -34,7 +34,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
             <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
                 <a className="col-span-10 p-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
                     <span className="text-lg">{name}</span>
-                    <div className="inline-flex justify-between" style={{ width: "7.75rem" }}>
+                    <div className="inline-flex justify-between w-28 text-gray-500">
                         <span>{date}</span>
                         <span>{time}</span>
                     </div>
