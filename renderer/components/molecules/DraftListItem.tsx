@@ -14,9 +14,10 @@ const getDisplayTime = (ms: number): [string, string] => {
 
 type Props = {
     draft: Draft;
+    removeFn: (t: string) => void;
 };
 
-const DraftListItem = ({ draft }: Props) => {
+const DraftListItem = ({ draft, removeFn }: Props) => {
     const { title, updated_at } = draft;
     const { name } = parse(title);
     const [date, time] = getDisplayTime(updated_at);
@@ -24,7 +25,7 @@ const DraftListItem = ({ draft }: Props) => {
     return (
         <div className="grid grid-cols-12 text-gray-600 text-lg group">
             <div className="col-span-1 inline-flex justify-end px-2">
-                <button className="text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none" onClick={() => {}}>
+                <button className="text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none" onClick={() => removeFn(title)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
