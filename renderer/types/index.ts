@@ -7,3 +7,8 @@ export type SelectionRangeOverride = {
     focusKey?: string;
     isBackward?: boolean;
 };
+
+export type Draft = {
+    title: string;
+    updated_at: number;
+};
