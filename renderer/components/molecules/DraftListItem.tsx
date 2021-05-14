@@ -14,7 +14,7 @@ const getDisplayTime = (ms: number): [string, string] => {
 
 type Props = {
     draft: Draft;
-    removeFn: (t: string) => void;
+    removeFn: (title: string) => void;
 };
 
 const DraftListItem = ({ draft, removeFn }: Props) => {
