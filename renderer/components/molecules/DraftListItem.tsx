@@ -12,7 +12,11 @@ const getDisplayTime = (ms: number): [string, string] => {
     return [y + m + d, ho + mi];
 };
 
-const DraftListItem = (draft: Draft) => {
+type Props = {
+    draft: Draft;
+};
+
+const DraftListItem = ({ draft }: Props) => {
     const { title, updated_at } = draft;
     const { name } = parse(title);
     const [date, time] = getDisplayTime(updated_at);
