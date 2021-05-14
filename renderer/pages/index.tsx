@@ -4,16 +4,13 @@ import { useState, useEffect } from "react";
 import { parse, extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
+
+import { Draft } from "types";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
 import DraftListItem from "components/molecules/DraftListItem";
 
 const DEFAULT_DRAFT_TITLE = "無題";
-
-type Draft = {
-    title: string;
-    updated_at: number;
-};
 
 const Index = () => {
     const router = useRouter();
