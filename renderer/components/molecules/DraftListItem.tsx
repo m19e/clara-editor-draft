@@ -25,6 +25,11 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
     const { name } = parse(title);
     const [date, time] = getDisplayTime(updated_at);
 
+    const removeProc = () => {
+        removeFn(title);
+        setRemoveMode(false);
+    };
+
     return (
         <div className="grid grid-cols-12 text-gray-600 group">
             {removeMode ? (
@@ -42,7 +47,9 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         </div>
                     </div>
                     <div className="col-span-10 px-2 inline-flex items-center gap-2 mincho border-b border-gray-400">
-                        <button className="gothic font-black text-sm text-white bg-red-500 p-2 rounded">削除</button>
+                        <button className="gothic font-black text-sm text-white bg-red-500 p-2 rounded" onClick={removeProc}>
+                            削除
+                        </button>
                         <span className="text-lg my-4">{name}</span>
                     </div>
                 </>
