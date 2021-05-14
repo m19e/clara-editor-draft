@@ -71,8 +71,8 @@ const Index = () => {
                                 </span>
                             </div>
                         </div>
-                        {draftList.map((d, i) => (
-                            <DraftListItem key={i} draft={d} removeFn={removeDraft} />
+                        {draftList.map((draft, i) => (
+                            <DraftListItem key={i} draft={draft} removeFn={removeDraft} />
                         ))}
                         <div className="inline-flex">
                             <div className="w-7"></div>
