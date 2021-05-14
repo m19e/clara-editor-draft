@@ -6,6 +6,7 @@ import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
 import MetaHeader from "foundations/MetaHeader";
+import DraftListItem from "components/molecules/DraftListItem";
 
 const DEFAULT_DRAFT_TITLE = "無題";
 
@@ -83,35 +84,9 @@ const Index = () => {
                                 </span>
                             </div>
                         </div>
-                        {draftList.map((d, i) => {
-                            const { title, updated_at } = d;
-                            const { name } = parse(title);
-                            const [date, time] = getDisplayTime(updated_at);
-
-                            return (
-                                <div key={i} className="grid grid-cols-12 text-gray-600 text-lg group">
-                                    <div className="col-span-1 inline-flex justify-end px-2">
-                                        <button
-                                            className="text-gray-600 opacity-0 group-hover:opacity-100 outline-none focus:outline-none"
-                                            onClick={() => removeDraft(title)}
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                                        <a className="col-span-10 p-4 inline-flex justify-between mincho group-hover:text-white group-hover:bg-gray-400 border-b border-gray-400">
-                                            <span>{name}</span>
-                                            <div className="inline-flex justify-between" style={{ width: "7.75rem" }}>
-                                                <span>{date}</span>
-                                                <span>{time}</span>
-                                            </div>
-                                        </a>
-                                    </Link>
-                                </div>
-                            );
-                        })}
+                        {draftList.map((d, i) => (
+                            <DraftListItem key={i} draft={d} />
+                        ))}
                         <div className="inline-flex">
                             <div className="w-7"></div>
                             <div className="flex-1 flex-center">
