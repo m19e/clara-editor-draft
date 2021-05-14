@@ -64,9 +64,9 @@ const Index = () => {
                 <div className="min-h-screen flex-center flex-col">
                     <div className="grid grid-col-1 w-3/4 select-none">
                         <div className="w-full grid grid-cols-12">
-                            <div className="col-start-2 col-span-10 inline-flex justify-between text-sm mincho text-gray-600 px-4 pb-2 border-b border-gray-400">
-                                <span>原稿</span>
-                                <span className="text-left w-28">最終更新</span>
+                            <div className="col-start-2 col-span-10 inline-flex justify-between text-sm mincho px-4 pb-2 border-b border-gray-400">
+                                <span className="text-gray-600">原稿</span>
+                                <span className="w-28 text-left text-gray-500">最終更新</span>
                             </div>
                         </div>
                         {draftList.map((draft, i) => (
