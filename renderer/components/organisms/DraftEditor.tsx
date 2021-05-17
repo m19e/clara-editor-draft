@@ -41,10 +41,10 @@ const DraftEditor = ({ text }: Props) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (!saved) saveDraft();
+            if (!saved) saveDraft(editorState);
         }, 5000);
         return () => clearTimeout(timer);
-    }, [saved]);
+    }, [editorState]);
 
     // const saveDraftWithDialog = () => {
     //     const text = editorState.getCurrentContent().getPlainText();
@@ -66,8 +66,8 @@ const DraftEditor = ({ text }: Props) => {
     //     }
     // };
 
-    const saveDraft = () => {
-        const data = editorState.getCurrentContent().getPlainText();
+    const saveDraft = (es: EditorState) => {
+        const data = es.getCurrentContent().getPlainText();
 
         try {
             writeDraft(`${title}.txt`, data);
