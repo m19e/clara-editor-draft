@@ -67,8 +67,8 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         </button>
                     </div>
                     <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                        <a className="col-span-10 p-4 inline-flex justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400">
-                            <span className="pr-4 text-lg group-hover:text-white" style={{ wordBreak: "break-all" }}>
+                        <a className="col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400">
+                            <span className="text-lg group-hover:text-white" style={{ wordBreak: "break-all" }}>
                                 {name}
                             </span>
                             <div className="inline-flex justify-between w-28 text-gray-500 group-hover:text-white">
