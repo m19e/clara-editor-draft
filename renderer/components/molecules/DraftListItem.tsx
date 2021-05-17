@@ -25,7 +25,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
 
     const { title, updated_at } = draft;
     const { name } = parse(title);
-    const [date, time] = getDisplayTime(updated_at);
+    const time = getDisplayTime(updated_at);
 
     const removeProc = () => {
         removeFn(title);
@@ -74,8 +74,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                                 {name}
                             </span>
                             <div className="inline-flex justify-between w-28 text-gray-500 group-hover:text-white">
-                                <span>{date}</span>
-                                <span>{time}</span>
+                                <span className="whitespace-pre">{time}</span>
                             </div>
                         </a>
                     </Link>
