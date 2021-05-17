@@ -247,7 +247,7 @@ const DraftEditor = ({ text }: Props) => {
             return null;
         }
 
-        getDefaultKeyBinding(e);
+        return getDefaultKeyBinding(e);
     };
 
     return (
