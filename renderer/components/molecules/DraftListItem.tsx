@@ -56,7 +56,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         <button className="whitespace-nowrap gothic font-black text-sm text-white bg-red-500 p-2 rounded" onClick={removeProc}>
                             削除
                         </button>
-                        <span className="text-lg text-white my-4">{name}</span>
+                        <span className="text-lg break-all text-white my-4">{name}</span>
                     </div>
                 </>
             ) : (
