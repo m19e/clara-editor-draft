@@ -53,7 +53,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         </div>
                     </div>
                     <div className="col-span-10 px-2 inline-flex items-center gap-2 mincho bg-gray-400 border-b border-gray-400">
-                        <button className="gothic font-black text-sm text-white bg-red-500 p-2 rounded" onClick={removeProc}>
+                        <button className="whitespace-nowrap gothic font-black text-sm text-white bg-red-500 p-2 rounded" onClick={removeProc}>
                             削除
                         </button>
                         <span className="text-lg text-white my-4">{name}</span>
@@ -73,8 +73,8 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                             <span className="text-lg group-hover:text-white" style={{ wordBreak: "break-all" }}>
                                 {name}
                             </span>
-                            <div className="inline-flex justify-between w-28 text-gray-500 group-hover:text-white">
-                                <span className="whitespace-pre">{time}</span>
+                            <div className="inline-flex w-28">
+                                <span className="whitespace-pre text-gray-500 group-hover:text-white">{time}</span>
                             </div>
                         </a>
                     </Link>
