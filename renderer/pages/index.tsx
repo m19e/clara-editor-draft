@@ -75,7 +75,7 @@ const Index = () => {
                         ))}
                         <div className="flex-center">
                             <button
-                                className="gothic rounded-full text-gray-700 border border-gray-500 px-6 py-1 mt-8 outline-none focus:outline-none"
+                                className="gothic rounded-full text-gray-600 hover:text-gray-50 hover:bg-gray-400 border border-gray-400 px-6 py-1 mt-8 outline-none focus:outline-none"
                                 onClick={addDraft}
                             >
                                 新しい原稿
