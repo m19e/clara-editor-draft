@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { parse, extname } from "path";
+import { extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
