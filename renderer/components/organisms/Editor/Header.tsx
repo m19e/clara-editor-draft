@@ -16,7 +16,6 @@ const Header = () => {
                     <div className="col-span-10 flex-center">
                         <TitleEditForm />
                     </div>
-                    <div className="w-9"></div>
                 </div>
             </div>
         </div>
