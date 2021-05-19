@@ -1,7 +1,7 @@
 {
     "private": true,
-    "name": "nextron-template",
-    "description": "My application description",
+    "name": "clara-editor",
+    "description": "Clara Editor - Novel Editor with Vertical Typing",
     "version": "1.0.0",
     "author": "m19e",
     "main": "app/background.js",
