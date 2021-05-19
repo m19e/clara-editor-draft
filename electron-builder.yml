@@ -11,4 +11,4 @@ files:
           - app
 publish: null
 win:
-    icon: resources/clara_desktop.png
+    icon: resources/clara_icon.png
