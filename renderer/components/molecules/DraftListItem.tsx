@@ -7,7 +7,7 @@ const getDisplayTime = (ms: number): string => {
     const dt = new Date(ms);
     const y = dt.getFullYear() + "/";
     const m = dt.getMonth() + 1 + "/";
-    const d = "" + dt.getDate();
+    const d = dt.getDate();
     const md = m + d;
     const date = (md + "     ").slice(0, 8 + (4 - md.length));
     const ho = ("00" + dt.getHours()).slice(-2) + ":";
