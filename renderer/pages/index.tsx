@@ -65,7 +65,7 @@ const Index = () => {
                         <div className="w-full grid grid-cols-12">
                             <div className="h-8 col-start-2 col-span-10 inline-flex justify-between text-sm mincho px-4 pb-2 border-b border-gray-400">
                                 <span className="text-gray-600">原稿</span>
-                                <div className="inline-flex w-0 overflow-hidden sm:w-28 sm:overflow-visible">
+                                <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
                                     <span className="text-left text-gray-500">最終更新</span>
                                 </div>
                             </div>

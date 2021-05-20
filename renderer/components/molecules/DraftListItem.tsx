@@ -68,7 +68,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                     <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
                         <a className="col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400">
                             <span className="break-all text-lg group-hover:text-white">{name}</span>
-                            <div className="inline-flex w-0 overflow-hidden sm:w-28 sm:overflow-visible">
+                            <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
                                 <span className="whitespace-pre text-gray-500 group-hover:text-white">{time}</span>
                             </div>
                         </a>
