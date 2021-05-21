@@ -15,6 +15,10 @@ const getLineWords = (): number => {
     return store.get("editor/line-words", 30) as number;
 };
 
+const getAutosaveDuration = (): number => {
+    return store.get("editor/autosave-duration", 5) as number;
+};
+
 export const getFormat = (): [FontType, number, number] => {
     const fontType = getFontType();
     const fontSize = getFontSize();
@@ -33,4 +37,8 @@ export const setFontSizeConfig = (fs: number) => {
 
 export const setLineWordsConfig = (lw: number) => {
     store.set("editor/line-words", lw);
+};
+
+export const setAutosaveDuration = (ad: number) => {
+    store.set("editor/autosave-duration", ad);
 };
