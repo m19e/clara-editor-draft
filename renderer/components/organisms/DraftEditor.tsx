@@ -42,7 +42,7 @@ const DraftEditor = ({ text }: Props) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             if (!saved) saveDraft(editorState);
-        }, 5000);
+        }, 1000);
         return () => clearTimeout(timer);
     }, [editorState]);
 
