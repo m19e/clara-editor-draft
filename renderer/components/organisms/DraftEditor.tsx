@@ -5,7 +5,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { SelectionRangeOverride } from "types";
 import { writeDraft } from "lib/draft";
-import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle } from "hooks";
+import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle, useAutosaveDuration } from "hooks";
 import MetaHeader from "foundations/MetaHeader";
 
 type Props = {
@@ -17,6 +17,7 @@ const DraftEditor = ({ text }: Props) => {
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
     const eh = getEditorHeight();
+    const [autosaveDuration] = useAutosaveDuration();
     const [title] = useTitle();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const [saved, setSaved] = useState(true);
@@ -42,7 +43,7 @@ const DraftEditor = ({ text }: Props) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             if (!saved) saveDraft(editorState);
-        }, 1000);
+        }, autosaveDuration * 1000);
         return () => clearTimeout(timer);
     }, [editorState]);
 
