@@ -93,7 +93,10 @@ const DraftEditor = ({ text }: Props) => {
         const oldText = editorState.getCurrentContent().getPlainText();
         const newText = es.getCurrentContent().getPlainText();
 
-        if (oldText !== newText) setSaved(false);
+        if (oldText !== newText) {
+            setSaved(false);
+            setPlainText(newText);
+        }
         setEditorState(es);
     };
 
