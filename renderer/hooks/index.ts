@@ -15,6 +15,7 @@ import {
     titleState,
     contentState,
     isTitleEditState,
+    autosaveDurationState,
 } from "store";
 import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig } from "lib/config";
 
@@ -117,6 +118,11 @@ export const useDisabled = (): DisabledType => {
     const decLW = useRecoilValue(disabledDecLWState);
 
     return { incFS, decFS, incLW, decLW };
+};
+
+export const useAutosaveDuration = (): [number, SetterOrUpdater<number>] => {
+    const [duration, setDuration] = useRecoilState(autosaveDurationState);
+    return [duration, setDuration];
 };
 
 // Draft
