@@ -4,8 +4,6 @@ const getTextCharCount = (text: string): number => {
     return Array.from(cleanString).length;
 };
 
-const DraftCharCount = ({ text }: { text: string }) => {
+export default ({ text }: { text: string }) => {
     return <span className="text-gray-500">{getTextCharCount(text)}</span>;
 };
-
-export default DraftCharCount;
