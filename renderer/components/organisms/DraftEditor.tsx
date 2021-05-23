@@ -267,7 +267,7 @@ const DraftEditor = ({ text }: Props) => {
                     </div>
                 </Scrollbar>
                 <div className="fixed bottom-0 w-full flex-center pb-1 bg-transparent">
-                    <CharCount text={"asydfbauydbauydbauyyd"} />
+                    <CharCount text={plainText} />
                 </div>
             </div>
         </Fragment>
