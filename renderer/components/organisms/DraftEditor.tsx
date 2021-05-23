@@ -13,7 +13,7 @@ type Props = {
     text: string;
 };
 
-const DraftEditor = ({ text }: Props) => {
+export default ({ text }: Props) => {
     const rfs = getRealFontSize();
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
@@ -276,5 +276,3 @@ const DraftEditor = ({ text }: Props) => {
         </Fragment>
     );
 };
-
-export default DraftEditor;
