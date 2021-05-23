@@ -7,6 +7,7 @@ import { SelectionRangeOverride } from "types";
 import { writeDraft } from "lib/draft";
 import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle, useAutosaveDuration } from "hooks";
 import MetaHeader from "foundations/MetaHeader";
+import CharCount from "components/molecules/DraftCharCount";
 
 type Props = {
     text: string;
@@ -262,6 +263,9 @@ const DraftEditor = ({ text }: Props) => {
                         </div>
                     </div>
                 </Scrollbar>
+                <div className="fixed bottom-0 w-full flex-center pb-1 bg-transparent">
+                    <CharCount text={"asydfbauydbauydbauyyd"} />
+                </div>
             </div>
         </Fragment>
     );
