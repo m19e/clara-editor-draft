@@ -16,7 +16,7 @@ const getLineWords = (): number => {
 };
 
 const getAutosaveDuration = (): number => {
-    return store.get("editor/autosave-duration", 5) as number;
+    return store.get("editor/autosave-duration", 1) as number;
 };
 
 export const getFormat = (): [FontType, number, number, number] => {
