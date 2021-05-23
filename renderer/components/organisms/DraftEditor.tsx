@@ -21,12 +21,15 @@ const DraftEditor = ({ text }: Props) => {
     const [autosaveDuration] = useAutosaveDuration();
     const [title] = useTitle();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
+    const [plainText, setPlainText] = useState("");
     const [saved, setSaved] = useState(true);
     const wrapperRef = useRef(null);
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        setEditorState(() => EditorState.createWithContent(ContentState.createFromText(text)));
+        const es = EditorState.createWithContent(ContentState.createFromText(text));
+        setEditorState(es);
+        setPlainText(text);
     }, [text]);
 
     useEffect(() => {
