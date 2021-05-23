@@ -15,7 +15,7 @@ const getLineWords = (): number => {
     return store.get("editor/line-words", 30) as number;
 };
 
-const getAutosaveDuration = (): number => {
+export const getAutosaveDuration = (): number => {
     return store.get("editor/autosave-duration", 5) as number;
 };
 
