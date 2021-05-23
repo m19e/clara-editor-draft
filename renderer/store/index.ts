@@ -60,7 +60,7 @@ export const disabledIncFSState = selector({
     key: "editor/disabled-inc-fs",
     get: ({ get }) => {
         const rfs = get(realFontSizeState);
-        return (rfs + 2) * get(lineWordsState) > get(wrapperHeightState) || rfs >= 48;
+        return (rfs + 2) * get(lineWordsState) > get(wrapperHeightState) - 16 || rfs >= 48;
     },
 });
 
@@ -73,7 +73,7 @@ export const disabledIncLWState = selector({
     key: "editor/disabled-inc-lw",
     get: ({ get }) => {
         const lw = get(lineWordsState);
-        return get(realFontSizeState) * (lw + 1) > get(wrapperHeightState) || lw >= 50;
+        return get(realFontSizeState) * (lw + 1) > get(wrapperHeightState) - 16 || lw >= 50;
     },
 });
 
