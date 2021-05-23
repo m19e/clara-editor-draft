@@ -9,11 +9,7 @@ import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTi
 import MetaHeader from "foundations/MetaHeader";
 import CharCount from "components/molecules/DraftCharCount";
 
-type Props = {
-    text: string;
-};
-
-export default ({ text }: Props) => {
+export default ({ text }: { text: string }) => {
     const rfs = getRealFontSize();
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
