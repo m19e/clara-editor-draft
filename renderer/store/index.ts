@@ -24,6 +24,11 @@ export const wrapperHeightState = atom({
     default: 480,
 });
 
+export const autosaveDurationState = atom({
+    key: "editor/autosave-duration",
+    default: 5,
+});
+
 // Draft
 export const titleState = atom({
     key: "draft/title",
