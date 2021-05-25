@@ -14,7 +14,6 @@ const DEFAULT_DRAFT_TITLE = "無題";
 const Index = () => {
     const router = useRouter();
     const [draftList, setDraftList] = useState<Draft[]>([]);
-    const [showTooltip, setShowTooltip] = useState(false);
 
     useEffect(() => {
         initDraftDir();
@@ -65,12 +64,7 @@ const Index = () => {
                     <div className="grid grid-col-1 w-3/4 xl:max-w-5xl my-8 select-none">
                         <div className="grid grid-cols-12">
                             <div className="col-span-1 inline-flex justify-end pr-2">
-                                <button
-                                    className="group relative text-gray-500 hover:text-gray-600 pb-1"
-                                    onClick={addDraft}
-                                    onMouseEnter={() => setShowTooltip(true)}
-                                    onMouseLeave={() => setShowTooltip(false)}
-                                >
+                                <button className="group relative text-gray-500 hover:text-gray-600 pb-1" onClick={addDraft}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
