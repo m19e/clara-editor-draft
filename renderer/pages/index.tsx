@@ -68,10 +68,7 @@ const Index = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
-                                    <div
-                                        className="opacity-0 bg-gray-400 text-white text-center text-sm gothic font-semibold rounded py-1.5 absolute z-10 group-hover:opacity-100 bottom-1 left-8 px-2 pointer-events-none"
-                                        style={{ width: "6.25rem" }}
-                                    >
+                                    <div className="opacity-0 group-hover:opacity-100 bg-gray-400 text-white text-sm gothic font-semibold whitespace-pre rounded py-1.5 px-4 absolute z-10 bottom-1 left-8 pointer-events-none">
                                         原稿を追加
                                     </div>
                                 </button>
