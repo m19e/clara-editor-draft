@@ -80,14 +80,14 @@ const Index = () => {
                         {draftList.map((draft, i) => (
                             <DraftListItem key={i} draft={draft} removeFn={removeDraft} />
                         ))}
-                        <div className="flex-center">
+                        {/* <div className="flex-center">
                             <button
                                 className="gothic rounded-full text-gray-600 hover:text-gray-50 hover:bg-gray-400 border border-gray-400 px-6 py-1 mt-8"
                                 onClick={addDraft}
                             >
                                 新しい原稿
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </Scrollbar>
