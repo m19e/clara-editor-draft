@@ -62,7 +62,7 @@ const Index = () => {
             <Scrollbar className="max-h-screen">
                 <div className="min-h-screen flex-center flex-col">
                     <div className="grid grid-col-1 w-3/4 xl:max-w-5xl my-8 select-none">
-                        <div className="w-full h-10 grid grid-cols-12">
+                        <div className="grid grid-cols-12">
                             <div className="col-span-1 inline-flex justify-end pr-2">
                                 <button className="text-gray-500 hover:text-gray-600 pb-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,10 +70,10 @@ const Index = () => {
                                     </svg>
                                 </button>
                             </div>
-                            <div className="col-span-10 inline-flex justify-between items-center text-sm mincho px-4 border-b border-gray-400">
+                            <div className="col-span-10 px-4 py-2 inline-flex gap-4 justify-between items-center text-sm mincho border-b border-gray-400">
                                 <span className="text-gray-600">原稿</span>
                                 <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
-                                    <span className="text-left text-gray-500">最終更新</span>
+                                    <span className="whitespace-pre text-gray-500">最終更新</span>
                                 </div>
                             </div>
                         </div>
