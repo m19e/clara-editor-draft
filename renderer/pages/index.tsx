@@ -69,7 +69,7 @@ const Index = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
                                     <div
-                                        className="opacity-0 bg-gray-400 text-gray-50 text-center text-sm gothic font-semibold rounded-lg py-1.5 absolute z-10 group-hover:opacity-100 bottom-1 left-8 px-2 pointer-events-none"
+                                        className="opacity-0 bg-gray-400 text-gray-50 text-center text-sm gothic font-semibold rounded py-1.5 absolute z-10 group-hover:opacity-100 bottom-1 left-8 px-2 pointer-events-none"
                                         style={{ width: "6.25rem" }}
                                     >
                                         原稿を追加
