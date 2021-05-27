@@ -16,7 +16,7 @@ import {
     contentState,
     isTitleEditState,
     autosaveDurationState,
-    displayCharCount,
+    displayCharCountState,
 } from "store";
 import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig } from "lib/config";
 
@@ -35,7 +35,7 @@ export const useFontType = (): [FontType, () => void] => {
 };
 
 export const useDisplayCharCount = (): [boolean, SetterOrUpdater<boolean>] => {
-    const [dcc, setDCC] = useRecoilState(displayCharCount);
+    const [dcc, setDCC] = useRecoilState(displayCharCountState);
     return [dcc, setDCC];
 };
 

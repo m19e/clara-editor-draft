@@ -9,7 +9,7 @@ export const fontTypeState = atom<FontType>({
     default: "mincho",
 });
 
-export const displayCharCount = atom({
+export const displayCharCountState = atom({
     key: "editor/display-char-count",
     default: true,
 });
