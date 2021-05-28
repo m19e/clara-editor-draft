@@ -1,3 +1,5 @@
+import { useDisplayCharCount } from "hooks";
+
 const getTextCharCount = (text: string): number => {
     const regex = /(?:\r\n|\r|\n)/g;
     const cleanString = text.replace(regex, "").trim();
@@ -5,5 +7,7 @@ const getTextCharCount = (text: string): number => {
 };
 
 export default ({ text }: { text: string }) => {
-    return <span className="text-gray-500">{getTextCharCount(text)}</span>;
+    const [display] = useDisplayCharCount();
+
+    return display ? <span className="text-gray-500">{getTextCharCount(text)}</span> : null;
 };
