@@ -15,7 +15,6 @@ const Draft = () => {
     const [ft] = useFontType();
     const setFormat = useFormat();
     const [, setAutosaveDuration] = useAutosaveDuration();
-
     const [, setDisplayCharCount] = useDisplayCharCount();
     const remoteMenu = remote.Menu;
 
