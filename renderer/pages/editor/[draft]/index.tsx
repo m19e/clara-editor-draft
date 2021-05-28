@@ -16,10 +16,9 @@ const Draft = () => {
     const setFormat = useFormat();
     const [, setAutosaveDuration] = useAutosaveDuration();
     const [, setDisplayCharCount] = useDisplayCharCount();
-    const remoteMenu = remote.Menu;
 
     useEffect(() => {
-        const localMenu = remoteMenu.buildFromTemplate([
+        const localMenu = remote.Menu.buildFromTemplate([
             {
                 label: "設定",
                 submenu: [
@@ -38,7 +37,7 @@ const Draft = () => {
                 ],
             },
         ]);
-        remoteMenu.setApplicationMenu(localMenu);
+        remote.Menu.setApplicationMenu(localMenu);
 
         const { draft } = router.query;
         if (router.route !== router.asPath && typeof draft === "string") {
