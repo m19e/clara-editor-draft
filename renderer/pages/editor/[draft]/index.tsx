@@ -34,6 +34,15 @@ const Draft = () => {
                             }
                         },
                     },
+                    {
+                        id: "autosave-duration",
+                        label: "自動保存",
+                        sublabel: "時間",
+                        submenu: [
+                            { id: "1", label: "test1" },
+                            { id: "2", label: "test2" },
+                        ],
+                    },
                 ],
             },
         ]);
