@@ -19,6 +19,11 @@ export const displayFontSizeState = atom({
     default: 7,
 });
 
+export const lineHeightState = atom({
+    key: "editor/line-height",
+    default: 3,
+});
+
 export const lineWordsState = atom({
     key: "editor/lineWords",
     default: 30,
