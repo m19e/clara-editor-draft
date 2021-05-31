@@ -1,5 +1,7 @@
 export type FontType = "mincho" | "gothic";
 
+export type LineHeightClassType = "leading-none" | "leading-tight" | "leading-snug" | "leading-normal" | "leading-relaxed" | "leading-loose";
+
 export type SelectionRangeOverride = {
     anchorOffset: number;
     focusOffset?: number;

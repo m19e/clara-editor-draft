@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { FontType } from "types";
+import { FontType, LineHeightClassType } from "types";
 
 // Atoms
 
@@ -60,8 +60,6 @@ export const realFontSizeState = selector({
     key: "editor/real-font-size",
     get: ({ get }) => (get(displayFontSizeState) + 5) * 2,
 });
-
-type LineHeightClassType = "leading-none" | "leading-tight" | "leading-snug" | "leading-normal" | "leading-relaxed" | "leading-loose";
 
 const lineHeightClassList: LineHeightClassType[] = ["leading-none", "leading-tight", "leading-snug", "leading-normal", "leading-relaxed", "leading-loose"];
 
