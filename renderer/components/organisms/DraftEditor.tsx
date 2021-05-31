@@ -5,12 +5,13 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { SelectionRangeOverride } from "types";
 import { writeDraft } from "lib/draft";
-import { getRealFontSize, useLineWords, setWrapperHeight, getEditorHeight, useTitle, useAutosaveDuration } from "hooks";
+import { getRealFontSize, getLineHeightClass, useLineWords, setWrapperHeight, getEditorHeight, useTitle, useAutosaveDuration } from "hooks";
 import MetaHeader from "foundations/MetaHeader";
 import CharCount from "components/molecules/DraftCharCount";
 
 export default ({ text }: { text: string }) => {
     const rfs = getRealFontSize();
+    const lhc = getLineHeightClass();
     const [lw] = useLineWords();
     const setWH = setWrapperHeight();
     const eh = getEditorHeight();
@@ -260,7 +261,7 @@ export default ({ text }: { text: string }) => {
             <div ref={wrapperRef} className="min-h-screen flex-center">
                 <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
                     <div style={{ height: `${eh}px` }}>
-                        <div className="text-justify break-all" style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
+                        <div className={"text-justify break-all " + lhc} style={{ writingMode: "vertical-rl", fontSize: `${rfs}px` }}>
                             <Editor editorState={editorState} onChange={handleEditorChange} keyBindingFn={handleKeyBinding} />
                         </div>
                     </div>
