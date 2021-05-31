@@ -88,7 +88,7 @@ export const disabledDecFSState = selector({
 
 export const disabledIncLHState = selector({
     key: "editor/disabled-inc-lh",
-    get: ({ get }) => get(lineHeightState) >= 6,
+    get: ({ get }) => get(lineHeightState) >= 5,
 });
 
 export const disabledDecLHState = selector({
