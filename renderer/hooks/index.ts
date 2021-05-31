@@ -18,7 +18,7 @@ import {
     autosaveDurationState,
     displayCharCountState,
 } from "store";
-import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig } from "lib/config";
+import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig, setAutosaveDurationConfig } from "lib/config";
 
 // Editor
 export const useFontType = (): [FontType, () => void] => {
@@ -128,7 +128,12 @@ export const useDisabled = (): DisabledType => {
 
 export const useAutosaveDuration = (): [number, SetterOrUpdater<number>] => {
     const [duration, setDuration] = useRecoilState(autosaveDurationState);
-    return [duration, setDuration];
+    const setDurationWithConfig = (sec: number) => {
+        setAutosaveDurationConfig(sec);
+        setDuration(sec);
+    };
+
+    return [duration, setDurationWithConfig];
 };
 
 // Draft
