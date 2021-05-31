@@ -37,10 +37,10 @@ const Draft = () => {
                     {
                         id: "autosave-duration",
                         label: "自動保存",
-                        sublabel: "時間",
                         submenu: [
-                            { id: "1", label: "test1" },
-                            { id: "2", label: "test2" },
+                            { id: "duration-disable", label: "無効" },
+                            { id: "duration-1-sec", label: "1秒" },
+                            { id: "duration-5-sec", label: "5秒" },
                         ],
                     },
                 ],
