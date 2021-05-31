@@ -127,8 +127,10 @@ export const useDisabled = (): DisabledType => {
 export const useAutosaveDuration = (): [number, (sec: number) => void] => {
     const [duration, setDuration] = useRecoilState(autosaveDurationState);
     const setDurationWithConfig = (sec: number) => {
-        setAutosaveDurationConfig(sec);
-        setDuration(sec);
+        setDuration(() => {
+            setAutosaveDurationConfig(sec);
+            return sec;
+        });
     };
 
     return [duration, setDurationWithConfig];
