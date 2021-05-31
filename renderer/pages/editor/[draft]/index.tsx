@@ -38,9 +38,33 @@ const Draft = () => {
                         id: "autosave-duration",
                         label: "自動保存",
                         submenu: [
-                            { id: "duration-disable", label: "無効" },
-                            { id: "duration-1-sec", label: "1秒" },
-                            { id: "duration-5-sec", label: "5秒" },
+                            {
+                                id: "duration-disable",
+                                label: "無効",
+                                type: "checkbox",
+                                checked: false,
+                                click: (self, focusedWin) => {
+                                    if (focusedWin) console.log("click: disable");
+                                },
+                            },
+                            {
+                                id: "duration-1-sec",
+                                label: "1秒",
+                                type: "checkbox",
+                                checked: false,
+                                click: (self, focusedWin) => {
+                                    if (focusedWin) console.log("click: 1sec");
+                                },
+                            },
+                            {
+                                id: "duration-5-sec",
+                                label: "5秒",
+                                type: "checkbox",
+                                checked: false,
+                                click: (self, focusedWin) => {
+                                    if (focusedWin) console.log("click: 5sec");
+                                },
+                            },
                         ],
                     },
                 ],
