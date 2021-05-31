@@ -4,6 +4,7 @@ import {
     fontTypeState,
     displayFontSizeState,
     realFontSizeState,
+    lineHeightState,
     lineWordsState,
     wrapperHeightState,
     editorHeightState,
@@ -17,7 +18,7 @@ import {
     autosaveDurationState,
     displayCharCountState,
 } from "store";
-import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig, setAutosaveDurationConfig } from "lib/config";
+import { setFontTypeConfig, setFontSizeConfig, setLineHeightConfig, setLineWordsConfig, setAutosaveDurationConfig } from "lib/config";
 
 // Editor
 export const useFontType = (): [FontType, () => void] => {
@@ -76,7 +77,22 @@ export const useLineWords = (): [number, () => void, () => void] => {
     return [lw, incLW, decLW];
 };
 
-export const useLineHeight = () => {};
+export const useLineHeight = (): [number, () => void, () => void] => {
+    const [lh, setLH] = useRecoilState(lineHeightState);
+    const incLH = () =>
+        setLH((prev) => {
+            setLineHeightConfig(prev + 1);
+            return prev + 1;
+        });
+
+    const decLH = () =>
+        setLH((prev) => {
+            setLineHeightConfig(prev - 1);
+            return prev - 1;
+        });
+
+    return [lh, incLH, decLH];
+};
 
 type FormatProps = {
     fontType: FontType;
