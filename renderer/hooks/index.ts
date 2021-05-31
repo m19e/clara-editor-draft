@@ -67,7 +67,6 @@ export const useLineWords = (): [number, () => void, () => void] => {
             setLineWordsConfig(prev + 1);
             return prev + 1;
         });
-
     const decLW = () =>
         setLW((prev) => {
             setLineWordsConfig(prev - 1);
@@ -84,7 +83,6 @@ export const useLineHeight = (): [number, () => void, () => void] => {
             setLineHeightConfig(prev + 1);
             return prev + 1;
         });
-
     const decLH = () =>
         setLH((prev) => {
             setLineHeightConfig(prev - 1);
