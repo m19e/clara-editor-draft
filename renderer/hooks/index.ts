@@ -10,6 +10,8 @@ import {
     editorHeightState,
     disabledIncFSState,
     disabledDecFSState,
+    disabledIncLHState,
+    disabledDecLHState,
     disabledIncLWState,
     disabledDecLWState,
     titleState,
@@ -128,6 +130,8 @@ export const getEditorHeight = (): number => {
 type DisabledType = {
     incFS: boolean;
     decFS: boolean;
+    incLH: boolean;
+    decLH: boolean;
     incLW: boolean;
     decLW: boolean;
 };
@@ -135,10 +139,12 @@ type DisabledType = {
 export const getDisabled = (): DisabledType => {
     const incFS = useRecoilValue(disabledIncFSState);
     const decFS = useRecoilValue(disabledDecFSState);
+    const incLH = useRecoilValue(disabledIncLHState);
+    const decLH = useRecoilValue(disabledDecLHState);
     const incLW = useRecoilValue(disabledIncLWState);
     const decLW = useRecoilValue(disabledDecLWState);
 
-    return { incFS, decFS, incLW, decLW };
+    return { incFS, decFS, incLH, decLH, incLW, decLW };
 };
 
 export const useAutosaveDuration = (): [number, (sec: number) => void] => {
