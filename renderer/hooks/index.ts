@@ -115,7 +115,7 @@ type DisabledType = {
     decLW: boolean;
 };
 
-export const useDisabled = (): DisabledType => {
+export const getDisabled = (): DisabledType => {
     const incFS = useRecoilValue(disabledIncFSState);
     const decFS = useRecoilValue(disabledDecFSState);
     const incLW = useRecoilValue(disabledIncLWState);

@@ -1,11 +1,11 @@
-import { useFontType, useFontSize, useLineWords, useDisabled } from "hooks";
+import { useFontType, useFontSize, useLineWords, getDisabled } from "hooks";
 import Chevron from "components/molecules/Button/Chevron";
 
 const Footer = () => {
     const [ft, toggleFT] = useFontType();
     const [fs, incFS, decFS] = useFontSize();
     const [lw, incLW, decLW] = useLineWords();
-    const disabled = useDisabled();
+    const disabled = getDisabled();
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg">
