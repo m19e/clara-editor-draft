@@ -126,7 +126,7 @@ export const useDisabled = (): DisabledType => {
     return { incFS, decFS, incLW, decLW };
 };
 
-export const useAutosaveDuration = (): [number, SetterOrUpdater<number>] => {
+export const useAutosaveDuration = (): [number, (sec: number) => void] => {
     const [duration, setDuration] = useRecoilState(autosaveDurationState);
     const setDurationWithConfig = (sec: number) => {
         setAutosaveDurationConfig(sec);
