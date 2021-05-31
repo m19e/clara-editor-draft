@@ -95,17 +95,20 @@ export const useLineHeight = (): [number, () => void, () => void] => {
 type FormatProps = {
     fontType: FontType;
     fontSize: number;
+    lineHeight: number;
     lineWords: number;
 };
 
-export const useFormat = (): (({ fontType, fontSize, lineWords }: FormatProps) => void) => {
+export const useFormat = (): (({ fontType, fontSize, lineHeight, lineWords }: FormatProps) => void) => {
     const setFontType = useSetRecoilState(fontTypeState);
     const setFontSize = useSetRecoilState(displayFontSizeState);
+    const setLineHeight = useSetRecoilState(lineHeightState);
     const setLineWords = useSetRecoilState(lineWordsState);
 
-    const setFormat = ({ fontType, fontSize, lineWords }: FormatProps) => {
+    const setFormat = ({ fontType, fontSize, lineHeight, lineWords }: FormatProps) => {
         setFontType(fontType);
         setFontSize(fontSize);
+        setLineHeight(lineHeight);
         setLineWords(lineWords);
     };
 
