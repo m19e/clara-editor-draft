@@ -1,10 +1,11 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState, SetterOrUpdater } from "recoil";
-import { FontType } from "types";
+import { FontType, LineHeightClassType } from "types";
 import {
     fontTypeState,
     displayFontSizeState,
     realFontSizeState,
     lineHeightState,
+    lineHeightClassState,
     lineWordsState,
     wrapperHeightState,
     editorHeightState,
@@ -92,6 +93,11 @@ export const useLineHeight = (): [number, () => void, () => void] => {
         });
 
     return [lh, incLH, decLH];
+};
+
+export const getLineHeightClass = (): LineHeightClassType => {
+    const lineHeightClass = useRecoilValue(lineHeightClassState);
+    return lineHeightClass;
 };
 
 type FormatProps = {
