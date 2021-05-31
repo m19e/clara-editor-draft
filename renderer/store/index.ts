@@ -88,6 +88,16 @@ export const disabledDecFSState = selector({
     get: ({ get }) => get(realFontSizeState) <= 12,
 });
 
+export const disabledIncLHState = selector({
+    key: "editor/disabled-inc-lh",
+    get: ({ get }) => get(lineHeightState) >= 6,
+});
+
+export const disabledDecLHState = selector({
+    key: "editor/disabled-dec-lh",
+    get: ({ get }) => get(lineHeightState) <= 0,
+});
+
 export const disabledIncLWState = selector({
     key: "editor/disabled-inc-lw",
     get: ({ get }) => {
