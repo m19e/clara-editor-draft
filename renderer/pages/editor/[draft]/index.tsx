@@ -44,7 +44,7 @@ const Draft = () => {
                             //     type: "checkbox",
                             //     checked: autosaveDuration === 0,
                             //     enabled: autosaveDuration !== 0,
-                            //     click: (self, focusedWin) => {
+                            //     click: (_, focusedWin) => {
                             //         if (focusedWin) {
                             //             setAutosaveDuration(0);
                             //         }
@@ -56,7 +56,7 @@ const Draft = () => {
                                 type: "checkbox",
                                 checked: autosaveDuration === 1,
                                 enabled: autosaveDuration !== 1,
-                                click: (self, focusedWin) => {
+                                click: (_, focusedWin) => {
                                     if (focusedWin) {
                                         setAutosaveDuration(1);
                                     }
@@ -68,7 +68,7 @@ const Draft = () => {
                                 type: "checkbox",
                                 checked: autosaveDuration === 5,
                                 enabled: autosaveDuration !== 5,
-                                click: (self, focusedWin) => {
+                                click: (_, focusedWin) => {
                                     if (focusedWin) {
                                         setAutosaveDuration(5);
                                     }
