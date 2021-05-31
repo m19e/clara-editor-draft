@@ -1,9 +1,10 @@
-import { useFontType, useFontSize, useLineWords, getDisabled } from "hooks";
+import { useFontType, useFontSize, useLineHeight, useLineWords, getDisabled } from "hooks";
 import Chevron from "components/molecules/Button/Chevron";
 
 const Footer = () => {
     const [ft, toggleFT] = useFontType();
     const [fs, incFS, decFS] = useFontSize();
+    const [lh, incLH, decLH] = useLineHeight();
     const [lw, incLW, decLW] = useLineWords();
     const disabled = getDisabled();
 
@@ -24,6 +25,12 @@ const Footer = () => {
                     <Chevron type="inc" onClick={incFS} disabled={disabled.incFS} />
                     <span className="text-center opacity-75">大きさ {fs}</span>
                     <Chevron type="dec" onClick={decFS} disabled={disabled.decFS} />
+                </div>
+                <span className="opacity-25 mx-3">・</span>
+                <div className="flex-center flex-col group">
+                    <Chevron type="inc" onClick={incLH} disabled={disabled.incLH} />
+                    <span className="text-center opacity-75">行間 {lh + 1}</span>
+                    <Chevron type="dec" onClick={decLH} disabled={disabled.decLH} />
                 </div>
                 <span className="opacity-25 mx-3">・</span>
                 <div className="flex-center flex-col group">
