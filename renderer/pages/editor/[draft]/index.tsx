@@ -47,7 +47,9 @@ const Draft = () => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
+    }, []);
 
+    useEffect(() => {
         const { draft } = router.query;
         if (router.route !== router.asPath && typeof draft === "string") {
             const data = readDraft(draft);
