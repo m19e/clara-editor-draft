@@ -14,7 +14,7 @@ const Draft = () => {
     const [, setTitle] = useTitle();
     const [ft] = useFontType();
     const setFormat = useFormat();
-    const [, setAutosaveDuration] = useAutosaveDuration();
+    const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
     const [, setDisplayCharCount] = useDisplayCharCount();
 
     useEffect(() => {
@@ -42,27 +42,36 @@ const Draft = () => {
                                 id: "duration-disable",
                                 label: "無効",
                                 type: "checkbox",
-                                checked: false,
+                                checked: autosaveDuration === 0,
+                                enabled: autosaveDuration !== 0,
                                 click: (self, focusedWin) => {
-                                    if (focusedWin) console.log("click: disable");
+                                    if (focusedWin) {
+                                        setAutosaveDuration(0);
+                                    }
                                 },
                             },
                             {
                                 id: "duration-1-sec",
                                 label: "1秒",
                                 type: "checkbox",
-                                checked: false,
+                                checked: autosaveDuration === 1,
+                                enabled: autosaveDuration !== 1,
                                 click: (self, focusedWin) => {
-                                    if (focusedWin) console.log("click: 1sec");
+                                    if (focusedWin) {
+                                        setAutosaveDuration(1);
+                                    }
                                 },
                             },
                             {
                                 id: "duration-5-sec",
                                 label: "5秒",
                                 type: "checkbox",
-                                checked: false,
+                                checked: autosaveDuration === 5,
+                                enabled: autosaveDuration !== 5,
                                 click: (self, focusedWin) => {
-                                    if (focusedWin) console.log("click: 5sec");
+                                    if (focusedWin) {
+                                        setAutosaveDuration(5);
+                                    }
                                 },
                             },
                         ],
@@ -71,7 +80,7 @@ const Draft = () => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
-    }, []);
+    }, [autosaveDuration]);
 
     useEffect(() => {
         const { draft } = router.query;
