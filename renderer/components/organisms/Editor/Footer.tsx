@@ -10,7 +10,7 @@ const Footer = () => {
 
     return (
         <div className="fixed bottom-0 w-full shadow-2xl editor-bg">
-            <div className="flex-center h-20 my-2 select-none">
+            <div className={"flex-center h-20 my-2 select-none " + (fs > 9 ? "pr-6" : "pr-4")}>
                 <div className="flex-center flex-col group">
                     <div className="h-6"></div>
                     <span className="text-center opacity-75">{ft === "mincho" ? "明朝" : "ゴシック"}</span>
