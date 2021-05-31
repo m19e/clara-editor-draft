@@ -87,7 +87,7 @@ const Draft = () => {
         if (router.route !== router.asPath && typeof draft === "string") {
             const data = readDraft(draft);
             const { name } = parse(draft);
-            const [fontType, fontSize, lineWords, autosaveDuration] = getFormat();
+            const [fontType, fontSize, lineHeight, lineWords, autosaveDuration] = getFormat();
 
             setFormat({ fontType, fontSize, lineWords });
             setAutosaveDuration(autosaveDuration);
