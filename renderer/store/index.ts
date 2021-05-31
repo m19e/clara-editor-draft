@@ -61,6 +61,15 @@ export const realFontSizeState = selector({
     get: ({ get }) => (get(displayFontSizeState) + 5) * 2,
 });
 
+type LineHeightClassType = "leading-none" | "leading-tight" | "leading-snug" | "leading-normal" | "leading-relaxed" | "leading-loose";
+
+const lineHeightClassList: LineHeightClassType[] = ["leading-none", "leading-tight", "leading-snug", "leading-normal", "leading-relaxed", "leading-loose"];
+
+export const lineHeightClassState = selector<LineHeightClassType>({
+    key: "editor/line-height-class",
+    get: ({ get }) => lineHeightClassList[get(lineHeightState)],
+});
+
 export const editorHeightState = selector({
     key: "editor/editor-height",
     get: ({ get }) => get(realFontSizeState) * get(lineWordsState),
