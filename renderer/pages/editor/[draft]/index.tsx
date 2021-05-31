@@ -62,6 +62,18 @@ const Draft = () => {
                                     }
                                 },
                             },
+                            {
+                                id: "duration-10-sec",
+                                label: "10秒",
+                                type: "checkbox",
+                                checked: autosaveDuration === 10,
+                                enabled: autosaveDuration !== 10,
+                                click: (_, focusedWin) => {
+                                    if (focusedWin) {
+                                        setAutosaveDuration(10);
+                                    }
+                                },
+                            },
                         ],
                     },
                 ],
