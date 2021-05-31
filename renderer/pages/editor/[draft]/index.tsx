@@ -38,18 +38,6 @@ const Draft = () => {
                         id: "autosave-duration",
                         label: "自動保存",
                         submenu: [
-                            // {
-                            //     id: "duration-disable",
-                            //     label: "無効",
-                            //     type: "checkbox",
-                            //     checked: autosaveDuration === 0,
-                            //     enabled: autosaveDuration !== 0,
-                            //     click: (_, focusedWin) => {
-                            //         if (focusedWin) {
-                            //             setAutosaveDuration(0);
-                            //         }
-                            //     },
-                            // },
                             {
                                 id: "duration-1-sec",
                                 label: "1秒",
