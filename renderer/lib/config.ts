@@ -23,14 +23,22 @@ const getAutosaveDuration = (): number => {
     return store.get("editor/autosave-duration", 1) as number;
 };
 
-export const getFormat = (): [FontType, number, number, number, number] => {
+type FormatType = {
+    fontType: FontType;
+    fontSize: number;
+    lineHeight: number;
+    lineWords: number;
+    autosaveDuration: number;
+};
+
+export const getFormat = (): FormatType => {
     const fontType = getFontType();
     const fontSize = getFontSize();
     const lineHeight = getLineHeight();
     const lineWords = getLineWords();
     const autosaveDuration = getAutosaveDuration();
 
-    return [fontType, fontSize, lineHeight, lineWords, autosaveDuration];
+    return { fontType, fontSize, lineHeight, lineWords, autosaveDuration };
 };
 
 export const setFontTypeConfig = (ft: FontType) => {
