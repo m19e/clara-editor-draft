@@ -265,7 +265,7 @@ export default ({ text }: { text: string }) => {
                         </div>
                     </div>
                 </Scrollbar>
-                <div className="fixed bottom-0 w-full flex-center pb-1 bg-transparent">
+                <div className="fixed bottom-0 w-full flex-center pb-1 bg-transparent select-none">
                     <CharCount text={plainText} />
                 </div>
             </div>
