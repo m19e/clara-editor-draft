@@ -1,5 +1,4 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState, SetterOrUpdater } from "recoil";
-import { useCallback } from "react";
 import { FontType } from "types";
 import {
     fontTypeState,
