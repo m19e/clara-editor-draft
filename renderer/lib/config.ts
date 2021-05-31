@@ -11,6 +11,10 @@ const getFontSize = (): number => {
     return store.get("editor/font-size", 7) as number;
 };
 
+const getLineHeight = (): number => {
+    return store.get("editor/line-height", 3) as number;
+};
+
 const getLineWords = (): number => {
     return store.get("editor/line-words", 30) as number;
 };
@@ -34,6 +38,10 @@ export const setFontTypeConfig = (ft: FontType) => {
 
 export const setFontSizeConfig = (fs: number) => {
     store.set("editor/font-size", fs);
+};
+
+export const setLineHeightConfig = (lh: number) => {
+    store.set("editor/line-height", lh);
 };
 
 export const setLineWordsConfig = (lw: number) => {
