@@ -61,7 +61,7 @@ const Index = () => {
             <MetaHeader title="一覧 - Clara Editor" />
             <Scrollbar className="max-h-screen">
                 <div className="min-h-screen flex-center flex-col">
-                    <div className="grid grid-col-1 w-3/4 xl:max-w-5xl my-8 select-none">
+                    <div className="flex flex-col w-3/4 xl:max-w-5xl my-8 select-none" style={{ minHeight: "70vh" }}>
                         <div className="grid grid-cols-12">
                             <div className="col-span-1 inline-flex justify-end pr-2">
                                 <button className="group relative text-gray-500 hover:text-gray-600 pb-1" onClick={addDraft}>
