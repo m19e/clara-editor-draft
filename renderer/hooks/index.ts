@@ -23,13 +23,12 @@ import { setFontTypeConfig, setFontSizeConfig, setLineWordsConfig, setAutosaveDu
 // Editor
 export const useFontType = (): [FontType, () => void] => {
     const [fontType, setFontType] = useRecoilState(fontTypeState);
-    const toggleFontType = useCallback(() => {
+    const toggleFontType = () =>
         setFontType((prev) => {
             const curr = prev === "mincho" ? "gothic" : "mincho";
             setFontTypeConfig(curr);
             return curr;
         });
-    }, []);
 
     return [fontType, toggleFontType];
 };
@@ -41,18 +40,17 @@ export const useDisplayCharCount = (): [boolean, SetterOrUpdater<boolean>] => {
 
 export const useFontSize = (): [number, () => void, () => void] => {
     const [fs, setFS] = useRecoilState(displayFontSizeState);
-    const incFS = useCallback(() => {
+    const incFS = () =>
         setFS((prev) => {
             setFontSizeConfig(prev + 1);
             return prev + 1;
         });
-    }, []);
-    const decFS = useCallback(() => {
+
+    const decFS = () =>
         setFS((prev) => {
             setFontSizeConfig(prev - 1);
             return prev - 1;
         });
-    }, []);
 
     return [fs, incFS, decFS];
 };
@@ -64,21 +62,22 @@ export const getRealFontSize = (): number => {
 
 export const useLineWords = (): [number, () => void, () => void] => {
     const [lw, setLW] = useRecoilState(lineWordsState);
-    const incLW = useCallback(() => {
+    const incLW = () =>
         setLW((prev) => {
             setLineWordsConfig(prev + 1);
             return prev + 1;
         });
-    }, []);
-    const decLW = useCallback(() => {
+
+    const decLW = () =>
         setLW((prev) => {
             setLineWordsConfig(prev - 1);
             return prev - 1;
         });
-    }, []);
 
     return [lw, incLW, decLW];
 };
+
+export const useLineHeight = () => {};
 
 type FormatProps = {
     fontType: FontType;
@@ -91,11 +90,11 @@ export const useFormat = (): (({ fontType, fontSize, lineWords }: FormatProps) =
     const setFontSize = useSetRecoilState(displayFontSizeState);
     const setLineWords = useSetRecoilState(lineWordsState);
 
-    const setFormat = useCallback(({ fontType, fontSize, lineWords }: FormatProps) => {
+    const setFormat = ({ fontType, fontSize, lineWords }: FormatProps) => {
         setFontType(fontType);
         setFontSize(fontSize);
         setLineWords(lineWords);
-    }, []);
+    };
 
     return setFormat;
 };
