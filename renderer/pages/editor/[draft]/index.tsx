@@ -89,7 +89,7 @@ const Draft = () => {
             const { name } = parse(draft);
             const [fontType, fontSize, lineHeight, lineWords, autosaveDuration] = getFormat();
 
-            setFormat({ fontType, fontSize, lineWords });
+            setFormat({ fontType, fontSize, lineHeight, lineWords });
             setAutosaveDuration(autosaveDuration);
             setText(data);
             setTitle(name);
