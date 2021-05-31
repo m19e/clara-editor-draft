@@ -40,6 +40,6 @@ export const setLineWordsConfig = (lw: number) => {
     store.set("editor/line-words", lw);
 };
 
-export const setAutosaveDuration = (ad: number) => {
+export const setAutosaveDurationConfig = (ad: number) => {
     store.set("editor/autosave-duration", ad);
 };
