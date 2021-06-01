@@ -6,6 +6,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { Draft } from "types";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
+import Menu from "foundations/Menu";
 import MetaHeader from "foundations/MetaHeader";
 import DraftListItem from "components/molecules/DraftListItem";
 
@@ -58,6 +59,7 @@ const Index = () => {
 
     return (
         <>
+            <Menu />
             <MetaHeader title="一覧 - Clara Editor" />
             <Scrollbar className="max-h-screen">
                 <div className="min-h-screen flex-center flex-col">
