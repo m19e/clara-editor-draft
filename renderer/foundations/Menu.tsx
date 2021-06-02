@@ -12,6 +12,18 @@ const Menu = () => {
                 label: "設定",
                 submenu: [
                     {
+                        id: "dark-mode",
+                        label: "ダークモード",
+                        type: "checkbox",
+                        accelerator: "CmdOrCtrl+D",
+                        checked: false, // theme === "dark"
+                        click: (_, focusedWin) => {
+                            if (focusedWin) {
+                                console.log("toggle dark mode");
+                            }
+                        },
+                    },
+                    {
                         id: "char-count-display",
                         label: "文字数を表示する",
                         type: "checkbox",
