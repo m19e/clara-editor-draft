@@ -1,8 +1,10 @@
 import { remote } from "electron";
 import { useEffect } from "react";
+import { useTheme } from "next-themes";
 import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 const Menu = () => {
+    const { theme, setTheme } = useTheme();
     const [displayCharCount, setDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
 
@@ -16,10 +18,10 @@ const Menu = () => {
                         label: "ダークモード",
                         type: "checkbox",
                         accelerator: "CmdOrCtrl+D",
-                        checked: false, // theme === "dark"
+                        checked: theme === "dark",
                         click: (_, focusedWin) => {
                             if (focusedWin) {
-                                console.log("toggle dark mode");
+                                setTheme(theme === "dark" ? "light" : "dark");
                             }
                         },
                     },
@@ -81,7 +83,7 @@ const Menu = () => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
-    }, [displayCharCount, autosaveDuration]);
+    }, [theme, displayCharCount, autosaveDuration]);
 
     return null;
 };
