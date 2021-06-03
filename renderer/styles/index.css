@@ -19,13 +19,13 @@
     @apply flex justify-center items-center;
 }
 
-html,
+/* html,
 body {
     @apply editor-bg text-black;
-}
+} */
 
 button {
-    @apply outline-none focus:outline-none;
+    @apply select-none focus:outline-none;
 }
 
 /* Font */
