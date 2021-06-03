@@ -39,7 +39,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
     };
 
     return (
-        <div className="grid grid-cols-12 text-gray-600 group" onMouseLeave={handleMouseLeave}>
+        <div className={"grid grid-cols-12 group " + (theme === "dark" ? "clara-text__dark" : "text-gray-600")} onMouseLeave={handleMouseLeave}>
             {removeMode ? (
                 <>
                     <div className="col-span-1 inline-flex justify-end pr-1">
