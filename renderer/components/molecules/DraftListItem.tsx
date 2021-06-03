@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 import { parse } from "path";
 import { Draft } from "types";
 
@@ -21,6 +22,7 @@ type Props = {
 };
 
 const DraftListItem = ({ draft, removeFn }: Props) => {
+    const { theme } = useTheme();
     const [removeMode, setRemoveMode] = useState(false);
 
     const { title, updated_at } = draft;
@@ -42,7 +44,10 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                 <>
                     <div className="col-span-1 inline-flex justify-end pr-1">
                         <div className="flex-center">
-                            <button className="w-8 h-8 flex-center rounded-full text-gray-50 bg-gray-400" onClick={() => setRemoveMode(false)}>
+                            <button
+                                className={"w-8 h-8 flex-center rounded-full bg-gray-400 " + (theme === "dark" ? "text-gray-600" : "text-white")}
+                                onClick={() => setRemoveMode(false)}
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -59,7 +64,10 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
             ) : (
                 <>
                     <div className="col-span-1 inline-flex justify-end pr-2">
-                        <button className="text-gray-600 opacity-0 group-hover:opacity-100" onClick={() => setRemoveMode(true)}>
+                        <button
+                            className={"opacity-0 group-hover:opacity-100 " + (theme === "dark" ? "clara-text__dark" : "text-gray-500")}
+                            onClick={() => setRemoveMode(true)}
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
