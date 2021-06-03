@@ -20,11 +20,6 @@
     @apply flex justify-center items-center;
 }
 
-/* html,
-body {
-    @apply editor-bg text-black;
-} */
-
 button {
     @apply select-none focus:outline-none;
 }
