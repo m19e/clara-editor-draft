@@ -9,7 +9,7 @@ const Footer = () => {
     const disabled = getDisabled();
 
     return (
-        <div className="fixed bottom-0 w-full shadow-2xl editor-bg">
+        <div className="fixed bottom-0 w-full shadow-2xl clara-bg__light">
             <div className={"flex-center h-20 my-2 select-none " + (fs > 9 ? "pr-6" : "pr-4")}>
                 <div className="flex-center flex-col group">
                     <div className="h-6"></div>

@@ -3,7 +3,7 @@ import TitleEditForm from "components/organisms/Editor/TitleEditForm";
 
 const Header = () => {
     return (
-        <div className="fixed top-0 w-full h-20 flex-center shadow-sm editor-bg select-none">
+        <div className="fixed top-0 w-full h-20 flex-center shadow-sm clara-bg__light select-none">
             <div className="container flex-center">
                 <div className="w-11/12 xl:max-w-4xl grid grid-cols-12 items-center">
                     <div className="col-span-1 inline-flex justify-end">
