@@ -79,10 +79,15 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         </button>
                     </div>
                     <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                        <a className="col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400">
-                            <span className={"break-all text-lg group-hover:" + (theme === "dark" ? "text-gray-600" : "text-white")}>{name}</span>
+                        <a
+                            className={
+                                "col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400 group-hover:" +
+                                (theme === "dark" ? "text-gray-600" : "text-white")
+                            }
+                        >
+                            <span className="break-all text-lg">{name}</span>
                             <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
-                                <span className="whitespace-pre text-gray-500 group-hover:text-white">{time}</span>
+                                <span className="whitespace-pre opacity-75">{time}</span>
                             </div>
                         </a>
                     </Link>
