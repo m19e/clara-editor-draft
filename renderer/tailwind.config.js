@@ -4,8 +4,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                clara__default: "#f9f9fa",
-                clara__dark: "#44454a",
+                clara: {
+                    light: "#f9f9fa",
+                    dark: "#44454a",
+                },
             },
         },
     },
