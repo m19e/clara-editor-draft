@@ -77,10 +77,15 @@ const Index = () => {
                                     </div>
                                 </button>
                             </div>
-                            <div className="col-span-10 px-4 py-2 inline-flex gap-4 justify-between items-center text-sm mincho border-b border-gray-400">
-                                <span className="text-gray-600">原稿</span>
+                            <div
+                                className={
+                                    "col-span-10 px-4 py-2 inline-flex gap-4 justify-between items-center text-sm mincho border-b border-gray-400 " +
+                                    (theme === "dark" ? "clara-text__dark" : "text-gray-600")
+                                }
+                            >
+                                <span>原稿</span>
                                 <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
-                                    <span className="whitespace-pre text-gray-500">最終更新</span>
+                                    <span className="whitespace-pre">最終更新</span>
                                 </div>
                             </div>
                         </div>
