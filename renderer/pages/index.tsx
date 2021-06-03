@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -14,6 +15,7 @@ const DEFAULT_DRAFT_TITLE = "無題";
 
 const Index = () => {
     const router = useRouter();
+    const { theme } = useTheme();
     const [draftList, setDraftList] = useState<Draft[]>([]);
 
     useEffect(() => {
@@ -62,7 +64,7 @@ const Index = () => {
             <Menu />
             <MetaHeader title="一覧 - Clara Editor" />
             <Scrollbar className="max-h-screen">
-                <div className="min-h-screen flex-center flex-col">
+                <div className={"min-h-screen flex-center flex-col clara-bg__" + theme}>
                     <div className="flex flex-col w-3/4 xl:max-w-5xl my-8 select-none" style={{ minHeight: "70vh" }}>
                         <div className="grid grid-cols-12">
                             <div className="col-span-1 inline-flex justify-end pr-2">
