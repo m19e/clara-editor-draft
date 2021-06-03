@@ -22,8 +22,6 @@
 
 .clara-text__dark {
     color: #a1a0a4;
-
-    @apply font-bold;
 }
 
 .flex-center {
