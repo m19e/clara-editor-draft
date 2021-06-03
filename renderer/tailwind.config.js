@@ -4,7 +4,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                darkgray: "#44454a",
+                clara__default: "#f9f9fa",
+                clara__dark: "#44454a",
             },
         },
     },
