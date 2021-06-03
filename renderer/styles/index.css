@@ -7,9 +7,6 @@
 /* Stop purging. */
 
 /* Write your own custom component styles here */
-.btn-blue {
-    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600;
-}
 
 .editor-bg {
     background-color: #f9f9fa;
