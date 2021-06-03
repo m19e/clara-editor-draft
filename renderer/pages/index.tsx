@@ -72,7 +72,12 @@ const Index = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
-                                    <div className="opacity-0 group-hover:opacity-100 bg-gray-400 text-white text-sm gothic font-semibold whitespace-pre rounded py-1.5 px-4 absolute z-10 bottom-1 left-8 pointer-events-none">
+                                    <div
+                                        className={
+                                            "opacity-0 group-hover:opacity-100 bg-gray-400 text-sm gothic font-semibold whitespace-pre rounded py-1.5 px-4 absolute z-10 bottom-1 left-8 pointer-events-none " +
+                                            (theme === "dark" ? "text-gray-600" : "text-white")
+                                        }
+                                    >
                                         原稿を追加
                                     </div>
                                 </button>
@@ -80,7 +85,7 @@ const Index = () => {
                             <div
                                 className={
                                     "col-span-10 px-4 py-2 inline-flex gap-4 justify-between items-center text-sm mincho border-b border-gray-400 " +
-                                    (theme === "dark" ? "clara-text__dark" : "text-gray-600")
+                                    (theme === "dark" ? "clara-text__dark font-bold" : "text-gray-600")
                                 }
                             >
                                 <span>原稿</span>
