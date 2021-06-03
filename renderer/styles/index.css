@@ -8,8 +8,12 @@
 
 /* Write your own custom component styles here */
 
-.editor-bg {
+.clara-bg__light {
     background-color: #f9f9fa;
+}
+
+.clara-bg__dark {
+    background-color: #44454a;
 }
 
 .flex-center {
