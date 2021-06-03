@@ -16,6 +16,16 @@
     background-color: #44454a;
 }
 
+.clara-text__light {
+    @apply text-black;
+}
+
+.clara-text__dark {
+    color: #a1a0a4;
+
+    @apply font-bold;
+}
+
 .flex-center {
     @apply flex justify-center items-center;
 }
