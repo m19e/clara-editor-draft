@@ -31,7 +31,7 @@ const Draft = () => {
     }, [router]);
 
     return (
-        <div className={ft + " text-black editor-bg"}>
+        <div className={ft + " text-black clara-bg__light"}>
             <Menu />
             <DraftEditor text={text} />
             <Frame />
