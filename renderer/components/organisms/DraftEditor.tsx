@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, Fragment, WheelEvent, KeyboardEvent } from "react";
+import { useState, useEffect, useRef, WheelEvent, KeyboardEvent } from "react";
 import { Editor, EditorState, ContentState, SelectionState, getDefaultKeyBinding } from "draft-js";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
