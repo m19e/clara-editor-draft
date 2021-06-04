@@ -82,7 +82,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         <a
                             className={
                                 "col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400 group-hover:" +
-                                (theme === "dark" ? "text-gray-600" : "text-white")
+                                (theme === "dark" ? "text-gray-700" : "text-white")
                             }
                         >
                             <span className="break-all text-lg">{name}</span>
