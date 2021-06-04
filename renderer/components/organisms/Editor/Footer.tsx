@@ -1,7 +1,10 @@
+import { useTheme } from "next-themes";
 import { useFontType, useFontSize, useLineHeight, useLineWords, getDisabled } from "hooks";
 import Chevron from "components/molecules/Button/Chevron";
 
 const Footer = () => {
+    const { theme } = useTheme();
+
     const [ft, toggleFT] = useFontType();
     const [fs, incFS, decFS] = useFontSize();
     const [lh, incLH, decLH] = useLineHeight();
@@ -9,7 +12,7 @@ const Footer = () => {
     const disabled = getDisabled();
 
     return (
-        <div className="fixed bottom-0 w-full shadow-2xl clara-bg__light">
+        <div className={"fixed bottom-0 w-full shadow-2xl " + (theme === "dark" ? "clara-surface__dark" : "clara-bg__light")}>
             <div className={"flex-center h-20 my-2 select-none " + (fs > 9 ? "pr-6" : "pr-4")}>
                 <div className="flex-center flex-col group">
                     <div className="h-6"></div>
