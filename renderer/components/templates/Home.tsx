@@ -80,7 +80,7 @@ const Home = () => {
                         <div
                             className={
                                 "col-span-10 px-4 py-2 inline-flex gap-4 justify-between items-center text-sm mincho border-b border-gray-400 " +
-                                (theme === "dark" ? "clara-text__dark font-bold" : "text-gray-600")
+                                (theme === "dark" ? "clara-text__dark" : "text-gray-600")
                             }
                         >
                             <span>原稿</span>
