@@ -17,7 +17,7 @@
 }
 
 .clara-text__light {
-    @apply text-black;
+    color: #141426;
 }
 
 .clara-text__dark {
