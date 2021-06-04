@@ -236,7 +236,7 @@ export default ({ text }: { text: string }) => {
     };
 
     return (
-        <Fragment>
+        <>
             <MetaHeader title={`${saved ? "" : "*"}${title} - Clara Editor`} />
             <div ref={wrapperRef} className="min-h-screen flex-center">
                 <Scrollbar className="max-w-full pb-4" containerRef={(ref) => (scrollRef.current = ref)} onWheel={handleWheel}>
@@ -250,6 +250,6 @@ export default ({ text }: { text: string }) => {
                     <CharCount text={plainText} />
                 </div>
             </div>
-        </Fragment>
+        </>
     );
 };
