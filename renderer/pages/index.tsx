@@ -1,14 +1,18 @@
 import { useTheme } from "next-themes";
+import Menu from "foundations/Menu";
+import MetaHeader from "foundations/MetaHeader";
 import Home from "components/templates/Home";
 
 const Index = () => {
     const { theme } = useTheme();
 
-    if (typeof theme === "string") {
-        return <Home />;
-    } else {
-        return null;
-    }
+    return (
+        <>
+            <Menu />
+            <MetaHeader title="一覧 - Clara Editor" />
+            {typeof theme === "string" ? <Home /> : null}
+        </>
+    );
 };
 
 export default Index;
