@@ -56,12 +56,12 @@ const TitleEditForm = () => {
                         onKeyDown={(e) => {
                             if (e.key === "Tab") e.preventDefault();
                         }}
-                        inputClassName="text-gray-900 px-2 text-center shadow-inner clara-bg__light rounded outline-none focus:outline-none"
+                        inputClassName="px-2 text-center shadow-inner clara-bg__light rounded outline-none focus:outline-none"
                         inputStyle={{ minWidth: "10rem", maxWidth: "36rem" }}
                     />
                 </form>
             ) : (
-                <span className="text-gray-900 whitespace-pre" onClick={() => setIsEdit(true)}>
+                <span className="whitespace-pre" onClick={() => setIsEdit(true)}>
                     {title}
                 </span>
             )}
