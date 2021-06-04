@@ -64,7 +64,7 @@ const Home = () => {
                     <div className="grid grid-cols-12">
                         <div className="col-span-1 inline-flex justify-end pr-2">
                             <button className={"group relative pb-1 " + (theme === "dark" ? "clara-text__dark" : "text-gray-500")} onClick={addDraft}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
                                 <div
