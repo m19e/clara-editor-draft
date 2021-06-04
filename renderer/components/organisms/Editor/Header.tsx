@@ -12,7 +12,7 @@ const Header = () => {
                     <div className="col-span-1 inline-flex justify-end">
                         <Link href="/">
                             <a>
-                                <img className="w-7 h-7" src="/images/icon-64x64.png" alt="Home" />
+                                <img className="w-6 h-6" src="/images/icon-64x64.png" alt="Home" />
                             </a>
                         </Link>
                     </div>
