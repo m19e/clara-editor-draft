@@ -9,7 +9,7 @@ import { getRealFontSize, getLineHeightClass, useLineWords, setWrapperHeight, ge
 import MetaHeader from "foundations/MetaHeader";
 import CharCount from "components/molecules/DraftCharCount";
 
-export default ({ text }: { text: string }) => {
+const DraftEditor = ({ text }: { text: string }) => {
     const rfs = getRealFontSize();
     const lhc = getLineHeightClass();
     const [lw] = useLineWords();
@@ -253,3 +253,5 @@ export default ({ text }: { text: string }) => {
         </>
     );
 };
+
+export default DraftEditor;
