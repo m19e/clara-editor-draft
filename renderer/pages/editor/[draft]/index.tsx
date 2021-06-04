@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { parse } from "path";
 import { readDraft } from "lib/draft";
 import { getFormat } from "lib/config";
@@ -9,6 +10,8 @@ import DraftEditor from "components/organisms/DraftEditor";
 import Frame from "components/organisms/Editor/Frame";
 
 const Draft = () => {
+    const { theme } = useTheme();
+
     const router = useRouter();
     const [text, setText] = useState("");
     const [, setTitle] = useTitle();
@@ -31,9 +34,9 @@ const Draft = () => {
     }, [router]);
 
     return (
-        <div className={ft + " text-black clara-bg__light"}>
+        <div className={ft + " text-black clara-bg__" + theme}>
             <Menu />
-            <DraftEditor text={text} />
+            {typeof theme === "string" ? <DraftEditor text={text} /> : null}
             <Frame />
         </div>
     );
