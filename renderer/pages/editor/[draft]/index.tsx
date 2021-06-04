@@ -34,11 +34,15 @@ const Draft = () => {
     }, [router]);
 
     return (
-        <div className={ft + " text-black clara-bg__" + theme}>
+        <>
             <Menu />
-            {typeof theme === "string" ? <DraftEditor text={text} /> : null}
-            <Frame />
-        </div>
+            {typeof theme === "string" ? (
+                <div className={`${ft} clara-text__${theme} clara-bg__${theme}`}>
+                    <DraftEditor text={text} />
+                    <Frame />
+                </div>
+            ) : null}
+        </>
     );
 };
 
