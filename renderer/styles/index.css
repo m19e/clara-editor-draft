@@ -16,6 +16,10 @@
     background-color: #44454a;
 }
 
+.clara-surface__dark {
+    background-color: #5c646c;
+}
+
 .clara-text__light {
     color: #141426;
 }
