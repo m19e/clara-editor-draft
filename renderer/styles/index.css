@@ -25,7 +25,8 @@
 }
 
 .clara-text__dark {
-    color: #cdcecf;
+    /* color: #cdcecf; */
+    @apply text-white;
 }
 
 .flex-center {
