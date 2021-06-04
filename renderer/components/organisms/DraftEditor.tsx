@@ -48,26 +48,6 @@ export default ({ text }: { text: string }) => {
         return () => clearTimeout(timer);
     }, [editorState]);
 
-    // const saveDraftWithDialog = () => {
-    //     const text = editorState.getCurrentContent().getPlainText();
-    //     const path = remote.dialog.showSaveDialogSync(null, {
-    //         defaultPath: "title.txt",
-    //         buttonLabel: "保存",
-    //         filters: [{ name: "テキスト", extensions: ["txt"] }],
-    //         properties: ["showOverwriteConfirmation"],
-    //     });
-
-    //     if (path === undefined) {
-    //         return;
-    //     }
-
-    //     try {
-    //         writeDraft(path, text);
-    //     } catch (e) {
-    //         console.error(e.message);
-    //     }
-    // };
-
     const saveDraft = (es: EditorState) => {
         const data = es.getCurrentContent().getPlainText();
 
