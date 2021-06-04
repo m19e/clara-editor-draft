@@ -1,12 +1,18 @@
 import { remote } from "electron";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import { getTheme, setThemeConfig } from "lib/config";
 import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 const Menu = () => {
     const { theme, setTheme } = useTheme();
     const [displayCharCount, setDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
+
+    useEffect(() => {
+        const t = getTheme();
+        setTheme(t);
+    }, []);
 
     useEffect(() => {
         const localMenu = remote.Menu.buildFromTemplate([
@@ -21,7 +27,9 @@ const Menu = () => {
                         checked: theme === "dark",
                         click: (_, focusedWin) => {
                             if (focusedWin) {
-                                setTheme(theme === "dark" ? "light" : "dark");
+                                const t = theme === "dark" ? "light" : "dark";
+                                setTheme(t);
+                                setThemeConfig(t);
                             }
                         },
                     },
