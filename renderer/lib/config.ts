@@ -3,6 +3,16 @@ import { FontType } from "types";
 
 const store = new Store();
 
+// App
+export const getTheme = (): "light" | "dark" => {
+    return store.get("app/theme", "light") as "light" | "dark";
+};
+
+export const setThemeConfig = (theme: "light" | "dark") => {
+    store.set("app/theme", theme);
+};
+
+// Editor
 const getFontType = (): FontType => {
     return store.get("editor/font-type", "mincho") as FontType;
 };
