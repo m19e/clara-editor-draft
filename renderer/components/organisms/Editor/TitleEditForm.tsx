@@ -58,10 +58,7 @@ const TitleEditForm = () => {
                         onKeyDown={(e) => {
                             if (e.key === "Tab") e.preventDefault();
                         }}
-                        inputClassName={
-                            "px-2 text-center shadow-inner rounded outline-none focus:outline-none " +
-                            (theme === "dark" ? "clara-text__dark clara-surface__dark" : "clara-text__light")
-                        }
+                        inputClassName="px-2 text-center shadow-inner bg-transparent rounded outline-none focus:outline-none"
                         inputStyle={{ minWidth: "10rem", maxWidth: "36rem" }}
                     />
                 </form>
