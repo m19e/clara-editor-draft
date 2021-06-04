@@ -63,7 +63,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         >
                             削除
                         </button>
-                        <span className={"text-lg break-all my-4 " + (theme === "dark" ? "text-gray-600" : "text-white")}>{name}</span>
+                        <span className={"text-lg break-all my-4 " + (theme === "dark" ? "text-gray-700" : "text-white")}>{name}</span>
                     </div>
                 </>
             ) : (
