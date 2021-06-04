@@ -1,9 +1,12 @@
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import TitleEditForm from "components/organisms/Editor/TitleEditForm";
 
 const Header = () => {
+    const { theme } = useTheme();
+
     return (
-        <div className="fixed top-0 w-full h-20 flex-center shadow-sm clara-bg__light select-none">
+        <div className={"fixed top-0 w-full h-20 flex-center shadow-sm select-none " + (theme === "dark" ? "clara-surface__dark" : "clara-bg__light")}>
             <div className="container flex-center">
                 <div className="w-11/12 xl:max-w-4xl grid grid-cols-12 items-center">
                     <div className="col-span-1 inline-flex justify-end">
