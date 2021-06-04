@@ -61,8 +61,6 @@ const Home = () => {
 
     return (
         <>
-            <Menu />
-            <MetaHeader title="一覧 - Clara Editor" />
             <Scrollbar className="max-h-screen">
                 <div className={"min-h-screen flex-center flex-col clara-bg__" + theme}>
                     <div className="flex flex-col w-3/4 xl:max-w-5xl my-8 select-none" style={{ minHeight: "70vh" }}>
