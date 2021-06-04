@@ -10,7 +10,7 @@ const CharCount = ({ text }: { text: string }) => {
     const [display] = useDisplayCharCount();
     const count = getTextCharCount(text);
 
-    return display ? <span className="">{count}</span> : null;
+    return display ? <span className="opacity-75">{count}</span> : null;
 };
 
 export default CharCount;
