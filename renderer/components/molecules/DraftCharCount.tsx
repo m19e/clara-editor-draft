@@ -10,7 +10,7 @@ const CharCount = ({ text }: { text: string }) => {
     const [display] = useDisplayCharCount();
     const count = getTextCharCount(text);
 
-    return display ? <span className="text-gray-500">{count}</span> : null;
+    return display ? <span className="">{count}</span> : null;
 };
 
 export default CharCount;
