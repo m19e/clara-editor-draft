@@ -1,4 +1,3 @@
-import { useTheme } from "next-themes";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import AutosizeInput from "react-input-autosize";
 import { useTitle, useIsTitleEdit } from "hooks";
@@ -12,7 +11,6 @@ const sandwich = /(\s\\|\\\s)+(\s|\\)?/g;
 const beginningEnd = /^(\s|\\)+|(\s|\\)+$/g;
 
 const TitleEditForm = () => {
-    const { theme } = useTheme();
     const [title, setTitle] = useTitle();
     const [isEdit, setIsEdit] = useIsTitleEdit();
     const [localTitle, setLocalTitle] = useState("");
