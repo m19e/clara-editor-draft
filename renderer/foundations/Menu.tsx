@@ -107,6 +107,17 @@ const Menu = () => {
                             }
                         },
                     },
+                    {
+                        label: "全画面解除",
+                        accelerator: "Esc",
+                        visible: false,
+                        click: (_, win) => {
+                            if (win && win.isFullScreen()) {
+                                win.setFullScreen(false);
+                                win.setMenuBarVisibility(true);
+                            }
+                        },
+                    },
                 ],
             },
         ]);
