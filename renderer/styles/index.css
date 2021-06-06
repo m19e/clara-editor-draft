@@ -29,8 +29,7 @@
 }
 
 .clara-text__dark ::selection {
-    @apply clara-text__light;
-    background-color: white;
+    @apply clara-text__light bg-white;
 }
 
 .flex-center {
