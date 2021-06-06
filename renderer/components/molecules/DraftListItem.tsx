@@ -7,13 +7,11 @@ import { Draft } from "types";
 const getDisplayTime = (ms: number): string => {
     const dt = new Date(ms);
     const y = dt.getFullYear() + "/";
-    const m = dt.getMonth() + 1 + "/";
-    const d = dt.getDate();
-    const md = m + d;
-    const date = (md + "     ").slice(0, 8 + (4 - md.length));
+    const m = ("00" + (dt.getMonth() + 1)).slice(-2) + "/";
+    const d = ("00" + dt.getDate()).slice(-2) + "  ";
     const ho = ("00" + dt.getHours()).slice(-2) + ":";
     const mi = ("00" + dt.getMinutes()).slice(-2);
-    return y + date + ho + mi;
+    return y + m + d + ho + mi;
 };
 
 type Props = {
