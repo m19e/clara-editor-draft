@@ -6,7 +6,7 @@ const Frame = () => {
     const [isTitleEdit] = useIsTitleEdit();
 
     return (
-        <div className={"fixed z-10 " + (isTitleEdit ? "" : "transition-opacity duration-500 ease-out opacity-0 hover:opacity-100")}>
+        <div className={"fixed z-10 transition-opacity duration-500 delay-150 ease-out " + (isTitleEdit ? "" : "opacity-0 hover:opacity-100")}>
             <Header />
             <Footer />
         </div>
