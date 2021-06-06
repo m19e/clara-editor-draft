@@ -39,9 +39,9 @@ const Menu = () => {
                         type: "checkbox",
                         accelerator: "CmdOrCtrl+Shift+C",
                         checked: displayCharCount,
-                        click: (self, focusedWin) => {
+                        click: (_, focusedWin) => {
                             if (focusedWin) {
-                                setDisplayCharCount(self.checked);
+                                setDisplayCharCount((prev) => !prev);
                             }
                         },
                     },
