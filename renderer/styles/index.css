@@ -25,7 +25,6 @@
 }
 
 .clara-text__dark {
-    /* color: #cdcecf; */
     @apply text-white;
 }
 
