@@ -37,7 +37,7 @@ const Menu = () => {
                         id: "char-count-display",
                         label: "文字数を表示する",
                         type: "checkbox",
-                        accelerator: "CmdOrCtrl+T",
+                        accelerator: "CmdOrCtrl+Shift+C",
                         checked: displayCharCount,
                         click: (self, focusedWin) => {
                             if (focusedWin) {
