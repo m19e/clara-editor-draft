@@ -87,6 +87,13 @@ const Menu = () => {
                             },
                         ],
                     },
+                    {
+                        type: "separator",
+                    },
+                    {
+                        label: "全画面",
+                        role: "togglefullscreen",
+                    },
                 ],
             },
         ]);
