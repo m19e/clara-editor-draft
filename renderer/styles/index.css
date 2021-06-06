@@ -28,6 +28,10 @@
     @apply text-white;
 }
 
+.clara-text__light ::selection {
+    @apply text-white bg-gray-400;
+}
+
 .clara-text__dark ::selection {
     @apply clara-text__light bg-white;
 }
