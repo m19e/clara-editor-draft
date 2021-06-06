@@ -92,7 +92,20 @@ const Menu = () => {
                     },
                     {
                         label: "全画面",
-                        role: "togglefullscreen",
+                        accelerator: (() => {
+                            if (process.platform === "darwin") {
+                                return "Ctrl+Cmd+F";
+                            } else {
+                                return "F11";
+                            }
+                        })(),
+                        click: (_, win) => {
+                            if (win) {
+                                const isF = win.isFullScreen();
+                                win.setFullScreen(!isF);
+                                win.setMenuBarVisibility(isF);
+                            }
+                        },
                     },
                 ],
             },
