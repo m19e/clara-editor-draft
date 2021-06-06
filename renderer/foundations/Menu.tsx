@@ -92,6 +92,7 @@ const Menu = () => {
                     },
                     {
                         label: "全画面",
+                        sublabel: "Escで戻る",
                         accelerator: (() => {
                             if (process.platform === "darwin") {
                                 return "Ctrl+Cmd+F";
