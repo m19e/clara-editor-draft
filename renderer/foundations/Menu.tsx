@@ -23,7 +23,7 @@ const Menu = () => {
                         id: "dark-mode",
                         label: "ダークモード",
                         type: "checkbox",
-                        accelerator: "CmdOrCtrl+D",
+                        accelerator: "CmdOrCtrl+Shift+T",
                         checked: theme === "dark",
                         click: (_, focusedWin) => {
                             if (focusedWin) {
