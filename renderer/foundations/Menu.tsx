@@ -28,8 +28,10 @@ const Menu = () => {
                         click: (_, focusedWin) => {
                             if (focusedWin) {
                                 const t = theme === "dark" ? "light" : "dark";
+                                const bg = theme === "dark" ? "#f9f9fa" : "#44454a";
                                 setTheme(t);
                                 setThemeConfig(t);
+                                focusedWin.setBackgroundColor(bg)
                             }
                         },
                     },
