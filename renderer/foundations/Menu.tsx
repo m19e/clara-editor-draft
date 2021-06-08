@@ -25,8 +25,8 @@ const Menu = () => {
                         type: "checkbox",
                         accelerator: "CmdOrCtrl+Shift+T",
                         checked: theme === "dark",
-                        click: (_, focusedWin) => {
-                            if (focusedWin) {
+                        click: (_, win) => {
+                            if (win) {
                                 const t = theme === "dark" ? "light" : "dark";
                                 setTheme(t);
                                 setThemeConfig(t);
@@ -39,8 +39,8 @@ const Menu = () => {
                         type: "checkbox",
                         accelerator: "CmdOrCtrl+Shift+C",
                         checked: displayCharCount,
-                        click: (_, focusedWin) => {
-                            if (focusedWin) {
+                        click: (_, win) => {
+                            if (win) {
                                 setDisplayCharCount((prev) => !prev);
                             }
                         },
@@ -55,8 +55,8 @@ const Menu = () => {
                                 type: "checkbox",
                                 checked: autosaveDuration === 1,
                                 enabled: autosaveDuration !== 1,
-                                click: (_, focusedWin) => {
-                                    if (focusedWin) {
+                                click: (_, win) => {
+                                    if (win) {
                                         setAutosaveDuration(1);
                                     }
                                 },
@@ -67,8 +67,8 @@ const Menu = () => {
                                 type: "checkbox",
                                 checked: autosaveDuration === 5,
                                 enabled: autosaveDuration !== 5,
-                                click: (_, focusedWin) => {
-                                    if (focusedWin) {
+                                click: (_, win) => {
+                                    if (win) {
                                         setAutosaveDuration(5);
                                     }
                                 },
@@ -79,8 +79,8 @@ const Menu = () => {
                                 type: "checkbox",
                                 checked: autosaveDuration === 10,
                                 enabled: autosaveDuration !== 10,
-                                click: (_, focusedWin) => {
-                                    if (focusedWin) {
+                                click: (_, win) => {
+                                    if (win) {
                                         setAutosaveDuration(10);
                                     }
                                 },
