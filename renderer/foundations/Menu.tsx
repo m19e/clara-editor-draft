@@ -31,7 +31,7 @@ const Menu = () => {
                                 const bg = theme === "dark" ? "#f9f9fa" : "#44454a";
                                 setTheme(t);
                                 setThemeConfig(t);
-                                focusedWin.setBackgroundColor(bg)
+                                focusedWin.setBackgroundColor(bg);
                             }
                         },
                     },
