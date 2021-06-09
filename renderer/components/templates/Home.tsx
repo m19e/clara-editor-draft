@@ -5,8 +5,8 @@ import { extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
-import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 import { Draft } from "types";
+import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
 import DraftListItem from "components/molecules/DraftListItem";
 
