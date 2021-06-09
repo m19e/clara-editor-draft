@@ -5,7 +5,7 @@ import { extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
-import { DEFAULT_DRAFT_TITLE } from "consts";
+import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 import { Draft } from "types";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
 import DraftListItem from "components/molecules/DraftListItem";
@@ -47,7 +47,7 @@ const Home = () => {
 
     const addDraft = () => {
         const draft = `${makeNewDraftName()}.txt`;
-        writeDraft(draft, "執筆を始める");
+        writeDraft(draft, DEFAULT_DRAFT_CONTENT);
         router.push({ pathname: "/editor/[draft]", query: { draft } });
     };
 

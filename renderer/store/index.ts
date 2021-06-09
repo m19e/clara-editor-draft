@@ -1,6 +1,6 @@
 import { atom, selector } from "recoil";
 import { FontType, LineHeightClassType } from "types";
-import { DEFAULT_DRAFT_TITLE } from "consts";
+import { DEFAULT_DRAFT_TITLE, DEFAULT_DRAFT_CONTENT } from "consts";
 
 // Atoms
 
@@ -48,7 +48,7 @@ export const titleState = atom({
 
 export const contentState = atom({
     key: "draft/content",
-    default: "執筆を始める",
+    default: DEFAULT_DRAFT_CONTENT,
 });
 
 export const isTitleEditState = atom({

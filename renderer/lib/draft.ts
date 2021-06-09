@@ -1,5 +1,5 @@
 import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync } from "fs";
-import { DEFAULT_DRAFT_TITLE } from "consts";
+import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 
 export const initDraftDir = () => {
     if (existsSync("draft")) {
@@ -9,7 +9,7 @@ export const initDraftDir = () => {
         unlinkSync("draft");
     }
     mkdirSync("draft");
-    writeDraft(`${DEFAULT_DRAFT_TITLE}.txt`, "執筆を始める");
+    writeDraft(`${DEFAULT_DRAFT_TITLE}.txt`, DEFAULT_DRAFT_CONTENT);
 };
 
 export const readDrafts = (path: string): Dirent[] => {
