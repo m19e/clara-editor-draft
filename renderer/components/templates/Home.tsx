@@ -5,11 +5,10 @@ import { extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
+import { DEFAULT_DRAFT_TITLE } from "consts";
 import { Draft } from "types";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
 import DraftListItem from "components/molecules/DraftListItem";
-
-const DEFAULT_DRAFT_TITLE = "無題";
 
 const Home = () => {
     const router = useRouter();
