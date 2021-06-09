@@ -1,5 +1,6 @@
 import { atom, selector } from "recoil";
 import { FontType, LineHeightClassType } from "types";
+import { DEFAULT_DRAFT_TITLE } from "consts";
 
 // Atoms
 
@@ -42,7 +43,7 @@ export const autosaveDurationState = atom({
 // Draft
 export const titleState = atom({
     key: "draft/title",
-    default: "無題",
+    default: DEFAULT_DRAFT_TITLE,
 });
 
 export const contentState = atom({
