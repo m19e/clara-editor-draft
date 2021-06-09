@@ -21,8 +21,7 @@ const Footer = () => {
     return (
         <div className={"fixed bottom-0 w-full shadow-2xl " + (theme === "dark" ? "clara-surface__dark" : "clara-bg__light")}>
             <div className={`flex-center h-20 my-2 select-none ${calcFooterPadding(fs, ft)}`}>
-                <div className="flex-center flex-col group">
-                    <div className="h-6"></div>
+                <div className="h-full pb-1 flex flex-col justify-end group">
                     <span className="text-center opacity-75">{ft === "mincho" ? "明朝" : "ゴシック"}</span>
                     <button className="transition-opacity duration-1000 ease-out opacity-0 group-hover:opacity-75" onClick={toggleFT}>
                         <span className={"opacity-50 hover:opacity-100 " + (ft === "mincho" ? "gothic" : "mincho")}>
