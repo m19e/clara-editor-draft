@@ -2,7 +2,7 @@ import { remote, MessageBoxOptions } from "electron";
 
 type MessageBoxTypeProp = "none" | "info" | "error" | "question" | "warning";
 
-export const openConfirmableMessageBox = (type: MessageBoxTypeProp, message: string): number => {
+export const openConfirmableMessageBox = (type: MessageBoxTypeProp, message: string): boolean => {
     const win = remote.getCurrentWindow();
     const options: MessageBoxOptions = {
         type,
@@ -10,5 +10,7 @@ export const openConfirmableMessageBox = (type: MessageBoxTypeProp, message: str
         buttons: ["No", "Yes"],
         cancelId: 0,
     };
-    return remote.dialog.showMessageBoxSync(win, options);
+    const resId = remote.dialog.showMessageBoxSync(win, options);
+    const cancel = resId === 0;
+    return cancel;
 };
