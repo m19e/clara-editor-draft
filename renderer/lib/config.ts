@@ -29,11 +29,11 @@ const getLineWords = (): number => {
     return store.get("editor/line-words", 30) as number;
 };
 
-const getDisplayCharCount = (): boolean => {
+export const getDisplayCharCount = (): boolean => {
     return store.get("editor/display-char-count", true) as boolean;
 };
 
-const getAutosaveDuration = (): number => {
+export const getAutosaveDuration = (): number => {
     return store.get("editor/autosave-duration", 1) as number;
 };
 
