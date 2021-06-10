@@ -8,7 +8,7 @@ const Menu = () => {
     const { theme, setTheme } = useTheme();
 
     const [dcc, setDisplayCharCount] = useDisplayCharCount();
-    const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
+    const [ad, setAutosaveDuration] = useAutosaveDuration();
 
     useEffect(() => {
         const t = getTheme();
@@ -54,8 +54,8 @@ const Menu = () => {
                                 id: "duration-1-sec",
                                 label: "1秒",
                                 type: "checkbox",
-                                checked: autosaveDuration === 1,
-                                enabled: autosaveDuration !== 1,
+                                checked: ad === 1,
+                                enabled: ad !== 1,
                                 click: (_, win) => {
                                     if (win) {
                                         setAutosaveDuration(1);
@@ -66,8 +66,8 @@ const Menu = () => {
                                 id: "duration-5-sec",
                                 label: "5秒",
                                 type: "checkbox",
-                                checked: autosaveDuration === 5,
-                                enabled: autosaveDuration !== 5,
+                                checked: ad === 5,
+                                enabled: ad !== 5,
                                 click: (_, win) => {
                                     if (win) {
                                         setAutosaveDuration(5);
@@ -78,8 +78,8 @@ const Menu = () => {
                                 id: "duration-10-sec",
                                 label: "10秒",
                                 type: "checkbox",
-                                checked: autosaveDuration === 10,
-                                enabled: autosaveDuration !== 10,
+                                checked: ad === 10,
+                                enabled: ad !== 10,
                                 click: (_, win) => {
                                     if (win) {
                                         setAutosaveDuration(10);
@@ -124,7 +124,7 @@ const Menu = () => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
-    }, [theme, dcc, autosaveDuration]);
+    }, [theme, dcc, ad]);
 
     return null;
 };
