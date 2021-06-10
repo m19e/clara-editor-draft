@@ -42,6 +42,7 @@ type FormatType = {
     fontSize: number;
     lineHeight: number;
     lineWords: number;
+    displayCharCount: boolean;
     autosaveDuration: number;
 };
 
@@ -50,9 +51,10 @@ export const getFormat = (): FormatType => {
     const fontSize = getFontSize();
     const lineHeight = getLineHeight();
     const lineWords = getLineWords();
+    const displayCharCount = getDisplayCharCount();
     const autosaveDuration = getAutosaveDuration();
 
-    return { fontType, fontSize, lineHeight, lineWords, autosaveDuration };
+    return { fontType, fontSize, lineHeight, lineWords, displayCharCount, autosaveDuration };
 };
 
 export const setFontTypeConfig = (ft: FontType) => {
