@@ -29,6 +29,10 @@ const getLineWords = (): number => {
     return store.get("editor/line-words", 30) as number;
 };
 
+const getDisplayCharCount = (): boolean => {
+    return store.get("editor/display-char-count", true) as boolean;
+};
+
 const getAutosaveDuration = (): number => {
     return store.get("editor/autosave-duration", 1) as number;
 };
@@ -65,6 +69,10 @@ export const setLineHeightConfig = (lh: number) => {
 
 export const setLineWordsConfig = (lw: number) => {
     store.set("editor/line-words", lw);
+};
+
+export const setDisplayCharCountConfig = (dcc: boolean) => {
+    store.set("editor/display-char-count", dcc);
 };
 
 export const setAutosaveDurationConfig = (ad: number) => {
