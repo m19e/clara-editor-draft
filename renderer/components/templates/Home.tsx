@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { extname } from "path";
+import { parse, extname } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
@@ -53,7 +53,8 @@ const Home = () => {
     };
 
     const removeDraft = (title: string) => {
-        const msg = `"${title}"を削除してもよろしいですか？`;
+        const { name } = parse(title);
+        const msg = `「${name}」を削除してもよろしいですか？`;
         const res = openMessageBox("warning", msg);
         if (res === 0) return;
         deleteDraft(title);
