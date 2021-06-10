@@ -13,10 +13,10 @@ const Menu = () => {
         const t = getTheme();
         setTheme(t);
 
-        const disp = getDisplayCharCount();
-        const auto = getAutosaveDuration();
-        setDisplayCharCount(disp);
-        setAutosaveDuration(auto);
+        const dcc = getDisplayCharCount();
+        const ad = getAutosaveDuration();
+        setDisplayCharCount(dcc);
+        setAutosaveDuration(ad);
     }, []);
 
     useEffect(() => {
