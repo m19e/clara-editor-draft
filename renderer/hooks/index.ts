@@ -43,7 +43,7 @@ export const useFontType = (): [FontType, () => void] => {
     return [fontType, toggleFontType];
 };
 
-export const setDisplayCharCount = (dcc: boolean) => {
+export const setDisplayCharCount = (): SetterOrUpdater<boolean> => {
     const setDCC = useSetRecoilState(displayCharCountState);
     return setDCC;
 };
