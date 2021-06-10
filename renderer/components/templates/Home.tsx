@@ -8,7 +8,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 import { initDraftDir, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
-import { openMessageBox } from "lib/electron";
+import { openConfirmableMessageBox } from "lib/electron";
 import DraftListItem from "components/molecules/DraftListItem";
 
 const Home = () => {
@@ -55,7 +55,7 @@ const Home = () => {
     const removeDraft = (title: string) => {
         const { name } = parse(title);
         const msg = `「${name}」を削除してもよろしいですか？`;
-        const res = openMessageBox("warning", msg);
+        const res = openConfirmableMessageBox("warning", msg);
         if (res === 0) return;
         deleteDraft(title);
         loadDraftList();
