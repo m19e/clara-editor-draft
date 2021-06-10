@@ -17,17 +17,15 @@ const Draft = () => {
     const [, setTitle] = useTitle();
     const [ft] = useFontType();
     const setFormat = useFormat();
-    const [, setAutosaveDuration] = useAutosaveDuration();
 
     useEffect(() => {
         const { draft } = router.query;
         if (router.route !== router.asPath && typeof draft === "string") {
             const data = readDraft(draft);
             const { name } = parse(draft);
-            const { autosaveDuration, ...formatObj } = getFormat();
+            const formatObj = getFormat();
 
             setFormat(formatObj);
-            setAutosaveDuration(autosaveDuration);
             setText(data);
             setTitle(name);
         }
