@@ -21,7 +21,14 @@ import {
     autosaveDurationState,
     displayCharCountState,
 } from "store";
-import { setFontTypeConfig, setFontSizeConfig, setLineHeightConfig, setLineWordsConfig, setAutosaveDurationConfig } from "lib/config";
+import {
+    setFontTypeConfig,
+    setFontSizeConfig,
+    setLineHeightConfig,
+    setLineWordsConfig,
+    setAutosaveDurationConfig,
+    setDisplayCharCountConfig,
+} from "lib/config";
 
 // Editor
 export const useFontType = (): [FontType, () => void] => {
@@ -38,7 +45,14 @@ export const useFontType = (): [FontType, () => void] => {
 
 export const useDisplayCharCount = (): [boolean, SetterOrUpdater<boolean>] => {
     const [displayCharCount, setDisplayCharCount] = useRecoilState(displayCharCountState);
-    return [displayCharCount, setDisplayCharCount];
+    const toggleDCC = () => {
+        setDisplayCharCount((prev) => {
+            setDisplayCharCountConfig(!prev);
+            return !prev;
+        });
+    };
+
+    return [displayCharCount, toggleDCC];
 };
 
 export const useFontSize = (): [number, () => void, () => void] => {
