@@ -6,7 +6,8 @@ import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 const Menu = () => {
     const { theme, setTheme } = useTheme();
-    const [displayCharCount, setDisplayCharCount] = useDisplayCharCount();
+
+    const [dcc, setDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
 
     useEffect(() => {
@@ -38,7 +39,7 @@ const Menu = () => {
                         label: "字数カウント",
                         type: "checkbox",
                         accelerator: "CmdOrCtrl+Shift+C",
-                        checked: displayCharCount,
+                        checked: dcc,
                         click: (_, win) => {
                             if (win) {
                                 setDisplayCharCount((prev) => !prev);
@@ -123,7 +124,7 @@ const Menu = () => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
-    }, [theme, displayCharCount, autosaveDuration]);
+    }, [theme, dcc, autosaveDuration]);
 
     return null;
 };
