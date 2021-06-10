@@ -1,18 +1,21 @@
 import { remote } from "electron";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { getTheme, setThemeConfig } from "lib/config";
+import { getTheme, setThemeConfig, getFormat, setDisplayCharCountConfig } from "lib/config";
 import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 const Menu = () => {
     const { theme, setTheme } = useTheme();
-
     const [dcc, setDisplayCharCount] = useDisplayCharCount();
     const [ad, setAutosaveDuration] = useAutosaveDuration();
 
     useEffect(() => {
         const t = getTheme();
         setTheme(t);
+
+        const { displayCharCount, autosaveDuration } = getFormat();
+        setDisplayCharCount(displayCharCount);
+        setAutosaveDuration(autosaveDuration);
     }, []);
 
     useEffect(() => {
@@ -42,7 +45,10 @@ const Menu = () => {
                         checked: dcc,
                         click: (_, win) => {
                             if (win) {
-                                setDisplayCharCount((prev) => !prev);
+                                setDisplayCharCount((prev) => {
+                                    setDisplayCharCountConfig(!prev);
+                                    return !prev;
+                                });
                             }
                         },
                     },
