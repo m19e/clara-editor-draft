@@ -55,8 +55,8 @@ const Home = () => {
     const removeDraft = (title: string) => {
         const { name } = parse(title);
         const msg = `「${name}」を削除してもよろしいですか？`;
-        const res = openConfirmableMessageBox("warning", msg);
-        if (res === 0) return;
+        const cancel = openConfirmableMessageBox("warning", msg);
+        if (cancel) return;
         deleteDraft(title);
         loadDraftList();
     };
