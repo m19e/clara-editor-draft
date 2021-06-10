@@ -1,7 +1,7 @@
 import { remote } from "electron";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { getTheme, setThemeConfig, getFormat, setDisplayCharCountConfig } from "lib/config";
+import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig, setDisplayCharCountConfig } from "lib/config";
 import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 const Menu = () => {
@@ -13,9 +13,10 @@ const Menu = () => {
         const t = getTheme();
         setTheme(t);
 
-        const { displayCharCount, autosaveDuration } = getFormat();
-        setDisplayCharCount(displayCharCount);
-        setAutosaveDuration(autosaveDuration);
+        const disp = getDisplayCharCount();
+        const auto = getAutosaveDuration();
+        setDisplayCharCount(disp);
+        setAutosaveDuration(auto);
     }, []);
 
     useEffect(() => {
