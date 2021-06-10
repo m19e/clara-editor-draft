@@ -1,12 +1,12 @@
 import { remote } from "electron";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig, setDisplayCharCountConfig } from "lib/config";
-import { useAutosaveDuration, useDisplayCharCount } from "hooks";
+import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
+import { useAutosaveDuration, useDisplayCharCount, setDisplayCharCount } from "hooks";
 
 const Menu = () => {
     const { theme, setTheme } = useTheme();
-    const [displayCharCount, setDisplayCharCount] = useDisplayCharCount();
+    const [displayCharCount, toggleDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
 
     useEffect(() => {
@@ -46,10 +46,7 @@ const Menu = () => {
                         checked: displayCharCount,
                         click: (_, win) => {
                             if (win) {
-                                setDisplayCharCount((prev) => {
-                                    setDisplayCharCountConfig(!prev);
-                                    return !prev;
-                                });
+                                toggleDisplayCharCount();
                             }
                         },
                     },
