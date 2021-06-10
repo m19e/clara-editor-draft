@@ -54,7 +54,7 @@ const Home = () => {
 
     const removeDraft = (title: string) => {
         const msg = `"${title}"を削除してもよろしいですか？`;
-        const res = openMessageBox("warning", msg, "削除");
+        const res = openMessageBox("warning", msg);
         if (res === 0) return;
         deleteDraft(title);
         loadDraftList();
