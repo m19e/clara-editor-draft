@@ -23,9 +23,9 @@ const Draft = () => {
         if (router.route !== router.asPath && typeof draft === "string") {
             const data = readDraft(draft);
             const { name } = parse(draft);
-            const formatObj = getFormat();
+            const fmt = getFormat();
 
-            setFormat(formatObj);
+            setFormat(fmt);
             setText(data);
             setTitle(name);
         }
