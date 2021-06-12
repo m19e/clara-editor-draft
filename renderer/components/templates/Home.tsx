@@ -18,8 +18,7 @@ const Home = () => {
 
     useEffect(() => {
         initDraftDir();
-        const loaded = loadDraftList();
-        setDraftList(loaded);
+        setDraftList(() => loadDraftList());
     }, []);
 
     const loadDraftList = (): Draft[] => {
