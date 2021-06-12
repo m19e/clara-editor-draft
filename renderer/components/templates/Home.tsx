@@ -21,8 +21,8 @@ const Home = () => {
         setDraftList(() => loadDraftList());
     }, []);
 
-    const makeNewDraftName = (): string => {
-        const titleList = draftList.map((d) => d.title);
+    const makeNewDraftName = (list: Draft[]): string => {
+        const titleList = list.map((d) => d.title);
         if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
 
         let num = 1;
@@ -33,7 +33,7 @@ const Home = () => {
     };
 
     const addDraft = () => {
-        const draft = makeNewDraftName();
+        const draft = makeNewDraftName(draftList);
         writeDraft(draft, DEFAULT_DRAFT_CONTENT);
         router.push({ pathname: "/editor/[draft]", query: { draft } });
     };
