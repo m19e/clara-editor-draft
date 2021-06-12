@@ -1,5 +1,7 @@
 import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync } from "fs";
+import { extname } from "path";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
+import { Draft } from "types";
 
 export const initDraftDir = () => {
     if (existsSync("draft")) {
@@ -39,4 +41,14 @@ export const deleteDraft = (path: string) => {
 export const getDraftStat = (path: string): Stats => {
     const stat = statSync(`draft/${path}`);
     return stat;
+};
+
+export const loadDraftList = (): Draft[] => {
+    const drafts = readDrafts("draft");
+    const sorted = drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
+    return sorted.map((d) => {
+        const { name } = d;
+        const { mtimeMs } = getDraftStat(name);
+        return { title: name, updated_at: mtimeMs };
+    });
 };
