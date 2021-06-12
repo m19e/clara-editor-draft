@@ -22,6 +22,29 @@ const Menu = () => {
     useEffect(() => {
         const localMenu = remote.Menu.buildFromTemplate([
             {
+                label: "ファイル",
+                submenu: [
+                    {
+                        id: "import-draft",
+                        label: "読み込む",
+                        click: (_, win) => {
+                            if (win) {
+                                const path = remote.dialog.showSaveDialogSync(win, {
+                                    defaultPath: ".",
+                                    filters: [
+                                        {
+                                            name: "テキストファイル",
+                                            extensions: ["txt"],
+                                        },
+                                    ],
+                                });
+                                console.log("path: ", path);
+                            }
+                        },
+                    },
+                ],
+            },
+            {
                 label: "設定",
                 submenu: [
                     {
