@@ -37,6 +37,7 @@ const Menu = () => {
                                             extensions: ["txt"],
                                         },
                                     ],
+                                    properties: ["showOverwriteConfirmation"],
                                 });
                                 console.log("path: ", path);
                             }
