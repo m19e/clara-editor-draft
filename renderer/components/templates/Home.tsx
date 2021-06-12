@@ -6,7 +6,7 @@ import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { Draft } from "types";
-import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
+import { DEFAULT_DRAFT_CONTENT } from "consts";
 import { initDraftDir, loadDraftList, makeNewDraftName, writeDraft, deleteDraft } from "lib/draft";
 import { openConfirmableMessageBox } from "lib/electron";
 import DraftListItem from "components/molecules/DraftListItem";
