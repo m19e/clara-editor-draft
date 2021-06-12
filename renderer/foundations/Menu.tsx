@@ -1,4 +1,5 @@
 import { remote } from "electron";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { parse } from "path";
 import { useTheme } from "next-themes";
@@ -11,6 +12,7 @@ type Props = {
 };
 
 const Menu = ({ page }: Props) => {
+    const router = useRouter();
     const { theme, setTheme } = useTheme();
     const [displayCharCount, setDisplayCharCount, toggleDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
@@ -50,6 +52,9 @@ const Menu = ({ page }: Props) => {
                                 const exist = list.map((d) => d.title).includes(base);
                                 const draftName = exist ? makeNewDraftName(list) : base;
                                 writeDraft(draftName, text);
+                                if (page === "home") {
+                                    router.reload();
+                                }
                             }
                         },
                     },
