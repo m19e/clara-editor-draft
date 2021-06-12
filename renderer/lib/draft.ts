@@ -24,11 +24,13 @@ export const writeDraft = (path: string, text: string) => {
     writeFileSync(`draft/${path}`, text);
 };
 
+// Read in draft dir
 export const readDraft = (path: string): string => {
     const text = readFileSync(`draft/${path}`, "utf-8");
     return text;
 };
 
+// Read with full path
 export const importDraft = (path: string): string => {
     const text = readFileSync(path, "utf-8");
     return text;
