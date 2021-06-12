@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { parse, extname } from "path";
+import { parse } from "path";
 import Scrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
-import { initDraftDir, loadDraftList, readDrafts, writeDraft, deleteDraft, getDraftStat } from "lib/draft";
+import { initDraftDir, loadDraftList, writeDraft, deleteDraft } from "lib/draft";
 import { openConfirmableMessageBox } from "lib/electron";
 import DraftListItem from "components/molecules/DraftListItem";
 
