@@ -29,11 +29,11 @@ const Home = () => {
         while (titleList.includes(`${DEFAULT_DRAFT_TITLE}_${num}.txt`)) {
             num++;
         }
-        return `${DEFAULT_DRAFT_TITLE}_${num}`;
+        return `${DEFAULT_DRAFT_TITLE}_${num}.txt`;
     };
 
     const addDraft = () => {
-        const draft = `${makeNewDraftName()}.txt`;
+        const draft = makeNewDraftName();
         writeDraft(draft, DEFAULT_DRAFT_CONTENT);
         router.push({ pathname: "/editor/[draft]", query: { draft } });
     };
