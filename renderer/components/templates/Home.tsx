@@ -18,21 +18,20 @@ const Home = () => {
 
     useEffect(() => {
         initDraftDir();
-        loadDraftList();
+        const loaded = loadDraftList();
+        setDraftList(loaded);
     }, []);
 
-    const loadDraftList = () => {
+    const loadDraftList = (): Draft[] => {
         const drafts = readDrafts("draft");
         const sorted = drafts
             .filter((d) => d.isFile() && extname(d.name) === ".txt")
             .sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
-        setDraftList(() =>
-            sorted.map((d) => {
-                const { name } = d;
-                const { mtimeMs } = getDraftStat(name);
-                return { title: name, updated_at: mtimeMs };
-            })
-        );
+        return sorted.map((d) => {
+            const { name } = d;
+            const { mtimeMs } = getDraftStat(name);
+            return { title: name, updated_at: mtimeMs };
+        });
     };
 
     const makeNewDraftName = (): string => {
