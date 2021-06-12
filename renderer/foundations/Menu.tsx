@@ -37,7 +37,7 @@ const Menu = ({ page }: Props) => {
                         label: "読み込む",
                         click: (_, win) => {
                             if (win) {
-                                const path = remote.dialog.showSaveDialogSync(win, {
+                                const paths = remote.dialog.showOpenDialogSync(win, {
                                     defaultPath: ".",
                                     filters: [
                                         {
@@ -45,9 +45,13 @@ const Menu = ({ page }: Props) => {
                                             extensions: ["txt"],
                                         },
                                     ],
+                                    properties: ["openFile"],
                                 });
-                                const text = importDraft(path);
-                                const { base } = parse(path);
+                                if (paths === undefined || paths.length !== 1) {
+                                    return;
+                                }
+                                const text = importDraft(paths[0]);
+                                const { base } = parse(paths[0]);
                                 const list = loadDraftList();
                                 const exist = list.map((d) => d.title).includes(base);
                                 const draftName = exist ? makeNewDraftName(list) : base;
