@@ -1,7 +1,7 @@
 import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync } from "fs";
 import { extname } from "path";
-import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 import { Draft } from "types";
+import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 
 export const initDraftDir = () => {
     if (existsSync("draft")) {
