@@ -52,3 +52,14 @@ export const loadDraftList = (): Draft[] => {
         return { title: name, updated_at: mtimeMs };
     });
 };
+
+export const makeNewDraftName = (list: Draft[]): string => {
+    const titleList = list.map((d) => d.title);
+    if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
+
+    let num = 1;
+    while (titleList.includes(`${DEFAULT_DRAFT_TITLE}_${num}.txt`)) {
+        num++;
+    }
+    return `${DEFAULT_DRAFT_TITLE}_${num}.txt`;
+};

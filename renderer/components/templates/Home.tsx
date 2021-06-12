@@ -7,7 +7,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
-import { initDraftDir, loadDraftList, writeDraft, deleteDraft } from "lib/draft";
+import { initDraftDir, loadDraftList, makeNewDraftName, writeDraft, deleteDraft } from "lib/draft";
 import { openConfirmableMessageBox } from "lib/electron";
 import DraftListItem from "components/molecules/DraftListItem";
 
@@ -20,17 +20,6 @@ const Home = () => {
         initDraftDir();
         setDraftList(() => loadDraftList());
     }, []);
-
-    const makeNewDraftName = (list: Draft[]): string => {
-        const titleList = list.map((d) => d.title);
-        if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
-
-        let num = 1;
-        while (titleList.includes(`${DEFAULT_DRAFT_TITLE}_${num}.txt`)) {
-            num++;
-        }
-        return `${DEFAULT_DRAFT_TITLE}_${num}.txt`;
-    };
 
     const addDraft = () => {
         const draft = makeNewDraftName(draftList);
