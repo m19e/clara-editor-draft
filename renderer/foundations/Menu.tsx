@@ -1,7 +1,9 @@
 import { remote } from "electron";
 import { useEffect } from "react";
+import { parse } from "path";
 import { useTheme } from "next-themes";
 import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
+import { importDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
 import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 const Menu = () => {
@@ -37,9 +39,13 @@ const Menu = () => {
                                             extensions: ["txt"],
                                         },
                                     ],
-                                    properties: ["showOverwriteConfirmation"],
                                 });
-                                console.log("path: ", path);
+                                const text = importDraft(path);
+                                const { base } = parse(path);
+                                const list = loadDraftList();
+                                const exist = list.map((d) => d.title).includes(base);
+                                const draftName = exist ? makeNewDraftName(list) : base;
+                                writeDraft(draftName, text);
                             }
                         },
                     },
