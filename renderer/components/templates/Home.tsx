@@ -56,7 +56,7 @@ const Home = () => {
         const cancel = openConfirmableMessageBox("warning", msg);
         if (cancel) return;
         deleteDraft(title);
-        loadDraftList();
+        setDraftList(() => loadDraftList());
     };
 
     return (
