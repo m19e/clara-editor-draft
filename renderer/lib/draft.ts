@@ -29,6 +29,11 @@ export const readDraft = (path: string): string => {
     return text;
 };
 
+export const importDraft = (path: string): string => {
+    const text = readFileSync(path, "utf-8");
+    return text;
+};
+
 // Update(filename)
 export const renameDraft = (oldPath: string, newPath: string) => {
     renameSync(`draft/${oldPath}`, `draft/${newPath}`);
