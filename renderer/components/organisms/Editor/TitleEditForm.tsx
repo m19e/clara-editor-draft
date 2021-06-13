@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import AutosizeInput from "react-input-autosize";
 import { useTitle, useIsTitleEdit } from "hooks";
-import { renameDraft } from "lib/draft";
+import { loadDraftList, renameDraft } from "lib/draft";
 
 const specialChars = /\(|\)|,|-|\/|!|\\|\:|\?|\.|"|<|>|\|/g;
 const slash = /\//g;
@@ -35,6 +35,12 @@ const TitleEditForm = () => {
         e.preventDefault();
         const trimmed = localTitle.trim();
         if (title !== trimmed && trimmed !== "") {
+            const list = loadDraftList();
+            const exist = list.map((d) => d.title).includes(`${trimmed}.txt`);
+            if (exist) {
+                setLocalTitle(title);
+                return;
+            }
             setTitle(trimmed);
             renameDraft(`${title}.txt`, `${trimmed}.txt`);
         } else {
