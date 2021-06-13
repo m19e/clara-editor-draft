@@ -7,11 +7,7 @@ import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } fr
 import { importDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
 import { useAutosaveDuration, useDisplayCharCount } from "hooks";
 
-type Props = {
-    page: "home" | "editor";
-};
-
-const Menu = ({ page }: Props) => {
+const Menu = () => {
     const router = useRouter();
     const { theme, setTheme } = useTheme();
     const [displayCharCount, setDisplayCharCount, toggleDisplayCharCount] = useDisplayCharCount();
