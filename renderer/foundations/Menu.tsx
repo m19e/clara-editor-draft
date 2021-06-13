@@ -54,10 +54,11 @@ const Menu = ({ page }: Props) => {
                                 const { base } = parse(paths[0]);
                                 const list = loadDraftList();
                                 const exist = list.map((d) => d.title).includes(base);
-                                const draftName = exist ? makeNewDraftName(list) : base;
-                                writeDraft(draftName, text);
+                                const draft = exist ? makeNewDraftName(list) : base;
+                                writeDraft(draft, text);
                                 if (page === "home") {
                                     router.reload();
+                                } else {
                                 }
                             }
                         },
