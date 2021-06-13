@@ -56,10 +56,7 @@ const Menu = ({ page }: Props) => {
                                 const exist = list.map((d) => d.title).includes(base);
                                 const draft = exist ? makeNewDraftName(list) : base;
                                 writeDraft(draft, text);
-                                if (page === "home") {
-                                    router.reload();
-                                } else {
-                                }
+                                router.push({ pathname: "/editor/[draft]", query: { draft } });
                             }
                         },
                     },
