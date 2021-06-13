@@ -62,7 +62,7 @@ export const loadDraftList = (): Draft[] => {
 
 export const makeNewDraftName = (list: Draft[]): string => {
     const titleList = list.map((d) => d.title);
-    if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return DEFAULT_DRAFT_TITLE;
+    if (!titleList.includes(`${DEFAULT_DRAFT_TITLE}.txt`)) return `${DEFAULT_DRAFT_TITLE}.txt`;
 
     let num = 1;
     while (titleList.includes(`${DEFAULT_DRAFT_TITLE}_${num}.txt`)) {
