@@ -26,7 +26,7 @@ const Menu = () => {
     useEffect(() => {
         const localMenu = remote.Menu.buildFromTemplate([
             {
-                label: "ファイル",
+                label: "原稿",
                 submenu: [
                     {
                         id: "import-draft",
