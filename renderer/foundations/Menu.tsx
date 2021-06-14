@@ -1,7 +1,7 @@
 import { remote } from "electron";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { parse } from "path";
+import { parse, join } from "path";
 import { useTheme } from "next-themes";
 import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
 import { importDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
@@ -57,7 +57,27 @@ const Menu = () => {
                             }
                         },
                     },
-                    { id: "export-draft", label: "書き出す" },
+                    {
+                        id: "export-draft",
+                        label: "書き出す",
+                        click: (_, win) => {
+                            if (win) {
+                                const path = remote.dialog.showSaveDialogSync(win, {
+                                    defaultPath: join(remote.app.getPath("desktop"), "draft.txt"),
+                                    filters: [
+                                        {
+                                            name: "テキストファイル",
+                                            extensions: ["txt"],
+                                        },
+                                    ],
+                                    properties: ["showOverwriteConfirmation"],
+                                });
+                                console.log(path);
+                                alert(path);
+                                if (typeof path === "undefined" || parse(path).ext !== ".txt") return;
+                            }
+                        },
+                    },
                     { id: "delete-draft", label: "削除" },
                 ],
             },
