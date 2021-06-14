@@ -57,8 +57,8 @@ const Menu = () => {
                             }
                         },
                     },
-                    { label: "書き出す" },
-                    { label: "削除" },
+                    { id: "export-draft", label: "書き出す" },
+                    { id: "delete-draft", label: "削除" },
                 ],
             },
             {
