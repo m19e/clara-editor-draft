@@ -30,7 +30,7 @@ const Menu = () => {
                 submenu: [
                     {
                         id: "import-draft",
-                        label: "読み込む",
+                        label: "読み込む…",
                         accelerator: "CmdOrCtrl+Shift+O",
                         click: (_, win) => {
                             if (win) {
@@ -59,7 +59,7 @@ const Menu = () => {
                     },
                     {
                         id: "export-draft",
-                        label: "書き出す",
+                        label: "書き出す…",
                         click: (_, win) => {
                             if (win) {
                                 const path = remote.dialog.showSaveDialogSync(win, {
