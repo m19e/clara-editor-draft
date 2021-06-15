@@ -64,6 +64,7 @@ const Menu = ({ page }: Props) => {
                     {
                         id: "export-draft",
                         label: "書き出す…",
+                        accelerator: "CmdOrCtrl+Shift+S",
                         click: (_, win) => {
                             if (win) {
                                 const path = remote.dialog.showSaveDialogSync(win, {
