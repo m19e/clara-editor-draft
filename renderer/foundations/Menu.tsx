@@ -72,8 +72,6 @@ const Menu = () => {
                                     ],
                                     properties: ["showOverwriteConfirmation"],
                                 });
-                                console.log(path);
-                                alert(path);
                                 if (typeof path === "undefined" || parse(path).ext !== ".txt") return;
                             }
                         },
