@@ -35,7 +35,7 @@ const Menu = ({ page }: Props) => {
                     {
                         id: "import-draft",
                         label: "読み込む…",
-                        accelerator: "CmdOrCtrl+Shift+O",
+                        accelerator: "CmdOrCtrl+O",
                         click: (_, win) => {
                             if (win) {
                                 const paths = remote.dialog.showOpenDialogSync(win, {
