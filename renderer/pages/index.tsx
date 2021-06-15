@@ -8,7 +8,7 @@ const Index = () => {
 
     return (
         <>
-            <Menu />
+            <Menu page="home" />
             <MetaHeader title="一覧 - Clara Editor" />
             {typeof theme === "string" ? <Home /> : null}
         </>

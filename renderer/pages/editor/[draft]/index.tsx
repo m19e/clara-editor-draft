@@ -33,7 +33,7 @@ const Draft = () => {
 
     return (
         <>
-            <Menu />
+            <Menu page="editor" />
             {typeof theme === "string" ? (
                 <div className={`${ft} clara-text__${theme} clara-bg__${theme}`}>
                     <DraftEditor text={text} />
