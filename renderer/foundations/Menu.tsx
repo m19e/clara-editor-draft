@@ -193,7 +193,7 @@ const Menu = ({ page }: Props) => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
-    }, [theme, displayCharCount, autosaveDuration]);
+    }, [theme, title, displayCharCount, autosaveDuration]);
 
     return null;
 };
