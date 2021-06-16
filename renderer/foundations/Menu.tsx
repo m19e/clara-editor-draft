@@ -70,7 +70,7 @@ const Menu = ({ page }: Props) => {
                         click: (_, win) => {
                             if (win) {
                                 const path = remote.dialog.showSaveDialogSync(win, {
-                                    defaultPath: join(remote.app.getPath("desktop"), "draft.txt"),
+                                    defaultPath: join(remote.app.getPath("desktop"), `${title}.txt`),
                                     filters: [
                                         {
                                             name: "テキストファイル",
