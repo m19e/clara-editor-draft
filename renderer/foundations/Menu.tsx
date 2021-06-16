@@ -5,7 +5,7 @@ import { parse, join } from "path";
 import { useTheme } from "next-themes";
 import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
 import { importDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
-import { useAutosaveDuration, useDisplayCharCount } from "hooks";
+import { useTitle, useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 type Props = {
     page: "home" | "editor";
@@ -14,6 +14,7 @@ type Props = {
 const Menu = ({ page }: Props) => {
     const router = useRouter();
     const { theme, setTheme } = useTheme();
+    const [title] = useTitle();
     const [displayCharCount, setDisplayCharCount, toggleDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
 
