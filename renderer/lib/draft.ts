@@ -1,4 +1,4 @@
-import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync } from "fs";
+import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync, copyFileSync } from "fs";
 import { extname } from "path";
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
@@ -34,6 +34,11 @@ export const readDraft = (path: string): string => {
 export const importDraft = (path: string): string => {
     const text = readFileSync(path, "utf-8");
     return text;
+};
+
+// Create with full path
+export const exportDraft = (title: string, path: string) => {
+    copyFileSync(`draft/${title}.txt`, path);
 };
 
 // Update(filename)
