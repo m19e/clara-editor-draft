@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { parse, join } from "path";
 import { useTheme } from "next-themes";
 import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
-import { importDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
+import { importDraft, exportDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
 import { useTitle, useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 type Props = {
@@ -62,27 +62,28 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
-                    {
-                        id: "export-draft",
-                        label: "書き出す…",
-                        accelerator: "CmdOrCtrl+Shift+S",
-                        enabled: page === "editor",
-                        click: (_, win) => {
-                            if (win) {
-                                const path = remote.dialog.showSaveDialogSync(win, {
-                                    defaultPath: join(remote.app.getPath("desktop"), `${title}.txt`),
-                                    filters: [
-                                        {
-                                            name: "テキストファイル",
-                                            extensions: ["txt"],
-                                        },
-                                    ],
-                                    properties: ["showOverwriteConfirmation"],
-                                });
-                                if (typeof path === "undefined" || parse(path).ext !== ".txt") return;
-                            }
-                        },
-                    },
+                    // {
+                    //     id: "export-draft",
+                    //     label: "書き出す…",
+                    //     accelerator: "CmdOrCtrl+Shift+S",
+                    //     enabled: page === "editor",
+                    //     click: (_, win) => {
+                    //         if (win) {
+                    //             const path = remote.dialog.showSaveDialogSync(win, {
+                    //                 defaultPath: join(remote.app.getPath("desktop"), `${title}.txt`),
+                    //                 filters: [
+                    //                     {
+                    //                         name: "テキストファイル",
+                    //                         extensions: ["txt"],
+                    //                     },
+                    //                 ],
+                    //                 properties: ["showOverwriteConfirmation"],
+                    //             });
+                    //             if (typeof path === "undefined" || parse(path).ext !== ".txt") return;
+                    //             exportDraft(`${title}.txt`, path);
+                    //         }
+                    //     },
+                    // },
                     { id: "delete-draft", label: "削除", enabled: page === "editor" },
                 ],
             },
