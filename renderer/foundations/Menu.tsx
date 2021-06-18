@@ -62,28 +62,28 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
-                    // {
-                    //     id: "export-draft",
-                    //     label: "書き出す…",
-                    //     accelerator: "CmdOrCtrl+Shift+S",
-                    //     enabled: page === "editor",
-                    //     click: (_, win) => {
-                    //         if (win) {
-                    //             const path = remote.dialog.showSaveDialogSync(win, {
-                    //                 defaultPath: join(remote.app.getPath("desktop"), `${title}.txt`),
-                    //                 filters: [
-                    //                     {
-                    //                         name: "テキストファイル",
-                    //                         extensions: ["txt"],
-                    //                     },
-                    //                 ],
-                    //                 properties: ["showOverwriteConfirmation"],
-                    //             });
-                    //             if (typeof path === "undefined" || parse(path).ext !== ".txt") return;
-                    //             exportDraft(`${title}.txt`, path);
-                    //         }
-                    //     },
-                    // },
+                    {
+                        id: "export-draft",
+                        label: "書き出す…",
+                        accelerator: "CmdOrCtrl+Shift+S",
+                        enabled: page === "editor",
+                        click: (_, win) => {
+                            if (win) {
+                                const path = remote.dialog.showSaveDialogSync(win, {
+                                    defaultPath: join(remote.app.getPath("appData"), `${title}.txt`),
+                                    filters: [
+                                        {
+                                            name: "テキストファイル",
+                                            extensions: ["txt"],
+                                        },
+                                    ],
+                                    properties: ["showOverwriteConfirmation"],
+                                });
+                                if (typeof path === "undefined") return;
+                                exportDraft(title, path);
+                            }
+                        },
+                    },
                     { id: "delete-draft", label: "削除", enabled: page === "editor" },
                 ],
             },
