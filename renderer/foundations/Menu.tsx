@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { parse, join } from "path";
 import { useTheme } from "next-themes";
 import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
-import { importDraft, exportDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
+import { importDraft, exportDraft, loadDraftList, makeNewDraftName, writeDraft, deleteDraft } from "lib/draft";
+import { openConfirmableMessageBox } from "lib/electron";
 import { useTitle, useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 type Props = {
@@ -84,7 +85,20 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
-                    { id: "delete-draft", label: "削除", enabled: page === "editor" },
+                    {
+                        id: "delete-draft",
+                        label: "削除",
+                        enabled: page === "editor",
+                        click: (_, win) => {
+                            if (win) {
+                                const msg = `「${title}」を削除してもよろしいですか？`;
+                                const cancel = openConfirmableMessageBox("warning", msg);
+                                if (cancel) return;
+                                deleteDraft(`${title}.txt`);
+                                router.push("/");
+                            }
+                        },
+                    },
                 ],
             },
             {
