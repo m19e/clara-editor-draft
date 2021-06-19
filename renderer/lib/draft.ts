@@ -38,9 +38,7 @@ export const importDraft = (path: string): string => {
 
 // Create with full path
 export const exportDraft = (title: string, path: string) => {
-    // copyFileSync(`draft/${title}.txt`, path);
-    const text = readDraft(`${title}.txt`);
-    writeDraft(path, text);
+    copyFileSync(`draft/${title}`, path);
 };
 
 // Update(filename)
