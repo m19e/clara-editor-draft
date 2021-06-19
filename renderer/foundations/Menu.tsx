@@ -80,7 +80,7 @@ const Menu = ({ page }: Props) => {
                                     properties: ["showOverwriteConfirmation"],
                                 });
                                 if (typeof path === "undefined") return;
-                                exportDraft(title, path);
+                                exportDraft(`${title}.txt`, path);
                             }
                         },
                     },
