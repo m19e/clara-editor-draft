@@ -127,6 +127,7 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
+                    { type: "separator" },
                     {
                         id: "autosave-duration",
                         label: "自動保存",
