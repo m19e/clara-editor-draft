@@ -27,17 +27,8 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
     const { name } = parse(title);
     const time = getDisplayTime(updated_at);
 
-    const removeProc = () => {
-        removeFn(title);
-        setRemoveMode(false);
-    };
-
-    const handleMouseLeave = () => {
-        if (removeMode) setRemoveMode(false);
-    };
-
     return (
-        <div className={"grid grid-cols-12 group " + (theme === "dark" ? "clara-text__dark" : "text-gray-600")} onMouseLeave={handleMouseLeave}>
+        <div className={"grid grid-cols-12 group " + (theme === "dark" ? "clara-text__dark" : "text-gray-600")}>
             {/* {removeMode ? (
                 <>
                     <div className="col-span-1 inline-flex justify-end pr-1">
