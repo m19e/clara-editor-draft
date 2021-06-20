@@ -49,9 +49,7 @@ const Menu = ({ page }: Props) => {
                                     ],
                                     properties: ["openFile"],
                                 });
-                                if (paths === undefined || paths.length !== 1) {
-                                    return;
-                                }
+                                if (paths === undefined || paths.length !== 1) return;
                                 const text = importDraft(paths[0]);
                                 const { base } = parse(paths[0]);
                                 const list = loadDraftList();
