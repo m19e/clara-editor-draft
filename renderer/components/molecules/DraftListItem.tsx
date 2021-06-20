@@ -21,7 +21,6 @@ type Props = {
 
 const DraftListItem = ({ draft, removeFn }: Props) => {
     const { theme } = useTheme();
-    const [removeMode, setRemoveMode] = useState(false);
 
     const { title, updated_at } = draft;
     const { name } = parse(title);
