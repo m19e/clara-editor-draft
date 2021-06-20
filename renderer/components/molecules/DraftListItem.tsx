@@ -38,7 +38,7 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
 
     return (
         <div className={"grid grid-cols-12 group " + (theme === "dark" ? "clara-text__dark" : "text-gray-600")} onMouseLeave={handleMouseLeave}>
-            {removeMode ? (
+            {/* {removeMode ? (
                 <>
                     <div className="col-span-1 inline-flex justify-end pr-1">
                         <div className="flex-center">
@@ -64,33 +64,30 @@ const DraftListItem = ({ draft, removeFn }: Props) => {
                         <span className={"text-lg break-all my-4 " + (theme === "dark" ? "text-gray-700" : "text-white")}>{name}</span>
                     </div>
                 </>
-            ) : (
-                <>
-                    <div className="col-span-1 inline-flex justify-end pr-2">
-                        <button
-                            className={"opacity-0 group-hover:opacity-100 " + (theme === "dark" ? "clara-text__dark" : "text-gray-500")}
-                            onClick={() => setRemoveMode(true)}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
+            ) : null} */}
+            <div className="col-span-1 inline-flex justify-end pr-2">
+                <button
+                    className={"opacity-0 group-hover:opacity-100 " + (theme === "dark" ? "clara-text__dark" : "text-gray-500")}
+                    onClick={() => setRemoveMode(true)}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
+                <a
+                    className={
+                        "col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400 group-hover:" +
+                        (theme === "dark" ? "text-gray-700" : "text-white")
+                    }
+                >
+                    <span className="break-all text-lg">{name}</span>
+                    <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
+                        <span className="whitespace-pre opacity-75">{time}</span>
                     </div>
-                    <Link href={{ pathname: "/editor/[draft]", query: { draft: title } }}>
-                        <a
-                            className={
-                                "col-span-10 p-4 inline-flex gap-4 justify-between items-center mincho group-hover:bg-gray-400 border-b border-gray-400 group-hover:" +
-                                (theme === "dark" ? "text-gray-700" : "text-white")
-                            }
-                        >
-                            <span className="break-all text-lg">{name}</span>
-                            <div className="inline-flex w-0 overflow-hidden md:w-28 md:overflow-visible">
-                                <span className="whitespace-pre opacity-75">{time}</span>
-                            </div>
-                        </a>
-                    </Link>
-                </>
-            )}
+                </a>
+            </Link>
         </div>
     );
 };
