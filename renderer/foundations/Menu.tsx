@@ -87,7 +87,14 @@ const Menu = ({ page }: Props) => {
                         accelerator: "CmdOrCtrl+Shift+O",
                         click: (_, win) => {
                             if (win) {
-                                console.log("triggered open-directory");
+                                const paths = remote.dialog.showOpenDialogSync(win, {
+                                    properties: ["openDirectory"],
+                                });
+                                console.log(paths);
+                                alert(paths);
+                                if (paths === undefined || paths.length !== 1) return;
+                                console.log("pass check!");
+                                alert("pass check!");
                             }
                         },
                     },
