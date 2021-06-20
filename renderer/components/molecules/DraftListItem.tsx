@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useState } from "react";
 import { useTheme } from "next-themes";
 import { parse } from "path";
 import { Draft } from "types";
