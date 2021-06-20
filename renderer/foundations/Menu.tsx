@@ -1,11 +1,10 @@
 import { remote } from "electron";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { parse, join } from "path";
+import { parse } from "path";
 import { useTheme } from "next-themes";
 import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
-import { importDraft, exportDraft, loadDraftList, makeNewDraftName, writeDraft, deleteDraft } from "lib/draft";
-import { openConfirmableMessageBox } from "lib/electron";
+import { importDraft, exportDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
 import { useTitle, useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 type Props = {
