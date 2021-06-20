@@ -41,7 +41,6 @@ const Menu = ({ page }: Props) => {
                         click: (_, win) => {
                             if (win) {
                                 const paths = remote.dialog.showOpenDialogSync(win, {
-                                    defaultPath: ".",
                                     filters: [
                                         {
                                             name: "テキストファイル",
