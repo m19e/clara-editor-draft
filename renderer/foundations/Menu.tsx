@@ -83,7 +83,7 @@ const Menu = ({ page }: Props) => {
                     },
                     {
                         id: "open-directory",
-                        label: "フォルダを開く…　　",
+                        label: "フォルダを開く…　",
                         accelerator: "CmdOrCtrl+Shift+O",
                         click: (_, win) => {
                             if (win) {
@@ -112,7 +112,7 @@ const Menu = ({ page }: Props) => {
                 submenu: [
                     {
                         id: "dark-mode",
-                        label: "ダークモード",
+                        label: "ダークモード　",
                         type: "checkbox",
                         accelerator: "CmdOrCtrl+Shift+T",
                         checked: theme === "dark",
