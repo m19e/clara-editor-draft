@@ -81,6 +81,16 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
+                    {
+                        id: "open-directory",
+                        label: "フォルダを開く…　　",
+                        accelerator: "CmdOrCtrl+Shift+O",
+                        click: (_, win) => {
+                            if (win) {
+                                console.log("triggered open-directory");
+                            }
+                        },
+                    },
                     // {
                     //     id: "delete-draft",
                     //     label: "削除",
