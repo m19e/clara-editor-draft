@@ -82,20 +82,20 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
-                    {
-                        id: "delete-draft",
-                        label: "削除",
-                        enabled: page === "editor",
-                        click: (_, win) => {
-                            if (win) {
-                                const msg = `「${title}」を削除してもよろしいですか？`;
-                                const cancel = openConfirmableMessageBox("warning", msg);
-                                if (cancel) return;
-                                deleteDraft(`${title}.txt`);
-                                router.push("/");
-                            }
-                        },
-                    },
+                    // {
+                    //     id: "delete-draft",
+                    //     label: "削除",
+                    //     enabled: page === "editor",
+                    //     click: (_, win) => {
+                    //         if (win) {
+                    //             const msg = `「${title}」を削除してもよろしいですか？`;
+                    //             const cancel = openConfirmableMessageBox("warning", msg);
+                    //             if (cancel) return;
+                    //             deleteDraft(`${title}.txt`);
+                    //             router.push("/");
+                    //         }
+                    //     },
+                    // },
                 ],
             },
             {
