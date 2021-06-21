@@ -3,14 +3,14 @@ import { extname } from "path";
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 
-export const initDraftDir = () => {
-    if (existsSync("draft")) {
-        if (statSync("draft").isDirectory()) {
+export const initDraftDir = (draftDir: string) => {
+    if (existsSync(draftDir)) {
+        if (statSync(draftDir).isDirectory()) {
             return;
         }
-        unlinkSync("draft");
+        unlinkSync(draftDir);
     }
-    mkdirSync("draft");
+    mkdirSync(draftDir);
     writeDraft(`${DEFAULT_DRAFT_TITLE}.txt`, DEFAULT_DRAFT_CONTENT);
 };
 
