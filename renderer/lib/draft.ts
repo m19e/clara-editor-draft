@@ -55,8 +55,8 @@ export const getDraftStat = (path: string): Stats => {
     return stat;
 };
 
-export const loadDraftList = (): Draft[] => {
-    const drafts = readDrafts("draft");
+export const loadDraftList = (draftDir: string): Draft[] => {
+    const drafts = readDrafts(draftDir);
     const sorted = drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").sort((a, b) => getDraftStat(b.name).mtimeMs - getDraftStat(a.name).mtimeMs);
     return sorted.map((d) => {
         const { name } = d;
