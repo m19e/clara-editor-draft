@@ -7,6 +7,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT } from "consts";
+import { getDraftDir } from "lib/config";
 import { initDraftDir, loadDraftList, makeNewDraftName, writeDraft, deleteDraft } from "lib/draft";
 import { openConfirmableMessageBox } from "lib/electron";
 import DraftListItem from "components/molecules/DraftListItem";
@@ -17,8 +18,9 @@ const Home = () => {
     const [draftList, setDraftList] = useState<Draft[]>([]);
 
     useEffect(() => {
-        initDraftDir();
-        setDraftList(() => loadDraftList());
+        const dir = getDraftDir();
+        initDraftDir(dir);
+        setDraftList(() => loadDraftList(dir));
     }, []);
 
     const addDraft = () => {
