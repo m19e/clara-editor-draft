@@ -12,6 +12,14 @@ export const setThemeConfig = (theme: "light" | "dark") => {
     store.set("app/theme", theme);
 };
 
+export const getDraftDir = (): string => {
+    return store.get("app/draft-dir", "draft") as string;
+};
+
+export const setDraftDirConfig = (dir: string) => {
+    store.set("app/draft-dir", dir);
+};
+
 // Editor
 const getFontType = (): FontType => {
     return store.get("editor/font-type", "mincho") as FontType;
