@@ -20,6 +20,7 @@ import {
     isTitleEditState,
     autosaveDurationState,
     displayCharCountState,
+    draftDirState,
 } from "store";
 import {
     setFontTypeConfig,
@@ -28,7 +29,18 @@ import {
     setLineWordsConfig,
     setAutosaveDurationConfig,
     setDisplayCharCountConfig,
+    setDraftDirConfig,
 } from "lib/config";
+
+// App
+export const useDraftDir = () => {
+    const [draftDir, setDraftDir] = useRecoilState(draftDirState);
+    const setDir = (dir: string) => {
+        setDraftDirConfig(dir);
+        setDraftDir(dir);
+    };
+    return [draftDir, setDir];
+};
 
 // Editor
 export const useFontType = (): [FontType, () => void] => {
