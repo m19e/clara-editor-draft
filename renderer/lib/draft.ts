@@ -11,7 +11,7 @@ export const initDraftDir = (draftDir: string) => {
         unlinkSync(draftDir);
     }
     mkdirSync(draftDir);
-    writeDraft(`${DEFAULT_DRAFT_TITLE}.txt`, DEFAULT_DRAFT_CONTENT);
+    writeDraft(draftDir, `${DEFAULT_DRAFT_TITLE}.txt`, DEFAULT_DRAFT_CONTENT);
 };
 
 export const readDrafts = (path: string): Dirent[] => {
