@@ -4,6 +4,12 @@ import { DEFAULT_DRAFT_TITLE, DEFAULT_DRAFT_CONTENT } from "consts";
 
 // Atoms
 
+// App
+export const draftDirState = atom({
+    key: "app/draft-dir",
+    default: "draft",
+});
+
 // Editor
 export const fontTypeState = atom<FontType>({
     key: "editor/font-type",
