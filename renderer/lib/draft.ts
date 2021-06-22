@@ -50,8 +50,8 @@ export const deleteDraft = (dir: string, filepath: string) => {
     unlinkSync(join(dir, filepath));
 };
 
-export const getDraftStat = (path: string): Stats => {
-    const stat = statSync(`draft/${path}`);
+export const getDraftStat = (dir: string, filepath: string): Stats => {
+    const stat = statSync(join(dir, filepath));
     return stat;
 };
 
