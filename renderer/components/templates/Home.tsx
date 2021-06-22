@@ -10,18 +10,19 @@ import { DEFAULT_DRAFT_CONTENT } from "consts";
 import { getDraftDir } from "lib/config";
 import { initDraftDir, loadDraftList, makeNewDraftName, writeDraft, deleteDraft } from "lib/draft";
 import { openConfirmableMessageBox } from "lib/electron";
+import { useDraftDir } from "hooks";
 import DraftListItem from "components/molecules/DraftListItem";
 
 const Home = () => {
     const router = useRouter();
     const { theme } = useTheme();
+    const [draftDir] = useDraftDir();
     const [draftList, setDraftList] = useState<Draft[]>([]);
 
     useEffect(() => {
-        const dir = getDraftDir();
-        initDraftDir(dir);
-        setDraftList(() => loadDraftList(dir));
-    }, []);
+        initDraftDir(draftDir);
+        setDraftList(() => loadDraftList(draftDir));
+    }, [draftDir]);
 
     const addDraft = () => {
         const draft = makeNewDraftName(draftList);
@@ -35,7 +36,7 @@ const Home = () => {
         const cancel = openConfirmableMessageBox("warning", msg);
         if (cancel) return;
         deleteDraft(title);
-        setDraftList(() => loadDraftList());
+        setDraftList(() => loadDraftList(draftDir));
     };
 
     return (
