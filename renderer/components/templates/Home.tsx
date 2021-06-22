@@ -25,7 +25,7 @@ const Home = () => {
 
     const addDraft = () => {
         const draft = makeNewDraftName(draftList);
-        writeDraft(draft, DEFAULT_DRAFT_CONTENT);
+        writeDraft(draftDir, draft, DEFAULT_DRAFT_CONTENT);
         router.push({ pathname: "/editor/[draft]", query: { draft } });
     };
 
@@ -34,7 +34,7 @@ const Home = () => {
         const msg = `「${name}」を削除してもよろしいですか？`;
         const cancel = openConfirmableMessageBox("warning", msg);
         if (cancel) return;
-        deleteDraft(title);
+        deleteDraft(draftDir, title);
         setDraftList(() => loadDraftList(draftDir));
     };
 
