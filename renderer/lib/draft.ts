@@ -37,8 +37,8 @@ export const importDraft = (path: string): string => {
 };
 
 // Create with full path
-export const exportDraft = (title: string, path: string) => {
-    copyFileSync(`draft/${title}`, path);
+export const exportDraft = (dir: string, title: string, path: string) => {
+    copyFileSync(join(dir, title), path);
 };
 
 // Update(filename)
