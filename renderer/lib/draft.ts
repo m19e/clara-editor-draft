@@ -25,8 +25,8 @@ export const writeDraft = (dir: string, filepath: string, text: string) => {
 };
 
 // Read in draft dir
-export const readDraft = (path: string): string => {
-    const text = readFileSync(`draft/${path}`, "utf-8");
+export const readDraft = (dir: string, filepath: string): string => {
+    const text = readFileSync(join(dir, filepath), "utf-8");
     return text;
 };
 
@@ -42,8 +42,8 @@ export const exportDraft = (dir: string, title: string, path: string) => {
 };
 
 // Update(filename)
-export const renameDraft = (oldPath: string, newPath: string) => {
-    renameSync(`draft/${oldPath}`, `draft/${newPath}`);
+export const renameDraft = (dir: string, oldPath: string, newPath: string) => {
+    renameSync(join(dir, oldPath), join(dir, newPath));
 };
 
 export const deleteDraft = (dir: string, filepath: string) => {
