@@ -58,7 +58,7 @@ const Menu = ({ page }: Props) => {
                                 const list = loadDraftList(draftDir);
                                 const exist = list.map((d) => d.title).includes(base);
                                 const draft = exist ? makeNewDraftName(list) : base;
-                                writeDraft(draft, text);
+                                writeDraft(draftDir, draft, text);
                                 router.push({ pathname: "/editor/[draft]", query: { draft } });
                             }
                         },
@@ -81,7 +81,7 @@ const Menu = ({ page }: Props) => {
                                     properties: ["showOverwriteConfirmation"],
                                 });
                                 if (typeof path === "undefined") return;
-                                exportDraft(`${title}.txt`, path);
+                                exportDraft(draftDir, `${title}.txt`, path);
                             }
                         },
                     },
