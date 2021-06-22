@@ -1,5 +1,5 @@
 import { Dirent, Stats, readdirSync, writeFileSync, readFileSync, renameSync, unlinkSync, statSync, existsSync, mkdirSync, copyFileSync } from "fs";
-import { extname } from "path";
+import { join, extname } from "path";
 import { Draft } from "types";
 import { DEFAULT_DRAFT_CONTENT, DEFAULT_DRAFT_TITLE } from "consts";
 
@@ -20,8 +20,8 @@ export const readDrafts = (path: string): Dirent[] => {
 };
 
 // Create, Update(text)
-export const writeDraft = (path: string, text: string) => {
-    writeFileSync(`draft/${path}`, text);
+export const writeDraft = (dir: string, filepath: string, text: string) => {
+    writeFileSync(join(dir, filepath), text);
 };
 
 // Read in draft dir
@@ -46,8 +46,8 @@ export const renameDraft = (oldPath: string, newPath: string) => {
     renameSync(`draft/${oldPath}`, `draft/${newPath}`);
 };
 
-export const deleteDraft = (path: string) => {
-    unlinkSync(`draft/${path}`);
+export const deleteDraft = (dir: string, filepath: string) => {
+    unlinkSync(join(dir, filepath));
 };
 
 export const getDraftStat = (path: string): Stats => {
