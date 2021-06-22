@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { parse } from "path";
 import { useTheme } from "next-themes";
-import { getTheme, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
+import { getTheme, getDraftDir, getDisplayCharCount, getAutosaveDuration, setThemeConfig } from "lib/config";
 import { importDraft, exportDraft, loadDraftList, makeNewDraftName, writeDraft } from "lib/draft";
-import { useTitle, useAutosaveDuration, useDisplayCharCount } from "hooks";
+import { useTitle, useDraftDir, useAutosaveDuration, useDisplayCharCount } from "hooks";
 
 type Props = {
     page: "home" | "editor";
@@ -15,17 +15,21 @@ const Menu = ({ page }: Props) => {
     const router = useRouter();
     const { theme, setTheme } = useTheme();
     const [title] = useTitle();
+    const [draftDir, setDraftDir] = useDraftDir();
     const [displayCharCount, setDisplayCharCount, toggleDisplayCharCount] = useDisplayCharCount();
     const [autosaveDuration, setAutosaveDuration] = useAutosaveDuration();
 
     useEffect(() => {
-        const t = getTheme();
-        setTheme(t);
+        const dir = getDraftDir();
+        setDraftDir(dir);
 
         const dcc = getDisplayCharCount();
         const ad = getAutosaveDuration();
         setDisplayCharCount(dcc);
         setAutosaveDuration(ad);
+
+        const t = getTheme();
+        setTheme(t);
     }, []);
 
     useEffect(() => {
@@ -51,7 +55,7 @@ const Menu = ({ page }: Props) => {
                                 if (paths === undefined || paths.length !== 1) return;
                                 const text = importDraft(paths[0]);
                                 const { base } = parse(paths[0]);
-                                const list = loadDraftList();
+                                const list = loadDraftList(draftDir);
                                 const exist = list.map((d) => d.title).includes(base);
                                 const draft = exist ? makeNewDraftName(list) : base;
                                 writeDraft(draft, text);
@@ -84,6 +88,7 @@ const Menu = ({ page }: Props) => {
                     {
                         id: "open-directory",
                         label: "フォルダを開く…　",
+                        sublabel: draftDir,
                         accelerator: "CmdOrCtrl+Shift+O",
                         click: (_, win) => {
                             if (win) {
@@ -222,7 +227,7 @@ const Menu = ({ page }: Props) => {
             },
         ]);
         remote.Menu.setApplicationMenu(localMenu);
-    }, [theme, title, displayCharCount, autosaveDuration]);
+    }, [theme, draftDir, title, displayCharCount, autosaveDuration]);
 
     return null;
 };
