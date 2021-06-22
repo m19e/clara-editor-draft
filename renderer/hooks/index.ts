@@ -33,7 +33,7 @@ import {
 } from "lib/config";
 
 // App
-export const useDraftDir = () => {
+export const useDraftDir = (): [string, (dir: string) => void] => {
     const [draftDir, setDraftDir] = useRecoilState(draftDirState);
     const setDir = (dir: string) => {
         setDraftDirConfig(dir);
