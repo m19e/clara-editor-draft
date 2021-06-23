@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import AutosizeInput from "react-input-autosize";
-import { useTitle, useIsTitleEdit } from "hooks";
+import { useTitle, useIsTitleEdit, useDraftDir } from "hooks";
 import { loadDraftList, renameDraft } from "lib/draft";
 
 const specialChars = /\(|\)|,|-|\/|!|\\|\:|\?|\.|"|<|>|\|/g;
@@ -11,6 +11,7 @@ const sandwich = /(\s\\|\\\s)+(\s|\\)?/g;
 const beginningEnd = /^(\s|\\)+|(\s|\\)+$/g;
 
 const TitleEditForm = () => {
+    const [draftDir] = useDraftDir();
     const [title, setTitle] = useTitle();
     const [isEdit, setIsEdit] = useIsTitleEdit();
     const [localTitle, setLocalTitle] = useState("");
@@ -35,14 +36,14 @@ const TitleEditForm = () => {
         e.preventDefault();
         const trimmed = localTitle.trim();
         if (title !== trimmed && trimmed !== "") {
-            const list = loadDraftList();
+            const list = loadDraftList(draftDir);
             const exist = list.map((d) => d.title).includes(`${trimmed}.txt`);
             if (exist) {
                 setLocalTitle(title);
                 return;
             }
             setTitle(trimmed);
-            renameDraft(`${title}.txt`, `${trimmed}.txt`);
+            renameDraft(draftDir, `${title}.txt`, `${trimmed}.txt`);
         } else {
             setLocalTitle(title);
         }
