@@ -104,6 +104,17 @@ const Menu = ({ page }: Props) => {
                             }
                         },
                     },
+                    {
+                        id: "reset-directory",
+                        label: "フォルダを初期設定に戻す",
+                        visible: draftDir !== "draft",
+                        click: (_, win) => {
+                            if (win) {
+                                setDraftDir("draft");
+                                router.push("/");
+                            }
+                        },
+                    },
                     // {
                     //     id: "delete-draft",
                     //     label: "削除",
