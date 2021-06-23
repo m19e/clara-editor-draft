@@ -97,6 +97,7 @@ const Menu = ({ page }: Props) => {
                                 });
                                 if (paths === undefined || paths.length !== 1) return;
                                 setDraftDir(paths[0]);
+                                router.push("/");
                             }
                         },
                     },
