@@ -86,6 +86,9 @@ const Menu = ({ page }: Props) => {
                         },
                     },
                     {
+                        type: "separator",
+                    },
+                    {
                         id: "open-directory",
                         label: "フォルダを開く…　",
                         sublabel: draftDir + (draftDir === "draft" ? "(default)" : ""),
