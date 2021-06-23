@@ -11,12 +11,11 @@ import Frame from "components/organisms/Editor/Frame";
 
 const Draft = () => {
     const { theme } = useTheme();
-
     const router = useRouter();
-    const [text, setText] = useState("");
     const [, setTitle] = useTitle();
     const [ft] = useFontType();
     const setFormat = useFormat();
+    const [text, setText] = useState("");
 
     useEffect(() => {
         const { draft } = router.query;
