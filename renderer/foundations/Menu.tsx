@@ -96,7 +96,7 @@ const Menu = ({ page }: Props) => {
                                     properties: ["openDirectory"],
                                 });
                                 if (paths === undefined || paths.length !== 1) return;
-                                // setDraftDir(path)
+                                setDraftDir(paths[0]);
                             }
                         },
                     },
