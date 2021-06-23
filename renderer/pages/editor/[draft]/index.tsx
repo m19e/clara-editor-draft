@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { parse } from "path";
 import { readDraft } from "lib/draft";
 import { getFormat } from "lib/config";
-import { useFontType, useTitle, useFormat } from "hooks";
+import { useFontType, useTitle, useFormat, useDraftDir } from "hooks";
 import Menu from "foundations/Menu";
 import DraftEditor from "components/organisms/DraftEditor";
 import Frame from "components/organisms/Editor/Frame";
@@ -12,6 +12,7 @@ import Frame from "components/organisms/Editor/Frame";
 const Draft = () => {
     const { theme } = useTheme();
     const router = useRouter();
+    const [draftDir] = useDraftDir();
     const [, setTitle] = useTitle();
     const [ft] = useFontType();
     const setFormat = useFormat();
@@ -20,7 +21,7 @@ const Draft = () => {
     useEffect(() => {
         const { draft } = router.query;
         if (router.route !== router.asPath && typeof draft === "string") {
-            const data = readDraft(draft);
+            const data = readDraft(draftDir, draft);
             const { name } = parse(draft);
             const fmt = getFormat();
 
