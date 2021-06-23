@@ -90,8 +90,7 @@ const Menu = ({ page }: Props) => {
                     },
                     {
                         id: "open-directory",
-                        label: "フォルダを開く…" + " ".repeat(Array.from(draftDir).length),
-                        sublabel: draftDir + (draftDir === "draft" ? "(default)" : ""),
+                        label: "フォルダを開く…　",
                         accelerator: "CmdOrCtrl+Shift+O",
                         click: (_, win) => {
                             if (win) {
@@ -103,6 +102,11 @@ const Menu = ({ page }: Props) => {
                                 router.push("/");
                             }
                         },
+                    },
+                    {
+                        label: "　" + draftDir + (draftDir === "draft" ? "(default)" : ""),
+                        visible: draftDir !== "draft",
+                        enabled: false,
                     },
                     {
                         id: "reset-directory",
