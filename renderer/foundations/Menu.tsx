@@ -88,7 +88,7 @@ const Menu = ({ page }: Props) => {
                     {
                         id: "open-directory",
                         label: "フォルダを開く…　",
-                        sublabel: draftDir,
+                        sublabel: draftDir + (draftDir === "draft" ? "(default)" : ""),
                         accelerator: "CmdOrCtrl+Shift+O",
                         click: (_, win) => {
                             if (win) {
