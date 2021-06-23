@@ -5,7 +5,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 import { SelectionRangeOverride } from "types";
 import { writeDraft } from "lib/draft";
-import { getRealFontSize, getLineHeightClass, useLineWords, setWrapperHeight, getEditorHeight, useTitle, useAutosaveDuration } from "hooks";
+import { getRealFontSize, getLineHeightClass, useLineWords, setWrapperHeight, getEditorHeight, useTitle, useAutosaveDuration, useDraftDir } from "hooks";
 import MetaHeader from "foundations/MetaHeader";
 import CharCount from "components/molecules/DraftCharCount";
 
@@ -17,6 +17,7 @@ const DraftEditor = ({ text }: { text: string }) => {
     const eh = getEditorHeight();
     const [autosaveDuration] = useAutosaveDuration();
     const [title] = useTitle();
+    const [draftDir] = useDraftDir();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const [plainText, setPlainText] = useState("");
     const [saved, setSaved] = useState(true);
@@ -52,7 +53,7 @@ const DraftEditor = ({ text }: { text: string }) => {
         const data = es.getCurrentContent().getPlainText();
 
         try {
-            writeDraft(`${title}.txt`, data);
+            writeDraft(draftDir, `${title}.txt`, data);
             console.log("Save draft: " + `${title}.txt`);
             setSaved(true);
         } catch (e) {
