@@ -95,11 +95,8 @@ const Menu = ({ page }: Props) => {
                                 const paths = remote.dialog.showOpenDialogSync(win, {
                                     properties: ["openDirectory"],
                                 });
-                                console.log(paths);
-                                alert(paths);
                                 if (paths === undefined || paths.length !== 1) return;
-                                console.log("pass check!");
-                                alert("pass check!");
+                                // setDraftDir(path)
                             }
                         },
                     },
