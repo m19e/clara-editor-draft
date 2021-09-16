@@ -1,51 +1,16 @@
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { parse, extname } from "path";
-import { readDrafts } from "lib/draft";
+import { useTheme } from "next-themes";
+import Menu from "foundations/Menu";
 import MetaHeader from "foundations/MetaHeader";
+import Home from "components/templates/Home";
 
 const Index = () => {
-    const [draftList, setDraftList] = useState<string[]>([]);
-
-    useEffect(() => {
-        const drafts = readDrafts(".");
-        setDraftList(() => drafts.filter((d) => d.isFile() && extname(d.name) === ".txt").map((d) => d.name));
-        return () => {};
-    }, []);
+    const { theme } = useTheme();
 
     return (
         <>
-            <MetaHeader title="Index - Nextron (with-typescript-tailwindcss)" />
-            <div>
-                <div className="grid grid-col-1 text-2xl w-full text-center">
-                    <img className="ml-auto mr-auto" src="/images/logo.png" />
-                    <span>⚡ Electron ⚡</span>
-                    <span>+</span>
-                    <span>Next.js</span>
-                    <span>+</span>
-                    <span>tailwindcss</span>
-                    <span>=</span>
-                    <span>💕 </span>
-                </div>
-                <div className="mt-1 w-full flex-wrap flex justify-center">
-                    <Link href="/editor">
-                        <a className="btn-blue">Go to editor page</a>
-                    </Link>
-                </div>
-                <div className="grid grid-col-1 w-full text-center">
-                    {draftList.map((d, i) => {
-                        const { name, ext } = parse(d);
-
-                        return (
-                            <Link key={i} href={`/editor/${d}`}>
-                                <a>
-                                    name:{name}, ext:{ext}
-                                </a>
-                            </Link>
-                        );
-                    })}
-                </div>
-            </div>
+            <Menu page="home" />
+            <MetaHeader title="一覧 - Clara Editor" />
+            {typeof theme === "string" ? <Home /> : null}
         </>
     );
 };

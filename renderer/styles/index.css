@@ -7,21 +7,41 @@
 /* Stop purging. */
 
 /* Write your own custom component styles here */
-.btn-blue {
-    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600;
+
+.clara-bg__light {
+    background-color: #f9f9fa;
 }
 
-.editor-bg {
-    background-color: #f9f9fa;
+.clara-bg__dark {
+    background-color: #44454a;
+}
+
+.clara-surface__dark {
+    background-color: #5f6269;
+}
+
+.clara-text__light {
+    color: #141426;
+}
+
+.clara-text__dark {
+    @apply text-white;
+}
+
+.clara-text__light ::selection {
+    @apply text-white bg-gray-400;
+}
+
+.clara-text__dark ::selection {
+    @apply clara-text__light bg-white;
 }
 
 .flex-center {
     @apply flex justify-center items-center;
 }
 
-html,
-body {
-    @apply editor-bg text-black;
+button {
+    @apply select-none focus:outline-none;
 }
 
 /* Font */
